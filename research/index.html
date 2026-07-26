@@ -13,7 +13,7 @@
   <header class="site-header">
     <div class="wrap">
       <div class="site-title"><a href="/">Josué da Silva Cavalcante</a></div>
-      <div class="site-tag">Astronomy · Small bodies · Astrometry · ML</div>
+      <div class="site-tag">Astronomy · Small bodies · Astrometry · Machine learning</div>
       <nav class="nav" aria-label="Main">
         <a href="/">Home</a>
         <a href="/research/" aria-current="page">Research</a>
@@ -27,31 +27,32 @@
   <main class="wrap">
     <div class="kicker">Research</div>
     <article class="prose">
-      <p class="lead">My work centers on precise astrometry and photometry of small Solar System bodies in dense stellar fields, and on developing the next generation of measurement tools — including machine learning and AI.</p>
+      <p class="lead">My research addresses high-precision astrometry and photometry of small Solar System bodies in dense stellar fields, and the development of measurement software—including methods based on machine learning and artificial intelligence.</p>
 
-      <h2>Master’s research (Observatório Nacional)</h2>
-      <p><em>Astrometria e fotometria de pequenos corpos do Sistema Solar em imagens com campos estelares densos</em> · Advisor: <strong>Dr.&nbsp;Julio I.&nbsp;Bueno de Camargo</strong> · Co-advisor: <strong>Dr.&nbsp;Adriano Pieres</strong> · <a href="/files/dissertacao_cavalcante_2025.pdf">Dissertation PDF</a></p>
+      <h2>Master’s thesis — Observatório Nacional</h2>
+      <p><em>Astrometria e fotometria de pequenos corpos do Sistema Solar em imagens com campos estelares densos</em><br>
+      Supervisor: <strong>Dr.&nbsp;Julio I.&nbsp;Bueno de Camargo</strong> · Co-supervisor: <strong>Dr.&nbsp;Adriano Pieres</strong> · <a href="/files/dissertacao_cavalcante_2025.pdf">PDF</a></p>
 
-      <p>Astrometry and photometry of moving objects in crowded fields are limited by flux contamination from neighboring stars. The dissertation evaluates and applies <strong>difference image analysis (DIA)</strong> to reduce that contamination and support routine dense-field observations for <strong>stellar-occultation predictions</strong> and physical characterization.</p>
+      <p>In crowded fields, flux from neighboring stars contaminates measurements of moving targets and degrades both positions and light curves. The thesis evaluates and applies <strong>difference image analysis (DIA)</strong> to mitigate that contamination and to support dense-field programs aimed at <strong>stellar occultation</strong> prediction and physical characterization.</p>
 
-      <h3>Methods and results</h3>
+      <h3>Approach and principal results</h3>
       <ul>
-        <li><strong>Simulated dense field</strong> (globular-cluster-like): compared <strong>PRAIA</strong> and <strong>DAOPHOT</strong> for reference-star centroids where DIA does not apply; PRAIA showed competitive performance under high stellar density.</li>
-        <li><strong>DIA with DIAPL2</strong> on a <strong>SOAR/SOI</strong> sequence of the centaur <strong>(10199)&nbsp;Chariklo</strong> in a dense field: build a model image without the moving target, subtract from re-sampled science frames, measure Chariklo on the difference images and reference stars with PRAIA on the re-sampled frames.</li>
-        <li><strong>Astrometry:</strong> residual scatter versus the <strong>NIMA</strong> ephemeris improved substantially (e.g. from 0.066″ to 0.018″ in ∆α&nbsp;cos&nbsp;δ).</li>
-        <li><strong>Photometry:</strong> difference-image fluxes yielded Chariklo’s rotational light curve and rotational phase with σ<sub>φ</sub>&nbsp;=&nbsp;0.0025.</li>
+        <li><strong>Controlled tests on a simulated dense field</strong> (globular-cluster-like): comparison of <strong>PRAIA</strong> and <strong>DAOPHOT</strong> for reference-star centroids in regimes where DIA is not applicable; PRAIA remained competitive at high stellar density.</li>
+        <li><strong>DIA with DIAPL2</strong> on a <strong>SOAR/SOI</strong> time series of the centaur <strong>(10199)&nbsp;Chariklo</strong>: construction of a static model frame, subtraction from re-sampled science images, measurement of the moving source on the residuals, and measurement of reference stars with PRAIA on the re-sampled frames.</li>
+        <li><strong>Astrometry:</strong> residual scatter relative to the <strong>NIMA</strong> ephemeris decreased substantially (e.g., from 0.066″ to 0.018″ in ∆α&nbsp;cos&nbsp;δ).</li>
+        <li><strong>Photometry:</strong> fluxes on difference images yielded a rotational light curve and a rotational phase with σ<sub>φ</sub>&nbsp;=&nbsp;0.0025.</li>
       </ul>
 
-      <h2>(10199) Chariklo as science case</h2>
-      <p>Chariklo is a benchmark centaur (rings revealed by stellar occultations). SOAR/SOI imaging in a dense field provides a demanding test of whether DIA recovers cleaner positions and a usable light curve when classical photometry on the science frames is contaminated.</p>
+      <h2>Science case: (10199) Chariklo</h2>
+      <p>Chariklo is a well-studied centaur whose ring system was revealed by stellar occultations. SOAR/SOI imaging against a dense stellar background provides a stringent test of whether DIA recovers cleaner astrometry and a scientifically usable light curve when aperture or PSF photometry on the original frames is compromised by crowding.</p>
 
-      <h2>Doctoral research direction — astrometric code with ML &amp; AI</h2>
-      <p>I am <strong>beginning a doctorate (doutorado) in the same research line</strong>, with a primary focus on <strong>developing astrometric software that uses machine learning and artificial intelligence</strong>. Building on the MSc results, intended themes include:</p>
+      <h2>Doctoral research directions</h2>
+      <p>I am <strong>beginning doctoral studies</strong> in the same area, with emphasis on <strong>astrometric software that incorporates machine learning and artificial intelligence</strong>. Building on the master’s results, near-term themes include:</p>
       <ul>
-        <li>Learning-based or hybrid methods for source detection and centroiding under crowding and complex PSFs;</li>
+        <li>Learning-based or hybrid approaches to detection and centroiding under crowding and complex PSFs;</li>
         <li>Robust measurement of moving objects when classical DIA or PSF fitting is limited;</li>
-        <li>Reproducible pipelines connecting classical tools (PRAIA-class workflows, DIA) to modern ML tooling;</li>
-        <li>Applications to centaurs, TNOs, and other small bodies for occultations and survey follow-up.</li>
+        <li>Reproducible pipelines that connect established tools (PRAIA-class reductions, DIA) to modern ML frameworks;</li>
+        <li>Applications to centaurs, trans-Neptunian objects, and related populations for occultation work and survey follow-up.</li>
       </ul>
     </article>
   </main>
@@ -73,7 +74,7 @@
         </ul>
       </div>
     </div>
-    <div class="wrap footer-copy">Minimal academic site · military green</div>
+    <div class="wrap footer-copy">Academic homepage</div>
   </footer>
 </body>
 </html>
