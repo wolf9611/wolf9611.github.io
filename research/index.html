@@ -27,31 +27,31 @@
   <main class="wrap">
     <div class="kicker">Research</div>
     <article class="prose">
-      <p class="lead">My work centers on precise measurements of small Solar System bodies in crowded stellar fields, and on developing the next generation of astrometric tools — including machine learning and AI — for survey-scale and targeted imaging.</p>
+      <p class="lead">My work centers on precise astrometry and photometry of small Solar System bodies in dense stellar fields, and on developing the next generation of measurement tools — including machine learning and AI.</p>
 
       <h2>Master’s research (Observatório Nacional)</h2>
       <p><em>Astrometria e fotometria de pequenos corpos do Sistema Solar em imagens com campos estelares densos</em> · Advisor: <strong>Dr.&nbsp;Julio I.&nbsp;Bueno de Camargo</strong> · Co-advisor: <strong>Dr.&nbsp;Adriano Pieres</strong> · <a href="/files/dissertacao_cavalcante_2025.pdf">Dissertation PDF</a></p>
 
-      <p>Wide surveys such as the Legacy Survey of Space and Time (LSST) will deliver multiband photometry and astrometry for millions of Solar System objects. For <strong>stellar occultations</strong>, however, sky regions and regimes not fully covered by such surveys still demand dedicated, high-quality measurements — especially where <strong>stellar density is high</strong> and the target flux is contaminated by neighbors.</p>
+      <p>Astrometry and photometry of moving objects in crowded fields are limited by flux contamination from neighboring stars. The dissertation evaluates and applies <strong>difference image analysis (DIA)</strong> to reduce that contamination and support routine dense-field observations for <strong>stellar-occultation predictions</strong> and physical characterization.</p>
 
-      <p>The dissertation applies and evaluates the <strong>image-difference technique</strong> (DIAPL2) to isolate the flux of a small body in dense fields, aiming at <strong>position and flux measurements with minimal influence from nearby sources</strong>, with the intention of routine use in observing programs. Methodology and tests include:</p>
+      <h3>Methods and results</h3>
       <ul>
-        <li><strong>Simulated dense-field images</strong> to characterize astrometric and photometric performance;</li>
-        <li>Comparisons involving <strong>PRAIA</strong> and <strong>IRAF/DAOPHOT</strong>;</li>
-        <li><strong>Difference imaging</strong> (DIAPL2) on real data of the centaur <strong>(10199)&nbsp;Chariklo</strong>;</li>
-        <li>Assessment of residual systematics relevant to orbit quality and occultation prediction.</li>
+        <li><strong>Simulated dense field</strong> (globular-cluster-like): compared <strong>PRAIA</strong> and <strong>DAOPHOT</strong> for reference-star centroids where DIA does not apply; PRAIA showed competitive performance under high stellar density.</li>
+        <li><strong>DIA with DIAPL2</strong> on a <strong>SOAR/SOI</strong> sequence of the centaur <strong>(10199)&nbsp;Chariklo</strong> in a dense field: build a model image without the moving target, subtract from re-sampled science frames, measure Chariklo on the difference images and reference stars with PRAIA on the re-sampled frames.</li>
+        <li><strong>Astrometry:</strong> residual scatter versus the <strong>NIMA</strong> ephemeris improved substantially (e.g. from 0.066″ to 0.018″ in ∆α&nbsp;cos&nbsp;δ).</li>
+        <li><strong>Photometry:</strong> difference-image fluxes yielded Chariklo’s rotational light curve and rotational phase with σ<sub>φ</sub>&nbsp;=&nbsp;0.0025.</li>
       </ul>
 
       <h2>(10199) Chariklo as science case</h2>
-      <p>Chariklo is a benchmark centaur with a ring system revealed by stellar occultations. It provides a demanding test of astrometry and photometry when the object moves across dense stellar backgrounds. Difference imaging was used to suppress the static field and recover cleaner measurements of the moving source.</p>
+      <p>Chariklo is a benchmark centaur (rings revealed by stellar occultations). SOAR/SOI imaging in a dense field provides a demanding test of whether DIA recovers cleaner positions and a usable light curve when classical photometry on the science frames is contaminated.</p>
 
       <h2>Doctoral research direction — astrometric code with ML &amp; AI</h2>
       <p>I am <strong>beginning a doctorate (doutorado) in the same research line</strong>, with a primary focus on <strong>developing astrometric software that uses machine learning and artificial intelligence</strong>. Building on the MSc results, intended themes include:</p>
       <ul>
         <li>Learning-based or hybrid methods for source detection and centroiding under crowding and complex PSFs;</li>
-        <li>Robust measurement of moving objects when classical difference imaging or PSF fitting is limited;</li>
-        <li>Reproducible, scalable pipelines connecting classical astrometry (e.g. PRAIA-class workflows) to modern ML tooling;</li>
-        <li>Applications to centaurs, TNOs, and other small-body populations for occultations and survey follow-up.</li>
+        <li>Robust measurement of moving objects when classical DIA or PSF fitting is limited;</li>
+        <li>Reproducible pipelines connecting classical tools (PRAIA-class workflows, DIA) to modern ML tooling;</li>
+        <li>Applications to centaurs, TNOs, and other small bodies for occultations and survey follow-up.</li>
       </ul>
     </article>
   </main>
