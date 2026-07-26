@@ -1,0 +1,202 @@
+/* Josué Cavalcante — military green, minimal academic */
+:root{
+  --bg:#1a2118;
+  --bg-elev:#222b1f;
+  --ink:#e8ebe4;
+  --muted:#9aa396;
+  --line:#3d4a38;
+  --accent:#6b7f5a;
+  --accent-hi:#8fa87a;
+  --accent-dim:#4a5c3f;
+  --paper:#dfe6d6;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body,h1,h2,h3,h4,h5,h6,p,blockquote,pre,hr,dl,dd,ol,ul,figure{margin:0;padding:0}
+body{
+  font:400 17px/1.55 "IBM Plex Sans", "Source Sans 3", Helvetica, Arial, sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--accent-hi);text-decoration:none;border-bottom:1px solid transparent;transition:color .15s,border-color .15s}
+a:hover{color:var(--paper);border-bottom-color:var(--accent)}
+
+.wrap{
+  max-width:720px;
+  margin:0 auto;
+  padding:0 1.35rem;
+}
+
+/* header */
+.site-header{
+  padding:2.75rem 0 0;
+  border-bottom:1px solid var(--line);
+  margin-bottom:2rem;
+}
+.site-title{
+  font-family:"IBM Plex Serif", "Source Serif 4", Georgia, serif;
+  font-weight:500;
+  font-size:clamp(1.85rem, 4.5vw, 2.35rem);
+  letter-spacing:0.02em;
+  color:var(--paper);
+  line-height:1.15;
+}
+.site-title a,.site-title a:hover{
+  color:var(--paper);border:none;
+}
+.site-tag{
+  margin-top:0.45rem;
+  font-size:0.78rem;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  font-weight:400;
+}
+.nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.15rem 0;
+  margin-top:1.6rem;
+  padding-bottom:0.9rem;
+  font-size:0.72rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.nav a{
+  color:var(--muted);
+  border:none;
+  padding:0.35rem 0;
+  margin-right:1.1rem;
+}
+.nav a:hover,.nav a[aria-current="page"]{
+  color:var(--paper);
+}
+.nav .sep{
+  display:none;
+}
+
+/* content */
+main{padding-bottom:3rem;min-height:50vh}
+.kicker{
+  font-size:0.68rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:1.25rem;
+}
+.prose p{
+  margin-bottom:1.05em;
+  font-size:1.05rem;
+  color:var(--ink);
+  font-weight:400;
+}
+.prose p.lead{
+  font-size:1.12rem;
+  color:var(--paper);
+}
+.prose h2{
+  font-family:"IBM Plex Serif", Georgia, serif;
+  font-size:1.2rem;
+  font-weight:500;
+  color:var(--paper);
+  margin:2rem 0 0.7rem;
+  padding-top:0.4rem;
+  border-top:1px solid var(--line);
+}
+.prose h2:first-of-type{border-top:none;padding-top:0}
+.prose h3{
+  font-size:0.95rem;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:var(--accent-hi);
+  margin:1.4rem 0 0.5rem;
+  font-weight:500;
+}
+.prose ul{
+  margin:0 0 1.1em 1.15em;
+}
+.prose li{
+  margin-bottom:0.4em;
+  color:var(--ink);
+  font-size:1.02rem;
+}
+.prose li::marker{color:var(--accent)}
+
+.note{
+  margin:1.5rem 0;
+  padding:0.85rem 1rem;
+  border:1px solid var(--line);
+  border-left:3px solid var(--accent);
+  background:var(--bg-elev);
+  font-size:0.92rem;
+  color:var(--muted);
+}
+.note strong{color:var(--paper);font-weight:500}
+
+.pub{
+  margin-bottom:1.35rem;
+  padding-bottom:1.15rem;
+  border-bottom:1px solid var(--line);
+}
+.pub:last-child{border-bottom:none}
+.pub .title{color:var(--paper);font-size:1.05rem;margin-bottom:0.25rem}
+.pub .meta{font-size:0.92rem;color:var(--muted)}
+
+.cv-block{margin-bottom:1.5rem}
+.cv-block .when{
+  font-size:0.78rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:0.2rem;
+}
+.cv-block .role{
+  color:var(--paper);
+  font-size:1.05rem;
+  margin-bottom:0.2rem;
+}
+.cv-block .place{color:var(--muted);font-size:0.95rem}
+
+/* footer */
+.site-footer{
+  border-top:1px solid var(--line);
+  padding:1.75rem 0 2.5rem;
+  margin-top:1rem;
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1.25rem;
+}
+@media(min-width:560px){
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+.footer-name{
+  font-family:"IBM Plex Serif", Georgia, serif;
+  font-size:1rem;
+  color:var(--paper);
+  margin-bottom:0.5rem;
+}
+.footer-list{list-style:none}
+.footer-list li{margin-bottom:0.35rem;font-size:0.88rem;color:var(--muted)}
+.footer-list a{color:var(--muted);border:none}
+.footer-list a:hover{color:var(--accent-hi)}
+.footer-copy{
+  margin-top:1.5rem;
+  font-size:0.72rem;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:var(--accent-dim);
+}
+
+/* subtle top edge stripe */
+body::before{
+  content:"";
+  display:block;
+  height:3px;
+  background:linear-gradient(90deg, var(--accent-dim), var(--accent), var(--accent-dim));
+}
