@@ -27,24 +27,33 @@
   <main class="wrap">
     <div class="kicker">Research</div>
     <article class="prose">
-      <p class="lead">My work centers on precise measurements of small Solar System bodies and on building the next generation of astrometric tools — including machine learning and AI — for crowded fields and survey-scale data.</p>
+      <p class="lead">My work centers on precise measurements of small Solar System bodies in crowded stellar fields, and on developing the next generation of astrometric tools — including machine learning and AI — for survey-scale and targeted imaging.</p>
 
       <h2>Master’s research (Observatório Nacional)</h2>
-      <p>At ON I developed and applied methods for <strong>astrometry and photometry of small bodies in dense stellar fields</strong>. Crowding challenges centroiding, trailing fits, and photometric calibration; the goal is reliable positions and fluxes for orbit determination and physical studies. The dissertation is available via the ON thesis repository (see <a href="/pubs/">Publications</a>).</p>
+      <p><em>Astrometria e fotometria de pequenos corpos do Sistema Solar em imagens com campos estelares densos</em> · Advisor: <strong>Dr.&nbsp;Julio I.&nbsp;Bueno de Camargo</strong> · Co-advisor: <strong>Dr.&nbsp;Adriano Pieres</strong> · <a href="/files/dissertacao_cavalcante_2025.pdf">Dissertation PDF</a></p>
 
-      <h2>(10199) Chariklo and centaur science</h2>
-      <p>Chariklo is a benchmark centaur with a ring system revealed by stellar occultations. It is a natural laboratory for linking high-precision astrometry, multi-band photometry, and dynamical context. My MSc work engaged this science case within the Brazilian astrometric ecosystem (PRAIA / DIA-related workflows).</p>
+      <p>Wide surveys such as the Legacy Survey of Space and Time (LSST) will deliver multiband photometry and astrometry for millions of Solar System objects. For <strong>stellar occultations</strong>, however, sky regions and regimes not fully covered by such surveys still demand dedicated, high-quality measurements — especially where <strong>stellar density is high</strong> and the target flux is contaminated by neighbors.</p>
 
-      <h2>PhD direction — astrometric code with ML &amp; AI</h2>
-      <p>I am <strong>starting a PhD in the same research line</strong>, with a primary focus on <strong>developing astrometric software that uses machine learning and artificial intelligence</strong>. Intended themes include:</p>
+      <p>The dissertation applies and evaluates the <strong>image-difference technique</strong> (DIAPL2) to isolate the flux of a small body in dense fields, aiming at <strong>position and flux measurements with minimal influence from nearby sources</strong>, with the intention of routine use in observing programs. Methodology and tests include:</p>
       <ul>
-        <li>Learning-based or hybrid methods for source detection and centroiding under crowding and complex PSFs;</li>
-        <li>Robust trailing and moving-object measurement on survey cadences;</li>
-        <li>Reproducible, scalable pipelines that connect classical astrometry to modern ML tooling;</li>
-        <li>Applications to centaurs, TNOs, and other small-body populations in wide-field imaging.</li>
+        <li><strong>Simulated dense-field images</strong> to characterize astrometric and photometric performance;</li>
+        <li>Comparisons involving <strong>PRAIA</strong> and <strong>IRAF/DAOPHOT</strong>;</li>
+        <li><strong>Difference imaging</strong> (DIAPL2) on real data of the centaur <strong>(10199)&nbsp;Chariklo</strong>;</li>
+        <li>Assessment of residual systematics relevant to orbit quality and occultation prediction.</li>
       </ul>
 
-      </article>
+      <h2>(10199) Chariklo as science case</h2>
+      <p>Chariklo is a benchmark centaur with a ring system revealed by stellar occultations. It provides a demanding test of astrometry and photometry when the object moves across dense stellar backgrounds. Difference imaging was used to suppress the static field and recover cleaner measurements of the moving source.</p>
+
+      <h2>PhD direction — astrometric code with ML &amp; AI</h2>
+      <p>I am <strong>starting a PhD in the same research line</strong>, with a primary focus on <strong>developing astrometric software that uses machine learning and artificial intelligence</strong>. Building on the MSc results, intended themes include:</p>
+      <ul>
+        <li>Learning-based or hybrid methods for source detection and centroiding under crowding and complex PSFs;</li>
+        <li>Robust measurement of moving objects when classical difference imaging or PSF fitting is limited;</li>
+        <li>Reproducible, scalable pipelines connecting classical astrometry (e.g. PRAIA-class workflows) to modern ML tooling;</li>
+        <li>Applications to centaurs, TNOs, and other small-body populations for occultations and survey follow-up.</li>
+      </ul>
+    </article>
   </main>
 
   <footer class="site-footer">
