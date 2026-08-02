@@ -1,5 +1,5 @@
 /* Service Worker — Horário Josué PWA v3 (wolf icons) */
-const CACHE = "horario-josue-v3-wolf";
+const CACHE = "horario-josue-v4-eo";
 const SHELL = [
   "./",
   "./index.html",
