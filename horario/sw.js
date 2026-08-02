@@ -1,7 +1,7 @@
 /* Service Worker — Horário Josué PWA
  * Cache-first for app shell; network-first for navigations with offline fallback.
  */
-const CACHE = "horario-josue-v1";
+const CACHE = "horario-josue-v2-wolf";
 const SHELL = [
   "./",
   "./index.html",
