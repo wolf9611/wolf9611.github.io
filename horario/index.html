@@ -7,10 +7,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Física 2026 – Prof. Josué</title>
 
-<link rel="manifest" href="manifest.webmanifest?v=5">
-<link rel="icon" type="image/png" sizes="32x32" href="icons/wolf-favicon-32.png?v=5">
-<link rel="icon" type="image/png" sizes="192x192" href="icons/wolf-192.png?v=5">
-<link rel="apple-touch-icon" href="icons/wolf-apple-180.png?v=5">
+<link rel="manifest" href="manifest.webmanifest?v=6">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/wolf-favicon-32.png?v=6">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/wolf-192.png?v=6">
+<link rel="apple-touch-icon" href="icons/wolf-apple-180.png?v=6">
 <meta name="description" content="Proposta curricular 2026 + horário — Prof. Josué · Física · C.N. ENEM · LEC">
 <meta name="apple-mobile-web-app-title" content="Física Josué">
 <meta name="application-name" content="Física Josué">
@@ -107,6 +107,52 @@ button:active{transform:scale(.97)}
   .row-sub{font-size:20px}
   .bg img{opacity:.48}
 }
+
+/* Horário = home; Proposta = secundário */
+.nav-in{display:flex;gap:8px;align-items:center;justify-content:center}
+.nav-btn[data-view="horario"]{flex:1.35;font-weight:600}
+.nav-btn[data-view="proposta"]{
+  flex:0.85;
+  opacity:.78;
+  background:transparent;
+  border:1px solid var(--border);
+  color:var(--muted);
+  font-weight:500;
+  font-size:.86em;
+}
+.nav-btn[data-view="proposta"].on{
+  opacity:1;
+  color:var(--fg);
+  border-color:var(--accent);
+  background:var(--accent-soft);
+}
+.nav-btn[data-view="horario"].on{
+  background:var(--accent-soft);
+  color:var(--accent);
+  border-color:transparent;
+}
+/* botão secundário no header do horário */
+.btn-proposta{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  margin:10px auto 0;padding:8px 14px;
+  border-radius:var(--rd-pill);
+  border:1px solid var(--border);
+  background:rgba(30,40,30,.75);
+  color:var(--muted);
+  font-size:12px;font-weight:600;letter-spacing:.02em;
+}
+.btn-proposta:active{transform:scale(.97)}
+.btn-proposta svg{width:14px;height:14px;opacity:.85}
+.btn-back-horario{
+  display:inline-flex;align-items:center;gap:6px;
+  margin:0 auto 12px;padding:8px 14px;
+  border-radius:var(--rd-pill);
+  border:1px solid var(--border);
+  background:var(--accent-soft);
+  color:var(--accent);
+  font-size:12px;font-weight:600;
+}
+
 </style>
 </head>
 <body>
@@ -117,7 +163,7 @@ button:active{transform:scale(.97)}
 </div>
 
 <div class="shell">
-  <div id="view-proposta" class="page">
+  <div id="view-proposta" class="page hidden">
     <header class="hdr">
       <div class="hdr-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5z"/></svg></div>
       <p class="hdr-k">Proposta curricular 2026</p>
@@ -134,13 +180,18 @@ button:active{transform:scale(.97)}
     <footer class="footer">Proposta curricular 2026</footer>
   </div>
 
-  <div id="view-horario" class="page hidden">
+  <div id="view-horario" class="page">
     <header class="hdr">
       <div class="hdr-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5z"/></svg></div>
       <p class="hdr-k">EEMTI José Cláudio de Araújo</p>
       <h1 class="hdr-name">Prof. Josué Cavalcante</h1>
       <p class="hdr-sub">Física · C.N. ENEM · LEC</p>
-    </header>
+    
+      <button type="button" class="btn-proposta" id="btn-open-proposta" aria-label="Abrir proposta curricular">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8M8 11h6"/></svg>
+        Proposta curricular 2026
+      </button>
+</header>
     <div class="days" id="days" role="tablist" aria-label="Dia"></div>
     <div class="pill-bar" role="tablist" aria-label="Turno">
       <button type="button" class="pill" data-turno="manha" id="btn-manha">Manhã <span class="pill-count" id="cm">0</span></button>
@@ -154,13 +205,13 @@ button:active{transform:scale(.97)}
 
 <nav class="nav" aria-label="Navegação">
   <div class="nav-in">
-    <button type="button" class="nav-btn on" data-view="proposta" id="nav-proposta">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5z"/></svg>
-      Proposta
-    </button>
-    <button type="button" class="nav-btn" data-view="horario" id="nav-horario">
+    <button type="button" class="nav-btn on" data-view="horario" id="nav-horario" aria-current="page">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
       Horário
+    </button>
+    <button type="button" class="nav-btn" data-view="proposta" id="nav-proposta" title="Proposta curricular anual">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8M8 11h6"/></svg>
+      Proposta
     </button>
   </div>
 </nav>
@@ -247,6 +298,11 @@ function setView(v){
   document.getElementById("view-horario").classList.toggle("hidden", v !== "horario");
   document.getElementById("nav-proposta").classList.toggle("on", v === "proposta");
   document.getElementById("nav-horario").classList.toggle("on", v === "horario");
+  var nh = document.getElementById("nav-horario");
+  var np = document.getElementById("nav-proposta");
+  if (nh) nh.setAttribute("aria-current", v === "horario" ? "page" : "false");
+  if (np) np.setAttribute("aria-current", v === "proposta" ? "page" : "false");
+  try { window.scrollTo({ top: 0, behavior: "instant" }); } catch (e) { window.scrollTo(0, 0); }
 }
 document.querySelectorAll(".nav-btn").forEach(b => b.onclick = () => setView(b.dataset.view));
 
@@ -365,17 +421,21 @@ function renderHorario(){
 
 renderProposta();
 renderHorario();
-(function(){
-  var d = new Date().getDay();
-  // seg-sex → horário; fim de semana → proposta
-  setView((d >= 1 && d <= 5) ? "horario" : "proposta");
-})();
+setView("horario");
+var bp = document.getElementById("btn-open-proposta");
+if (bp) bp.onclick = function(){ setView("horario");
+var bp = document.getElementById("btn-open-proposta");
+if (bp) bp.onclick = function(){ setView("proposta"); };
+var bb = document.getElementById("btn-back-horario");
+if (bb) bb.onclick = function(){ setView("horario"); }; };
+var bb = document.getElementById("btn-back-horario");
+if (bb) bb.onclick = function(){ setView("horario"); };
 </script>
 
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
-    navigator.serviceWorker.register("./sw.js?v=5", { scope: "./" }).then(function (reg) {
+    navigator.serviceWorker.register("./sw.js?v=6", { scope: "./" }).then(function (reg) {
       reg.addEventListener("updatefound", function () {
         var nw = reg.installing;
         if (!nw) return;

@@ -1,18 +1,24 @@
 {
-  "id": "/horario/?v=5-fisica2026",
-  "name": "Física 2026 – Prof. Josué",
-  "short_name": "Física Josué",
+  "id": "/horario/?v=6-home-horario",
+  "name": "Horário + Física 2026 – Prof. Josué",
+  "short_name": "Horário Josué",
   "description": "Proposta curricular 2026 e horário de aulas — Prof. Josué Cavalcante · Física · C.N. ENEM · LEC",
   "lang": "pt-BR",
   "dir": "ltr",
-  "start_url": "./index.html?v=5",
+  "start_url": "./index.html?v=6",
   "scope": "./",
   "display": "standalone",
-  "display_override": ["standalone", "minimal-ui"],
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
   "orientation": "portrait-primary",
   "background_color": "#0d120e",
   "theme_color": "#0d120e",
-  "categories": ["education", "productivity"],
+  "categories": [
+    "education",
+    "productivity"
+  ],
   "icons": [
     {
       "src": "icons/wolf-192.png?v=5",
