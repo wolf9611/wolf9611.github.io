@@ -1,20 +1,7 @@
-# Horário – Prof. Josué (PWA)
+# Física 2026 – Prof. Josué
 
-App web instalável do horário de aulas.
+App único (PWA):
+- **Proposta** curricular anual de Física (FGB) por série/mês
+- **Horário** semanal (Física, C.N. ENEM, LEC, EO, Plano D.)
 
-**URL:** https://wolf9611.github.io/horario/
-
-## Instalar no celular (S26 Ultra / Android)
-
-1. Abra o link no **Chrome**
-2. Menu **⋮** → **Instalar app** ou **Adicionar à tela inicial**
-3. Confirme
-
-Funciona offline após a primeira abertura (service worker).
-
-## Arquivos
-
-- `index.html` — app
-- `manifest.webmanifest` — metadados PWA
-- `sw.js` — cache offline
-- `icons/` — ícones 192/512 + maskable + Apple
+URL: https://wolf9611.github.io/horario/

@@ -1,5 +1,5 @@
-/* Service Worker — Horário Josué PWA v3 (wolf icons) */
-const CACHE = "horario-josue-v4-eo";
+/* Service Worker — Física 2026 unified (proposta + horário) v5 */
+const CACHE = "fisica-josue-v5-unified";
 const SHELL = [
   "./",
   "./index.html",
