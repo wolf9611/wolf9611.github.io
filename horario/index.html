@@ -422,14 +422,12 @@ function renderHorario(){
 renderProposta();
 renderHorario();
 setView("horario");
-var bp = document.getElementById("btn-open-proposta");
-if (bp) bp.onclick = function(){ setView("horario");
-var bp = document.getElementById("btn-open-proposta");
-if (bp) bp.onclick = function(){ setView("proposta"); };
-var bb = document.getElementById("btn-back-horario");
-if (bb) bb.onclick = function(){ setView("horario"); }; };
-var bb = document.getElementById("btn-back-horario");
-if (bb) bb.onclick = function(){ setView("horario"); };
+(function(){
+  var bp = document.getElementById("btn-open-proposta");
+  if (bp) bp.onclick = function(){ setView("proposta"); };
+  var bb = document.getElementById("btn-back-horario");
+  if (bb) bb.onclick = function(){ setView("horario"); };
+})();
 </script>
 
 <script>
