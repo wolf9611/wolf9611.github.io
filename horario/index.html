@@ -7,10 +7,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Física 2026 – Prof. Josué</title>
 
-<link rel="manifest" href="manifest.webmanifest?v=6">
-<link rel="icon" type="image/png" sizes="32x32" href="icons/wolf-favicon-32.png?v=6">
-<link rel="icon" type="image/png" sizes="192x192" href="icons/wolf-192.png?v=6">
-<link rel="apple-touch-icon" href="icons/wolf-apple-180.png?v=6">
+<link rel="manifest" href="manifest.webmanifest?v=7">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/wolf-favicon-32.png?v=7">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/wolf-192.png?v=7">
+<link rel="apple-touch-icon" href="icons/wolf-apple-180.png?v=7">
 <meta name="description" content="Proposta curricular 2026 + horário — Prof. Josué · Física · C.N. ENEM · LEC">
 <meta name="apple-mobile-web-app-title" content="Física Josué">
 <meta name="application-name" content="Física Josué">
@@ -244,13 +244,13 @@ const SCHEDULE = {
   Quarta:[
     {time:"7:20",type:"f1",sub:"Física",turma:"1ª C",eo:"3ª A"},
     {time:"8:10",type:"f2",sub:"Física",turma:"2ª C",eo:"3ª B"},
-    {time:"9:20",type:"livre",eo:"3ª C"},
-    {time:"10:10",type:"livre"},
-    {time:"11:00",type:"livre"},
-    {time:"13:00",type:"livre"},
-    {time:"13:50",type:"livre",eo:"2ª B"},
-    {time:"14:55",type:"livre",eo:"2ª C"},
-    {time:"15:45",type:"livre"}
+    {time:"9:20",type:"planejdom",sub:"Plano D.",eo:"3ª C"},
+    {time:"10:10",type:"planejdom",sub:"Plano D."},
+    {time:"11:00",type:"planejdom",sub:"Plano D."},
+    {time:"13:00",type:"planejdom",sub:"Plano D."},
+    {time:"13:50",type:"planejdom",sub:"Plano D.",eo:"2ª B"},
+    {time:"14:55",type:"planejdom",sub:"Plano D.",eo:"2ª C"},
+    {time:"15:45",type:"planejdom",sub:"Plano D."}
   ],
   Quinta:[
     {time:"7:20",type:"livre"},
@@ -433,7 +433,7 @@ setView("horario");
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
-    navigator.serviceWorker.register("./sw.js?v=6", { scope: "./" }).then(function (reg) {
+    navigator.serviceWorker.register("./sw.js?v=7", { scope: "./" }).then(function (reg) {
       reg.addEventListener("updatefound", function () {
         var nw = reg.installing;
         if (!nw) return;
