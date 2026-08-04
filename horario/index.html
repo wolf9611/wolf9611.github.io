@@ -7,10 +7,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Física 2026 – Prof. Josué</title>
 
-<link rel="manifest" href="manifest.webmanifest?v=7">
-<link rel="icon" type="image/png" sizes="32x32" href="icons/wolf-favicon-32.png?v=7">
-<link rel="icon" type="image/png" sizes="192x192" href="icons/wolf-192.png?v=7">
-<link rel="apple-touch-icon" href="icons/wolf-apple-180.png?v=7">
+<link rel="manifest" href="manifest.webmanifest?v=8">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/wolf-favicon-32.png?v=8">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/wolf-192.png?v=8">
+<link rel="apple-touch-icon" href="icons/wolf-apple-180.png?v=8">
 <meta name="description" content="Proposta curricular 2026 + horário — Prof. Josué · Física · C.N. ENEM · LEC">
 <meta name="apple-mobile-web-app-title" content="Física Josué">
 <meta name="application-name" content="Física Josué">
@@ -25,7 +25,7 @@
   --bg:#0d120e;--surface:#161d16;--elevated:#1e281e;--panel:#243024;
   --fg:#e6ebe3;--muted:#9aa892;--subtle:#6d7a68;--border:#2c382c;
   --accent:#8fad6e;--accent-soft:rgba(143,173,110,.14);
-  --f1:#c9a882;--f2:#9bbf8a;--f3:#b8c98a;--cn:#8ab8a8;--pd:#c4b090;--lc:#7db8a0;--eo:#8fad6e;
+  --f1:#c9a882;--f2:#9bbf8a;--f3:#b8c98a;--cn:#8ab8a8;--pd:#c4b090;--pl:#a8b89a;--lc:#7db8a0;--eo:#8fad6e;
   --rd-lg:16px;--rd-pill:9999px;
   --shadow:0 1px 2px rgba(0,0,0,.28),0 8px 24px rgba(0,0,0,.18);
   --font:"DM Sans","Segoe UI",system-ui,sans-serif;
@@ -89,7 +89,7 @@ button:active{transform:scale(.97)}
 .row-livre{font-size:14px;font-style:italic;color:var(--subtle)}
 .row-eo{margin-top:6px;font-size:12px;font-weight:700;letter-spacing:.03em;color:var(--eo)}
 .s-f1{color:var(--f1)}.s-f2{color:var(--f2)}.s-f3{color:var(--f3)}
-.s-cn{color:var(--cn)}.s-pd{color:var(--pd)}.s-lc{color:var(--lc)}
+.s-cn{color:var(--cn)}.s-pd{color:var(--pd)}.s-pl{color:var(--pl)}.s-lc{color:var(--lc)}
 .gloss{margin:0 0 16px;border-radius:var(--rd-lg);border:1px solid rgba(44,56,44,.9);background:rgba(22,29,22,.72);padding:14px 16px}
 .gl-item{font-size:12px;font-weight:500;line-height:1.55;color:var(--muted);margin-bottom:6px}
 .gl-item:last-child{margin-bottom:0}
@@ -244,13 +244,13 @@ const SCHEDULE = {
   Quarta:[
     {time:"7:20",type:"f1",sub:"Física",turma:"1ª C",eo:"3ª A"},
     {time:"8:10",type:"f2",sub:"Física",turma:"2ª C",eo:"3ª B"},
-    {time:"9:20",type:"planejdom",sub:"Plano D.",eo:"3ª C"},
-    {time:"10:10",type:"planejdom",sub:"Plano D."},
-    {time:"11:00",type:"planejdom",sub:"Plano D."},
-    {time:"13:00",type:"planejdom",sub:"Plano D."},
-    {time:"13:50",type:"planejdom",sub:"Plano D.",eo:"2ª B"},
-    {time:"14:55",type:"planejdom",sub:"Plano D.",eo:"2ª C"},
-    {time:"15:45",type:"planejdom",sub:"Plano D."}
+    {time:"9:20",type:"planej",sub:"Planejamento",eo:"3ª C"},
+    {time:"10:10",type:"planej",sub:"Planejamento"},
+    {time:"11:00",type:"planej",sub:"Planejamento"},
+    {time:"13:00",type:"planej",sub:"Planejamento"},
+    {time:"13:50",type:"planej",sub:"Planejamento",eo:"2ª B"},
+    {time:"14:55",type:"planej",sub:"Planejamento",eo:"2ª C"},
+    {time:"15:45",type:"planej",sub:"Planejamento"}
   ],
   Quinta:[
     {time:"7:20",type:"livre"},
@@ -277,7 +277,7 @@ const SCHEDULE = {
 };
 
 const endTime = {"7:20":"8:10","8:10":"9:00","9:20":"10:10","10:10":"11:00","11:00":"11:50","13:00":"13:50","13:50":"14:40","14:55":"15:45","15:45":"16:35"};
-const typeClass = {f1:"s-f1",f2:"s-f2",f3:"s-f3",cnenem:"s-cn",planejdom:"s-pd",lec:"s-lc"};
+const typeClass = {f1:"s-f1",f2:"s-f2",f3:"s-f3",cnenem:"s-cn",planejdom:"s-pd",planej:"s-pl",lec:"s-lc"};
 const dayShort = {Segunda:"Seg","Terça":"Ter",Quarta:"Qua",Quinta:"Qui",Sexta:"Sex"};
 const dn = ["Segunda","Terça","Quarta","Quinta","Sexta"];
 const dm = {1:"Segunda",2:"Terça",3:"Quarta",4:"Quinta",5:"Sexta"};
@@ -407,7 +407,8 @@ function renderHorario(){
   const gloss = [
     {label:"C.N. ENEM", desc:"Ciências da Natureza para o ENEM", test:a=>a.some(s=>s.type==="cnenem")},
     {label:"LEC", desc:"Laboratório Educacional de Ciências", test:a=>a.some(s=>s.type==="lec")},
-    {label:"Plano D.", desc:"Planejamento Domiciliar (trabalho em casa)", test:a=>a.some(s=>s.type==="planejdom")},
+    {label:"Planejamento", desc:"Planejamento na escola (não domiciliar)", test:a=>a.some(s=>s.type==="planej")},
+    {label:"Plano D.", desc:"Planejamento Domiciliar — até 4 h (trabalho em casa)", test:a=>a.some(s=>s.type==="planejdom")},
     {label:"EO", desc:"Estudo Orientado — aula de outro professor; a turma pode fazer tarefas de outras disciplinas", test:a=>a.some(s=>s.eo)}
   ].filter(e => e.test(arr));
 
@@ -433,7 +434,7 @@ setView("horario");
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
-    navigator.serviceWorker.register("./sw.js?v=7", { scope: "./" }).then(function (reg) {
+    navigator.serviceWorker.register("./sw.js?v=8", { scope: "./" }).then(function (reg) {
       reg.addEventListener("updatefound", function () {
         var nw = reg.installing;
         if (!nw) return;
