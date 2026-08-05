@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="Gerador de horários escolares com CSP — EEMTI José Cláudio de Araújo"/>
+  <title>Gerador de Horários JCA</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="manifest" href="manifest.webmanifest"/>
+</head>
+<body>
+<header>
+  <h1>Gerador de Horários — EEMTI José Cláudio de Araújo</h1>
+  <p>
+    Matemática: <b>CSP</b> (restrições duras) + busca local / min-conflicts ·
+    100% gratuito · roda no navegador · PDF via impressão
+  </p>
+</header>
+<main>
+  <aside class="no-print">
+    <div class="card">
+      <label>Base (grade de referência 03/ago)</label>
+      <div id="stats">carregando…</div>
+    </div>
+
+    <div class="card">
+      <label>Professor (disponibilidade)</label>
+      <select id="teacher"></select>
+      <div style="height:8px"></div>
+      <div class="avgrid" id="avgrid"></div>
+      <p style="font-size:11px;color:var(--muted);margin:8px 0 0">
+        Verde = pode · Vermelho = bloqueado. Clique para alternar.
+      </p>
+      <button class="secondary" id="btnSaveAv" type="button">Salvar no navegador</button>
+    </div>
+
+    <div class="card">
+      <label>Parâmetros do gerador</label>
+      <div class="row">
+        <div>
+          <label>Iterações</label>
+          <input id="iters" type="number" value="4000" min="500" max="50000"/>
+        </div>
+        <div>
+          <label>Semente</label>
+          <input id="seed" type="number" value="42"/>
+        </div>
+      </div>
+      <label style="margin-top:8px;display:flex;gap:8px;align-items:center">
+        <input type="checkbox" id="preferRef" checked style="width:auto"/>
+        Preferir grade próxima da referência
+      </label>
+      <label style="display:flex;gap:8px;align-items:center">
+        <input type="checkbox" id="lockElec" checked style="width:auto"/>
+        Travar eletivas/clubes
+      </label>
+      <button class="ok" id="btnGen" type="button">Gerar combinações (CSP)</button>
+      <button class="secondary" id="btnRef" type="button">Restaurar referência</button>
+      <button class="secondary" id="btnPdf" type="button">Exportar PDF (imprimir)</button>
+    </div>
+
+    <div class="card">
+      <label>Status</label>
+      <div id="status"><span class="pill">idle</span></div>
+      <pre id="log"></pre>
+    </div>
+  </aside>
+
+  <section>
+    <div class="banner no-print">
+      Restrições duras: 1 aula/turma/slot · 1 aula/professor/slot · disponibilidade · carga semanal.
+      Objetivo: menos furos na agenda + equilíbrio entre dias + proximidade da referência.
+    </div>
+    <div class="tabs no-print" id="dayTabs"></div>
+    <div class="card" id="screenGridWrap">
+      <table class="grid" id="grid"></table>
+    </div>
+    <div class="print-only print-wrap" id="printAll"></div>
+    <div class="card no-print">
+      <label>Modelo matemático</label>
+      <pre id="math"></pre>
+    </div>
+  </section>
+</main>
+<script src="solver.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
