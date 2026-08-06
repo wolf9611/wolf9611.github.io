@@ -226,10 +226,10 @@ const SCHEDULE = {
     {time:"9:20",type:"livre"},
     {time:"10:10",type:"f1",sub:"Física",turma:"1ª C"},
     {time:"11:00",type:"f2",sub:"Física",turma:"2ª C"},
-    {time:"13:00",type:"livre",eo:"1ª B · 2ª A"},
+    {time:"13:00",type:"lec",sub:"LEC",eo:"1ª B · 2ª A"},
     {time:"13:50",type:"f1",sub:"Física",turma:"1ª B",eo:"1ª A"},
-    {time:"14:55",type:"livre"},
-    {time:"15:45",type:"livre"}
+    {time:"14:55",type:"lec",sub:"LEC"},
+    {time:"15:45",type:"lec",sub:"LEC"}
   ],
   "Terça":[
     {time:"7:20",type:"f3",sub:"Física",turma:"3ª C",eo:"1ª C"},
@@ -239,8 +239,8 @@ const SCHEDULE = {
     {time:"11:00",type:"cnenem",sub:"C.N. ENEM",turma:"3ª B"},
     {time:"13:00",type:"f2",sub:"Física",turma:"2ª A"},
     {time:"13:50",type:"cnenem",sub:"C.N. ENEM",turma:"3ª A"},
-    {time:"14:55",type:"livre"},
-    {time:"15:45",type:"livre"}
+    {time:"14:55",type:"lec",sub:"LEC"},
+    {time:"15:45",type:"lec",sub:"LEC"}
   ],
   Quarta:[
     {time:"7:20",type:"f1",sub:"Física",turma:"1ª C",eo:"3ª A"},
@@ -268,9 +268,9 @@ const SCHEDULE = {
     {time:"7:20",type:"livre"},
     {time:"8:10",type:"planej",sub:"Planejamento"},
     {time:"9:20",type:"planej",sub:"Planejamento"},
-    {time:"10:10",type:"livre",eo:"2ª A"},
+    {time:"10:10",type:"lec",sub:"LEC",eo:"2ª A"},
     {time:"11:00",type:"f3",sub:"Física",turma:"3ª C"},
-    {time:"13:00",type:"livre"},
+    {time:"13:00",type:"lec",sub:"LEC"},
     {time:"13:50",type:"f3",sub:"Física",turma:"3ª B",eo:"1ª C"},
     {time:"14:55",type:"f2",sub:"Física",turma:"2ª B"},
     {time:"15:45",type:"f3",sub:"Física",turma:"3ª A"}
@@ -435,7 +435,7 @@ setView("horario");
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
-    navigator.serviceWorker.register("./sw.js?v=10", { scope: "./" }).then(function (reg) {
+    navigator.serviceWorker.register("./sw.js?v=11", { scope: "./" }).then(function (reg) {
       reg.addEventListener("updatefound", function () {
         var nw = reg.installing;
         if (!nw) return;
