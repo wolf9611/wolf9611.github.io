@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Física 2026 – Prof. Josué</title>
 
-<link rel="manifest" href="manifest.webmanifest?v=16">
+<link rel="manifest" href="manifest.webmanifest?v=17">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/wolf-favicon-32.png?v=8">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/wolf-192.png?v=8">
 <link rel="apple-touch-icon" href="icons/wolf-apple-180.png?v=8">
@@ -19,16 +19,16 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#2a2a2c;
   --bg-deep:#1c1c1e;
-  --fg:#f4f4f5;
-  --muted:rgba(244,244,245,.62);
-  --subtle:rgba(244,244,245,.42);
-  --glass:rgba(255,255,255,.10);
-  --glass-hi:rgba(255,255,255,.16);
+  --fg:#f8f6f0;
+  --muted:rgba(248,246,240,.88);
+  --subtle:rgba(248,246,240,.72);
+  --glass:rgba(18,18,20,.42);
+  --glass-hi:rgba(28,28,30,.62);
   --stroke:rgba(255,255,255,.22);
   --stroke-soft:rgba(255,255,255,.10);
   --line:rgba(255,255,255,.08);
@@ -42,12 +42,12 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{-webkit-text-size-adjust:100%;color-scheme:dark}
-body{font-family:var(--font);background:var(--bg-deep);min-height:100dvh;color:var(--fg);overflow-x:hidden;line-height:1.45}
+body{font-family:var(--font);background:var(--bg-deep);min-height:100dvh;color:var(--fg);overflow-x:hidden;line-height:1.45;font-weight:600;-webkit-font-smoothing:antialiased}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
 button:active{transform:scale(.98);opacity:.88}
 .bg{pointer-events:none;position:fixed;inset:0;z-index:0;overflow:hidden;background:var(--bg-deep)}
 .bg-fill{position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 20%,#3a3a3e 0%,#2a2a2c 42%,#1c1c1e 100%)}
-.bg img{position:absolute;left:50%;top:48%;height:min(100vh,820px);width:auto;max-width:min(100vw,520px);transform:translate(-50%,-50%);object-fit:contain;opacity:.42;filter:grayscale(1) contrast(1.08) brightness(.92)}
+.bg img{position:absolute;left:50%;top:48%;height:min(100vh,820px);width:auto;max-width:min(100vw,520px);transform:translate(-50%,-50%);object-fit:contain;opacity:.28;filter:grayscale(1) contrast(1.08) brightness(.92)}
 .bg-v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,transparent 32%,rgba(28,28,30,.45) 68%,rgba(28,28,30,.88) 100%)}
 .bg-t{position:absolute;inset-inline:0;top:0;height:6.5rem;background:linear-gradient(to bottom,rgba(28,28,30,.92),transparent)}
 .bg-b{position:absolute;inset-inline:0;bottom:0;height:9rem;background:linear-gradient(to top,rgba(28,28,30,.95),rgba(28,28,30,.55),transparent)}
@@ -56,7 +56,7 @@ button:active{transform:scale(.98);opacity:.88}
 .hdr{text-align:left;margin-bottom:16px}
 .hdr-icon{display:none}
 .hdr-k{font-size:11px;font-weight:500;letter-spacing:.03em;color:var(--subtle);margin-bottom:4px}
-.hdr-name{font-size:1.32rem;font-weight:650;letter-spacing:-.03em;line-height:1.18}
+.hdr-name{font-size:1.36rem;font-weight:800;letter-spacing:-.03em;line-height:1.18;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.55)}
 .hdr-sub{font-size:13px;color:var(--muted);margin-top:4px}
 .pill-bar{
   display:flex;gap:4px;padding:4px;margin-bottom:12px;border-radius:999px;
@@ -108,7 +108,7 @@ button:active{transform:scale(.98);opacity:.88}
 .row.free{opacity:.48}
 .row-time{font-size:12px;font-weight:500;color:var(--subtle);font-variant-numeric:tabular-nums;padding-top:2px}
 .row-time .end{color:var(--subtle)}
-.row-sub{font-size:16px;font-weight:600;letter-spacing:-.015em}
+.row-sub{font-size:17px;font-weight:800;letter-spacing:-.015em;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.45)}
 .row-tu{font-size:13px;font-weight:500;color:var(--muted);margin-left:6px}
 .row-livre{font-size:13px;font-style:italic;color:var(--subtle)}
 .row-eo{margin-top:4px;font-size:11px;font-weight:600;letter-spacing:.02em;color:var(--eo)}
@@ -456,7 +456,7 @@ setView("horario");
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
-    navigator.serviceWorker.register("./sw.js?v=16", { scope: "./" }).then(function (reg) {
+    navigator.serviceWorker.register("./sw.js?v=17", { scope: "./" }).then(function (reg) {
       reg.addEventListener("updatefound", function () {
         var nw = reg.installing;
         if (!nw) return;

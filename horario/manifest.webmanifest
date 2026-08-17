@@ -1,11 +1,11 @@
 {
-  "id": "/horario/?v=16-nunito",
+  "id": "/horario/?v=17-contrast",
   "name": "Horário + Física 2026 – Prof. Josué",
   "short_name": "Horário Josué",
   "description": "Proposta curricular 2026 e horário de aulas — Prof. Josué Cavalcante · Física · C.N. ENEM · LEC",
   "lang": "pt-BR",
   "dir": "ltr",
-  "start_url": "./index.html?v=16",
+  "start_url": "./index.html?v=17",
   "scope": "./",
   "display": "standalone",
   "display_override": [
