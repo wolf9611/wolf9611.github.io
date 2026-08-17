@@ -1,5 +1,5 @@
 /* Service Worker — Física 2026 unified (proposta + horário) v5 */
-const CACHE = "fisica-josue-v14-glass";
+const CACHE = "fisica-josue-v15-wolf";
 const SHELL = [
   "./",
   "./index.html",
@@ -10,6 +10,7 @@ const SHELL = [
   "./icons/wolf-maskable-512.png",
   "./icons/wolf-apple-180.png",
   "./icons/wolf-favicon-32.png",
+  "./icons/wolf-bg.png",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/apple-touch-icon.png",
