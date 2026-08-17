@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<meta name="theme-color" content="#1c1c1e">
+<meta name="theme-color" content="#0e0e10">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Física 2026 – Prof. Josué</title>
 
-<link rel="manifest" href="manifest.webmanifest?v=17">
+<link rel="manifest" href="manifest.webmanifest?v=18">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/wolf-favicon-32.png?v=8">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/wolf-192.png?v=8">
 <link rel="apple-touch-icon" href="icons/wolf-apple-180.png?v=8">
@@ -22,8 +22,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#2a2a2c;
-  --bg-deep:#1c1c1e;
+  --bg:#161618;
+  --bg-deep:#0e0e10;
   --fg:#f8f6f0;
   --muted:rgba(248,246,240,.88);
   --subtle:rgba(248,246,240,.72);
@@ -46,11 +46,11 @@ body{font-family:var(--font);background:var(--bg-deep);min-height:100dvh;color:v
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
 button:active{transform:scale(.98);opacity:.88}
 .bg{pointer-events:none;position:fixed;inset:0;z-index:0;overflow:hidden;background:var(--bg-deep)}
-.bg-fill{position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 20%,#3a3a3e 0%,#2a2a2c 42%,#1c1c1e 100%)}
+.bg-fill{position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 20%,#222226 0%,#161618 42%,#0e0e10 100%)}
 .bg img{position:absolute;left:50%;top:48%;height:min(100vh,820px);width:auto;max-width:min(100vw,520px);transform:translate(-50%,-50%);object-fit:contain;opacity:.28;filter:grayscale(1) contrast(1.08) brightness(.92)}
-.bg-v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,transparent 32%,rgba(28,28,30,.45) 68%,rgba(28,28,30,.88) 100%)}
-.bg-t{position:absolute;inset-inline:0;top:0;height:6.5rem;background:linear-gradient(to bottom,rgba(28,28,30,.92),transparent)}
-.bg-b{position:absolute;inset-inline:0;bottom:0;height:9rem;background:linear-gradient(to top,rgba(28,28,30,.95),rgba(28,28,30,.55),transparent)}
+.bg-v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,transparent 32%,rgba(14,14,16,.50) 68%,rgba(14,14,16,.92) 100%)}
+.bg-t{position:absolute;inset-inline:0;top:0;height:6.5rem;background:linear-gradient(to bottom,rgba(14,14,16,.94),transparent)}
+.bg-b{position:absolute;inset-inline:0;bottom:0;height:9rem;background:linear-gradient(to top,rgba(14,14,16,.96),rgba(14,14,16,.62),transparent)}
 .shell{position:relative;z-index:10;padding-bottom:calc(4.6rem + env(safe-area-inset-bottom))}
 .page{max-width:480px;margin:0 auto;padding:18px 14px 14px}
 .hdr{text-align:left;margin-bottom:16px}
@@ -456,7 +456,7 @@ setView("horario");
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
-    navigator.serviceWorker.register("./sw.js?v=17", { scope: "./" }).then(function (reg) {
+    navigator.serviceWorker.register("./sw.js?v=18", { scope: "./" }).then(function (reg) {
       reg.addEventListener("updatefound", function () {
         var nw = reg.installing;
         if (!nw) return;
