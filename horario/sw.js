@@ -1,5 +1,5 @@
 /* Service Worker — Física 2026 unified (proposta + horário) v5 */
-const CACHE = "fisica-josue-v19-sel";
+const CACHE = "fisica-josue-v20-glass";
 const SHELL = [
   "./",
   "./index.html",
