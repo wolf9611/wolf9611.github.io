@@ -202,6 +202,29 @@ body::before{
 }
 
 /* CV — tighter, no footer, academic only */
+.page-cv{
+  --bg:#121214;
+  --bg-elev:#1a1a1c;
+  --ink:#e6e6e8;
+  --muted:#9c9ca2;
+  --line:#2c2c30;
+  --accent:#8b8b92;
+  --accent-hi:#d0d0d4;
+  --accent-dim:#5c5c62;
+  --paper:#f3f3f5;
+  background:var(--bg);
+  color:var(--ink);
+}
+.page-cv::before{
+  background:var(--line);
+  height:1px;
+}
+.page-cv .cv-lead{
+  font-size:1.02rem;
+  line-height:1.55;
+  color:var(--paper);
+  margin:0 0 2rem;
+}
 .page-cv .cv-top{
   padding:2rem 0 0;
   border-bottom:1px solid var(--line);
