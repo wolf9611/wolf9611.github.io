@@ -1,14 +1,14 @@
-/* Josué Cavalcante — military green, minimal academic */
+/* Josué Cavalcante — modern gray, minimal academic */
 :root{
-  --bg:#1a2118;
-  --bg-elev:#222b1f;
-  --ink:#e8ebe4;
-  --muted:#9aa396;
-  --line:#3d4a38;
-  --accent:#6b7f5a;
-  --accent-hi:#8fa87a;
-  --accent-dim:#4a5c3f;
-  --paper:#dfe6d6;
+  --bg:#121214;
+  --bg-elev:#1a1a1c;
+  --ink:#e6e6e8;
+  --muted:#9c9ca2;
+  --line:#2c2c30;
+  --accent:#8b8b92;
+  --accent-hi:#d0d0d4;
+  --accent-dim:#5c5c62;
+  --paper:#f3f3f5;
 }
 
 *{box-sizing:border-box}
@@ -197,28 +197,11 @@ main{padding-bottom:3rem;min-height:50vh}
 body::before{
   content:"";
   display:block;
-  height:3px;
-  background:linear-gradient(90deg, var(--accent-dim), var(--accent), var(--accent-dim));
+  height:1px;
+  background:var(--line);
 }
 
 /* CV — tighter, no footer, academic only */
-.page-cv{
-  --bg:#121214;
-  --bg-elev:#1a1a1c;
-  --ink:#e6e6e8;
-  --muted:#9c9ca2;
-  --line:#2c2c30;
-  --accent:#8b8b92;
-  --accent-hi:#d0d0d4;
-  --accent-dim:#5c5c62;
-  --paper:#f3f3f5;
-  background:var(--bg);
-  color:var(--ink);
-}
-.page-cv::before{
-  background:var(--line);
-  height:1px;
-}
 .page-cv .cv-lead{
   font-size:1.02rem;
   line-height:1.55;
