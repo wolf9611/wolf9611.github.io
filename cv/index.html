@@ -4,16 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CV — Josué da Silva Cavalcante</title>
+  <meta name="description" content="Academic CV. M.S. Astronomy, Observatório Nacional. Dense-field astrometry of small Solar System bodies.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-  <header class="site-header">
+<body class="page-cv">
+  <header class="cv-top">
     <div class="wrap">
-      <div class="site-title"><a href="/">Josué da Silva Cavalcante</a></div>
-      <div class="site-tag">Astronomy · Small bodies · Astrometry · Machine learning</div>
+      <p class="cv-name"><a href="/">Josué da Silva Cavalcante</a></p>
+      <p class="cv-line">Astronomy · Observatório Nacional</p>
       <nav class="nav" aria-label="Main">
         <a href="/">Home</a>
         <a href="/research/">Research</a>
@@ -24,76 +25,48 @@
     </div>
   </header>
 
-  <main class="wrap">
-    <div class="kicker">Curriculum vitae</div>
-    <article class="prose">
-      <p class="lead">Concise academic CV. A full PDF curriculum may be linked here when available.</p>
-
-      <h2>Education</h2>
-      <div class="cv-block">
-        <div class="when">Doctoral program · Astronomy — beginning</div>
-        <div class="role">Dense-field small-body astrometry/photometry; ML-enabled astrometric software</div>
-        <div class="place">Program affiliation to be updated upon enrollment</div>
-      </div>
-      <div class="cv-block">
-        <div class="when">M.S. · Astronomy · Observatório Nacional (ON)</div>
-        <div class="role">Master’s thesis: Astrometria e fotometria de pequenos corpos do Sistema Solar em imagens com campos estelares densos</div>
-        <div class="place">
-          Rio de Janeiro, Brazil · Supervisor: Dr.&nbsp;Julio I.&nbsp;Bueno de Camargo · Co-supervisor: Dr.&nbsp;Adriano Pieres ·
-          DIA/DIAPL2 on SOAR/SOI observations of (10199)&nbsp;Chariklo; PRAIA &amp; DAOPHOT; NIMA residual improvement (e.g., 0.066″ → 0.018″ in ∆α&nbsp;cos&nbsp;δ); light-curve phase σ<sub>φ</sub>&nbsp;=&nbsp;0.0025 ·
-          <a href="/files/dissertacao_cavalcante_2025.pdf">PDF</a>
+  <main class="wrap cv-main">
+    <section>
+      <h1>Education</h1>
+      <dl class="cv-dl">
+        <div>
+          <dt>Doctoral studies · Astronomy</dt>
+          <dd>Beginning. Dense-field astrometry and ML-enabled measurement software.</dd>
         </div>
-      </div>
-      <div class="cv-block">
-        <div class="when">Licenciatura · Physics · Universidade Estadual Vale do Acaraú (UVA)</div>
-        <div class="role">Undergraduate degree (Licenciatura in Physics)</div>
-        <div class="place">Ceará, Brazil · Undergraduate research supervisor: Dr.&nbsp;Antonio Fernandes Siqueira</div>
-      </div>
+        <div>
+          <dt>M.S. · Astronomy · Observatório Nacional</dt>
+          <dd>
+            Thesis: <em>Astrometria e fotometria de pequenos corpos do Sistema Solar em imagens com campos estelares densos</em>.
+            Supervisor Dr.&nbsp;Julio I.&nbsp;Bueno de Camargo; co-supervisor Dr.&nbsp;Adriano Pieres.
+            <a href="/files/dissertacao_cavalcante_2025.pdf">PDF</a>
+          </dd>
+        </div>
+        <div>
+          <dt>Licenciatura · Physics · UVA</dt>
+          <dd>Universidade Estadual Vale do Acaraú, Ceará. Research supervisor Dr.&nbsp;Antonio Fernandes Siqueira.</dd>
+        </div>
+      </dl>
+    </section>
 
-      <h2>Research interests</h2>
-      <ul>
-        <li>Difference image analysis for moving targets in dense stellar fields</li>
-        <li>High-precision astrometry and photometry of small Solar System bodies</li>
-        <li>Stellar occultation support measurements; centaurs and TNOs</li>
-        <li>Astrometric pipelines (PRAIA, DIA/DIAPL2) and scientific software</li>
-        <li>Machine learning and AI methods for astrometric measurement</li>
+    <section>
+      <h1>Research</h1>
+      <ul class="cv-list">
+        <li>Astrometry and photometry of small bodies in dense stellar fields</li>
+        <li>Difference image analysis (DIA/DIAPL2); PRAIA; occultation support</li>
+        <li>Machine learning for astrometric measurement</li>
       </ul>
+    </section>
 
-      <h2>Technical skills</h2>
-      <ul>
-        <li>Astrometric and photometric reduction (PRAIA, DAOPHOT/IRAF context, DIA)</li>
-        <li>Scientific Python; imaging data analysis</li>
-        <li>Machine learning methods for measurement problems (developing)</li>
-        <li>Scientific writing (English and Portuguese)</li>
-      </ul>
-
-      <h2>Contact</h2>
-      <p>
-        <a href="mailto:cavalcante_wolf@proton.me">cavalcante_wolf@proton.me</a><br>
-        <a href="http://lattes.cnpq.br/4498102376995368" rel="me noopener" target="_blank">Curriculum Lattes</a>
+    <section>
+      <h1>Contact</h1>
+      <p class="cv-contact">
+        <a href="mailto:cavalcante_wolf@proton.me">cavalcante_wolf@proton.me</a>
+        <span aria-hidden="true">·</span>
+        <a href="http://lattes.cnpq.br/4498102376995368" rel="me noopener" target="_blank">Lattes</a>
+        <span aria-hidden="true">·</span>
+        <a href="/pubs/">Publications</a>
       </p>
-    </article>
+    </section>
   </main>
-
-  <footer class="site-footer">
-    <div class="wrap footer-grid">
-      <div>
-        <div class="footer-name">Josué da Silva Cavalcante</div>
-        <ul class="footer-list">
-          <li><a href="mailto:cavalcante_wolf@proton.me">cavalcante_wolf@proton.me</a></li>
-          <li><a href="http://lattes.cnpq.br/4498102376995368" rel="me noopener" target="_blank">Lattes CV</a></li>
-          <li><a href="https://x.com/CavalcanteWolf" rel="me noopener" target="_blank">X · @CavalcanteWolf</a></li>
-          <li><a href="https://www.instagram.com/cavalcante_josue96/" rel="me noopener" target="_blank">Instagram · cavalcante_josue96</a></li>
-        </ul>
-      </div>
-      <div>
-        <ul class="footer-list">
-          <li><a href="/pubs/">Publications</a></li>
-          <li><a href="/research/">Research</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="wrap footer-copy">Academic homepage</div>
-  </footer>
 </body>
 </html>
