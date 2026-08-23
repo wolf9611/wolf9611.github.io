@@ -1,8 +1,9 @@
 /* Service Worker — Física 2026 unified (proposta + horário) v5 */
-const CACHE = "fisica-josue-v21-geral";
+const CACHE = "fisica-josue-v22-geral-ui";
 const SHELL = [
   "./",
   "./index.html",
+  "./geral-data.js",
   "./manifest.webmanifest",
   "./icons/wolf-192.png",
   "./icons/wolf-512.png",

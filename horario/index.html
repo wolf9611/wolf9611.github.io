@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Física 2026 – Prof. Josué</title>
 
-<link rel="manifest" href="manifest.webmanifest?v=21">
+<link rel="manifest" href="manifest.webmanifest?v=22">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/wolf-favicon-32.png?v=8">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/wolf-192.png?v=8">
 <link rel="apple-touch-icon" href="icons/wolf-apple-180.png?v=8">
@@ -170,6 +170,13 @@ button:active{transform:scale(.98);opacity:.88}
 .geral-img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--stroke-soft);background:#111}
 .geral-note{font-size:12px;color:var(--subtle);margin:10px 0 0;line-height:1.4}
 .geral-note a{color:var(--fg)}
+.turmas{display:flex;gap:6px;overflow-x:auto;margin:0 0 12px;padding-bottom:2px;scrollbar-width:none}
+.turmas::-webkit-scrollbar{display:none}
+.turma{flex-shrink:0;min-height:34px;padding:6px 11px;border-radius:999px;border:1px solid var(--stroke-soft);background:var(--glass);color:var(--muted);font-weight:500;font-size:12px}
+.turma.on{background:var(--glass-sel);color:#fff;font-weight:800;border:1px solid rgba(210,232,255,.7)}
+.row-prof{display:block;margin-top:2px;font-size:12px;font-weight:500;color:var(--subtle)}
+.row.me{background:rgba(186,214,236,.10)}
+.row-chip{font-size:11px;font-weight:600;color:var(--muted);margin-right:4px}
 .btn-back-horario{
   display:inline-flex;align-items:center;gap:6px;
   margin:0 0 12px;padding:8px 12px;border-radius:999px;
@@ -240,10 +247,14 @@ button:active{transform:scale(.98);opacity:.88}
       <p class="hdr-sub">Grade oficial 2026 · todas as turmas</p>
     </header>
     <div class="days" id="geral-days" role="tablist" aria-label="Dia da grade geral"></div>
-    <div class="card" style="padding:8px">
-      <img id="geral-img" class="geral-img" alt="Horário geral do dia">
+    <div class="turmas" id="geral-turmas" role="tablist" aria-label="Turma"></div>
+    <div class="pill-bar" role="tablist" aria-label="Turno geral">
+      <button type="button" class="pill" data-gturno="manha" id="g-manha">Manhã</button>
+      <button type="button" class="pill" data-gturno="tarde" id="g-tarde">Tarde</button>
     </div>
-    <p class="geral-note"><a href="./geral/horario.pdf" target="_blank" rel="noopener">Abrir PDF da grade oficial</a></p>
+    <p class="prof" id="geral-coord"></p>
+    <div id="geral-wrap" class="card"><div class="slots" id="geral-slots"></div></div>
+    <p class="geral-note"><a href="./geral/horario.pdf" target="_blank" rel="noopener">PDF da grade oficial</a></p>
   </div>
 </div>
 
@@ -260,6 +271,7 @@ button:active{transform:scale(.98);opacity:.88}
   </div>
 </nav>
 
+<script src="./geral-data.js?v=22"></script>
 <script>
 const CURRICULUM = {"1": {"label": "1ª série", "professores": "Josué da Silva Cavalcante e Edvan Araújo Rodrigues", "months": [{"id": "fevereiro", "label": "Fevereiro", "short": "Fev", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT303"], "objeto": "Introdução à Física", "detalhamento": ["O que é Física?", "Algarismos significativos", "Notação científica", "Ordem de grandeza", "Cálculo aritmético e algébrico aplicado à Física", "Grandezas físicas e unidades de medida", "Introdução à cinemática"]}, {"id": "marco", "label": "Março", "short": "Mar", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT303", "EM13CNT301"], "objeto": "Cinemática", "detalhamento": ["Conceitos fundamentais: posição, trajetória e referencial", "O que é o tempo?", "Deslocamento", "Velocidade", "Aceleração", "Aplicação matemática: sistemas de coordenadas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "abril", "label": "Abril", "short": "Abr", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT301", "EM13CNT302"], "objeto": "Cinemática", "detalhamento": ["Movimento retilíneo uniforme (MRU)", "Movimento retilíneo uniformemente variado (MRUV)", "Aplicação matemática: equações horárias", "Noções de cinemática rotacional", "Noções de movimento circular uniforme"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "maio", "label": "Maio", "short": "Mai", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT301", "EM13CNT302", "EM13CNT303"], "objeto": "Cinemática vetorial", "detalhamento": ["O que é um vetor?", "Grandezas escalares", "Grandezas vetoriais", "Operações com vetores", "Aplicação matemática: usando o teorema de Pitágoras"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "junho", "label": "Junho", "short": "Jun", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT301", "EM13CNT303"], "objeto": "Cinemática vetorial", "detalhamento": ["Aplicação matemática: trabalhando com medidas angulares", "Movimento de queda livre", "Lançamento de projéteis"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "agosto", "label": "Agosto", "short": "Ago", "competencias": "03", "habilidades": ["EM13CNT301", "EM13CNT306", "EM13CNT307"], "objeto": "Dinâmica", "detalhamento": ["O que é força?", "Leis de Newton"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "setembro", "label": "Setembro", "short": "Set", "competencias": "02 e 03", "habilidades": ["EM13CNT207", "EM13CNT301", "EM13CNT306", "EM13CNT307"], "objeto": "Dinâmica", "detalhamento": ["Força peso", "Força normal", "Forças de atrito", "Lei da gravitação universal", "Leis de Kepler"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "outubro", "label": "Outubro", "short": "Out", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT207", "EM13CNT301", "EM13CNT306", "EM13CNT307"], "objeto": "Dinâmica", "detalhamento": ["Energia", "Trabalho de uma força", "Tipos de energia", "Energia mecânica", "Conservação de energia mecânica"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "novembro", "label": "Novembro", "short": "Nov", "competencias": "01 e 03", "habilidades": ["EM13CNT101", "EM13CNT306", "EM13CNT307"], "objeto": "Hidrostática e hidrodinâmica", "detalhamento": ["Noções básicas de hidrostática", "Noções básicas de hidrodinâmica"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "dezembro", "label": "Dezembro", "short": "Dez", "competencias": "01 e 03", "habilidades": ["EM13CNT101", "EM13CNT301", "EM13CNT304", "EM13CNT307"], "objeto": "Estática", "detalhamento": ["Equilíbrio de forças", "Aplicações na engenharia"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}]}, "2": {"label": "2ª série", "professores": "Josué da Silva Cavalcante", "months": [{"id": "fevereiro", "label": "Fevereiro", "short": "Fev", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT204", "EM13CNT202"], "objeto": "Termologia", "detalhamento": ["O que é temperatura?", "Escalas de temperatura", "Equilíbrio térmico", "Conversões entre escalas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "marco", "label": "Março", "short": "Mar", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT204", "EM13CNT203", "EM13CNT104"], "objeto": "Termologia", "detalhamento": ["Dilatação térmica", "Introdução à calorimetria", "O que é calor?", "Medidas de calor", "Capacidade térmica", "Calor específico"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "abril", "label": "Abril", "short": "Abr", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT104", "EM13CNT202", "EM13CNT206"], "objeto": "Calorimetria", "detalhamento": ["Calor latente", "Relação fundamental da calorimetria", "Estados físicos da matéria", "Processos de transferência de calor"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "maio", "label": "Maio", "short": "Mai", "competencias": "01 e 03", "habilidades": ["EM13CNT102", "EM13CNT303"], "objeto": "Gases", "detalhamento": ["O que é um gás?", "Variáveis de estado", "Comportamento térmico dos gases", "Transformações gasosas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "junho", "label": "Junho", "short": "Jun", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT206"], "objeto": "Gases e introdução à termodinâmica", "detalhamento": ["Transformações gasosas", "Diagramas PV", "Lei dos gases ideais", "Gases reais", "Lei zero", "Primeira lei", "Trabalho em um sistema termodinâmico"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "agosto", "label": "Agosto", "short": "Ago", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT202"], "objeto": "Termodinâmica", "detalhamento": ["Noções sobre a segunda lei", "Máquinas térmicas", "Ciclo de Carnot", "Rendimento", "O que é entropia?", "Noções sobre a terceira lei"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "setembro", "label": "Setembro", "short": "Set", "competencias": "01 e 03", "habilidades": ["EM13CNT102", "EM13CNT104", "EM13CNT306", "EM13CNT303"], "objeto": "Introdução ao estudo da óptica geométrica", "detalhamento": ["Fontes de luz", "Velocidade da luz", "Princípios do movimento da luz", "Reflexão", "Refração"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "outubro", "label": "Outubro", "short": "Out", "competencias": "02 e 03", "habilidades": ["EM13CNT310", "EM13CNT306", "EM13CNT202"], "objeto": "Ondulatória", "detalhamento": ["O que é uma onda?", "Natureza das ondas", "Relação fundamental das ondas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "novembro", "label": "Novembro", "short": "Nov", "competencias": "01 e 03", "habilidades": ["EM13CNT310", "EM13CNT106", "EM13CNT107"], "objeto": "Ondulatória", "detalhamento": ["Fenômenos ondulatórios", "O fenômeno da interferência", "Aplicações"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "dezembro", "label": "Dezembro", "short": "Dez", "competencias": "01 e 03", "habilidades": ["EM13CNT310", "EM13CNT106", "EM13CNT107"], "objeto": "Acústica", "detalhamento": ["O som", "Efeito Doppler", "Noções básicas sobre acústica"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}]}, "3": {"label": "3ª série", "professores": "Josué da Silva Cavalcante", "months": [{"id": "fevereiro", "label": "Fevereiro", "short": "Fev", "competencias": "01", "habilidades": ["EM13CNT104", "EM13CNT106"], "objeto": "Eletricidade", "detalhamento": ["O que é eletricidade?", "Carga elétrica", "Carga elementar", "Processos por eletrização", "Força elétrica", "Lei de Coulomb"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "marco", "label": "Março", "short": "Mar", "competencias": "01", "habilidades": ["EM13CNT104", "EM13CNT106"], "objeto": "Eletricidade", "detalhamento": ["Campo elétrico", "Potencial elétrico", "Energia potencial elétrica"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "abril", "label": "Abril", "short": "Abr", "competencias": "01", "habilidades": ["EM13CNT104", "EM13CNT102"], "objeto": "Eletrodinâmica", "detalhamento": ["O que é corrente elétrica?", "Intensidade de corrente elétrica", "Corrente contínua", "Corrente alternada"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "maio", "label": "Maio", "short": "Mai", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT206"], "objeto": "Eletrodinâmica", "detalhamento": ["Elementos de um circuito elétrico", "Diferença de potencial elétrico", "Resistores", "Resistência elétrica", "Lei de Ohm"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "junho", "label": "Junho", "short": "Jun", "competencias": "01 e 02", "habilidades": ["EM13CNT203"], "objeto": "Eletrodinâmica", "detalhamento": ["Associação de resistores", "Capacitores", "Capacidade elétrica", "Associação de capacitores"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "agosto", "label": "Agosto", "short": "Ago", "competencias": "02", "habilidades": ["EM13CNT203"], "objeto": "Eletrodinâmica", "detalhamento": ["Geradores e receptores", "Fem", "Leis de Kirchhoff"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "setembro", "label": "Setembro", "short": "Set", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT203", "EM13CNT107", "EM13CNT304"], "objeto": "Eletrodinâmica", "detalhamento": ["Potência elétrica", "Consumo de energia", "O kWh", "Rendimento"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "outubro", "label": "Outubro", "short": "Out", "competencias": "03", "habilidades": ["EM13CNT308", "EM13CNT304"], "objeto": "Magnetismo", "detalhamento": ["O que é o magnetismo?", "Força magnética", "Campo magnético"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "novembro", "label": "Novembro", "short": "Nov", "competencias": "03", "habilidades": ["EM13CNT308", "EM13CNT303"], "objeto": "Eletromagnetismo", "detalhamento": ["Noções básicas", "Magnetismo e corrente elétrica", "Principais equações e leis", "Ondas eletromagnéticas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "dezembro", "label": "Dezembro", "short": "Dez", "competencias": "02 e 03", "habilidades": ["EM13CNT205", "EM13CNT303"], "objeto": "Física moderna", "detalhamento": ["Física quântica", "Física nuclear", "Teoria da relatividade"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}]}};
 const SCHEDULE = {
@@ -474,15 +486,12 @@ renderHorario();
 setView("horario");
 (function(){
   var geralDay = sel;
-  var geralPage = {Segunda:1,"Terça":2,Quarta:3,Quinta:4,Sexta:5};
+  var geralTurma = "1A";
+  var geralTurno = turno;
   function renderGeral(){
-    var img = document.getElementById("geral-img");
-    if (img) {
-      img.src = "./geral/dia-" + (geralPage[geralDay] || 1) + ".jpg";
-      img.alt = "Horário geral — " + geralDay;
-    }
+    var dayMap = GERAL[geralDay] || {};
+    var times = GERAL_TIMES.filter(function(t){ return geralTurno === "manha" ? isM(t) : !isM(t); });
     var dEl = document.getElementById("geral-days");
-    if (!dEl) return;
     dEl.innerHTML = "";
     dn.forEach(function(d){
       var b = document.createElement("button");
@@ -491,6 +500,50 @@ setView("horario");
       b.textContent = dayShort[d];
       b.onclick = function(){ geralDay = d; renderGeral(); };
       dEl.appendChild(b);
+    });
+    var tEl = document.getElementById("geral-turmas");
+    tEl.innerHTML = "";
+    [{id:"all",label:"Todas",coord:""}].concat(GERAL_TURMAS).forEach(function(tu){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "turma" + (geralTurma === tu.id ? " on" : "");
+      b.textContent = tu.label;
+      b.onclick = function(){ geralTurma = tu.id; renderGeral(); };
+      tEl.appendChild(b);
+    });
+    document.querySelectorAll("[data-gturno]").forEach(function(t){
+      t.classList.toggle("on", t.dataset.gturno === geralTurno);
+      t.onclick = function(){ geralTurno = t.dataset.gturno; renderGeral(); };
+    });
+    var info = GERAL_TURMAS.find(function(x){ return x.id === geralTurma; });
+    var coord = document.getElementById("geral-coord");
+    coord.textContent = info ? (info.label + " · coordenação: " + info.coord) : "Todas as turmas · toque numa turma para filtrar";
+    var slots = document.getElementById("geral-slots");
+    slots.innerHTML = "";
+    times.forEach(function(tm){
+      var row = document.createElement("div");
+      var tEnd = endTime[tm] || "";
+      var cells = dayMap[tm] || {};
+      if (geralTurma === "all") {
+        row.className = "row";
+        var bits = GERAL_TURMAS.map(function(tu){
+          var c = cells[tu.id];
+          if (!c) return "";
+          var me = c.p === "Josué" ? " class=\"s-f2\"" : "";
+          return "<div><span class=\"row-chip\">" + esc(tu.label) + "</span><span" + me + ">" + esc(c.d) + "</span> <span class=\"row-prof\" style=\"display:inline;margin:0\">" + esc(c.p) + "</span></div>";
+        }).join("");
+        row.innerHTML = '<div class="row-time">' + tm + (tEnd ? '<span class="end"> – ' + tEnd + "</span>" : "") + "</div><div>" + bits + "</div>";
+      } else {
+        var c = cells[geralTurma];
+        if (!c) return;
+        row.className = "row" + (c.p === "Josué" ? " me" : "");
+        var tag = c.e ? '<span class="row-tu">eletiva</span>' : "";
+        row.innerHTML =
+          '<div class="row-time">' + tm + (tEnd ? '<span class="end"> – ' + tEnd + "</span>" : "") + "</div>" +
+          "<div><span class=\"row-sub\">" + esc(c.d) + "</span>" + tag +
+          '<span class="row-prof">' + esc(c.p) + "</span></div>";
+      }
+      slots.appendChild(row);
     });
   }
   var bp = document.getElementById("btn-open-proposta");
@@ -507,7 +560,7 @@ setView("horario");
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
-    navigator.serviceWorker.register("./sw.js?v=21", { scope: "./" }).then(function (reg) {
+    navigator.serviceWorker.register("./sw.js?v=22", { scope: "./" }).then(function (reg) {
       reg.addEventListener("updatefound", function () {
         var nw = reg.installing;
         if (!nw) return;
