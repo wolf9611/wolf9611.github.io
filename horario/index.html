@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Física 2026 – Prof. Josué</title>
 
-<link rel="manifest" href="manifest.webmanifest?v=20">
+<link rel="manifest" href="manifest.webmanifest?v=21">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/wolf-favicon-32.png?v=8">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/wolf-192.png?v=8">
 <link rel="apple-touch-icon" href="icons/wolf-apple-180.png?v=8">
@@ -160,12 +160,16 @@ button:active{transform:scale(.98);opacity:.88}
 .nav-btn[data-view="horario"].on{background:var(--glass-sel);color:#fff;border-color:rgba(210,232,255,.7);font-weight:800}
 .btn-proposta{
   display:inline-flex;align-items:center;justify-content:center;gap:6px;
-  margin:10px 0 0;padding:8px 12px;border-radius:999px;
+  margin:0;padding:8px 12px;border-radius:999px;
   border:1px solid var(--stroke);background:var(--glass);color:var(--muted);
   font-size:12px;font-weight:500;
   backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
 }
+.btn-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
 .btn-proposta svg{width:13px;height:13px;opacity:.85}
+.geral-img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--stroke-soft);background:#111}
+.geral-note{font-size:12px;color:var(--subtle);margin:10px 0 0;line-height:1.4}
+.geral-note a{color:var(--fg)}
 .btn-back-horario{
   display:inline-flex;align-items:center;gap:6px;
   margin:0 0 12px;padding:8px 12px;border-radius:999px;
@@ -207,10 +211,16 @@ button:active{transform:scale(.98);opacity:.88}
       <h1 class="hdr-name">Prof. Josué Cavalcante</h1>
       <p class="hdr-sub">Física · C.N. ENEM · LEC</p>
     
+      <div class="btn-row">
       <button type="button" class="btn-proposta" id="btn-open-proposta" aria-label="Abrir proposta curricular">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8M8 11h6"/></svg>
         Proposta curricular 2026
       </button>
+      <button type="button" class="btn-proposta" id="btn-open-geral" aria-label="Abrir horário geral da escola">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Horário geral
+      </button>
+      </div>
 </header>
     <div class="days" id="days" role="tablist" aria-label="Dia"></div>
     <div class="pill-bar" role="tablist" aria-label="Turno">
@@ -219,7 +229,21 @@ button:active{transform:scale(.98);opacity:.88}
     </div>
     <div id="slots-wrap" class="card"><div class="slots" id="slots"></div></div>
     <div class="gloss" id="glossario" hidden></div>
-    <footer class="footer">Atualizado em 03/08/2026</footer>
+    <footer class="footer">Atualizado em 23/08/2026</footer>
+  </div>
+
+  <div id="view-geral" class="page hidden">
+    <header class="hdr">
+      <button type="button" class="btn-back-horario" id="btn-back-horario-geral">← Horário</button>
+      <p class="hdr-k">EEMTI José Cláudio de Araújo</p>
+      <h1 class="hdr-name">Horário geral</h1>
+      <p class="hdr-sub">Grade oficial 2026 · todas as turmas</p>
+    </header>
+    <div class="days" id="geral-days" role="tablist" aria-label="Dia da grade geral"></div>
+    <div class="card" style="padding:8px">
+      <img id="geral-img" class="geral-img" alt="Horário geral do dia">
+    </div>
+    <p class="geral-note"><a href="./geral/horario.pdf" target="_blank" rel="noopener">Abrir PDF da grade oficial</a></p>
   </div>
 </div>
 
@@ -246,15 +270,15 @@ const SCHEDULE = {
     {time:"9:20",type:"livre"},
     {time:"10:10",type:"f1",sub:"Física",turma:"1ª C"},
     {time:"11:00",type:"f2",sub:"Física",turma:"2ª C"},
-    {time:"13:00",type:"lec",sub:"LEC",eo:"1ª B · 2ª A"},
-    {time:"13:50",type:"f1",sub:"Física",turma:"1ª B",eo:"1ª A"},
+    {time:"13:00",type:"lec",sub:"LEC",eo:"1ª B (Romário) · 2ª A (Deuseline)"},
+    {time:"13:50",type:"f1",sub:"Física",turma:"1ª B",eo:"1ª A (Romário)"},
     {time:"14:55",type:"lec",sub:"LEC"},
     {time:"15:45",type:"lec",sub:"LEC"}
   ],
   "Terça":[
-    {time:"7:20",type:"f3",sub:"Física",turma:"3ª C",eo:"1ª C"},
-    {time:"8:10",type:"livre",eo:"1ª A"},
-    {time:"9:20",type:"f2",sub:"Física",turma:"2ª B",eo:"1ª B"},
+    {time:"7:20",type:"f3",sub:"Física",turma:"3ª C",eo:"1ª C (Romário)"},
+    {time:"8:10",type:"livre",eo:"1ª A (Romário)"},
+    {time:"9:20",type:"f2",sub:"Física",turma:"2ª B",eo:"1ª B (Romário)"},
     {time:"10:10",type:"f1",sub:"Física",turma:"1ª B"},
     {time:"11:00",type:"cnenem",sub:"C.N. ENEM",turma:"3ª B"},
     {time:"13:00",type:"f2",sub:"Física",turma:"2ª A"},
@@ -263,13 +287,13 @@ const SCHEDULE = {
     {time:"15:45",type:"lec",sub:"LEC"}
   ],
   Quarta:[
-    {time:"7:20",type:"f1",sub:"Física",turma:"1ª C",eo:"3ª A"},
-    {time:"8:10",type:"f2",sub:"Física",turma:"2ª C",eo:"3ª B"},
-    {time:"9:20",type:"planej",sub:"Planejamento",eo:"3ª C"},
+    {time:"7:20",type:"f1",sub:"Física",turma:"1ª C",eo:"3ª A (Chagas)"},
+    {time:"8:10",type:"f2",sub:"Física",turma:"2ª C",eo:"3ª B (Chagas)"},
+    {time:"9:20",type:"planej",sub:"Planejamento",eo:"3ª C (Chagas)"},
     {time:"10:10",type:"planej",sub:"Planejamento"},
     {time:"11:00",type:"arm",sub:"ARM",turma:"3ª A",alunos:"Gustavo · Gabriel Soares · Deysiane"},
     {time:"13:00",type:"planej",sub:"Planejamento"},
-    {time:"13:50",type:"planej",sub:"Planejamento",eo:"2ª B"},
+    {time:"13:50",type:"planej",sub:"Planejamento",eo:"2ª B (Valéria)"},
     {time:"14:55",type:"arm",sub:"ARM",turma:"3ª A",alunos:"Gustavo · Gabriel Soares · Deysiane"},
     {time:"15:45",type:"arm",sub:"ARM",turma:"3ª C",alunos:"Amanda · Dalison · Ana Clara"}
   ],
@@ -279,19 +303,19 @@ const SCHEDULE = {
     {time:"9:20",type:"f3",sub:"Física",turma:"3ª A"},
     {time:"10:10",type:"cnenem",sub:"C.N. ENEM",turma:"3ª B"},
     {time:"11:00",type:"f2",sub:"Física",turma:"2ª A"},
-    {time:"13:00",type:"planejdom",sub:"Plano D.",eo:"2ª B · 3ª A"},
-    {time:"13:50",type:"planejdom",sub:"Plano D.",eo:"3ª B"},
-    {time:"14:55",type:"planejdom",sub:"Plano D.",eo:"2ª C · 3ª C"},
+    {time:"13:00",type:"planejdom",sub:"Plano D.",eo:"2ª B (Valéria) · 3ª A (Chagas)"},
+    {time:"13:50",type:"planejdom",sub:"Plano D.",eo:"3ª B (Chagas)"},
+    {time:"14:55",type:"planejdom",sub:"Plano D.",eo:"2ª C (Valéria) · 3ª C (Chagas)"},
     {time:"15:45",type:"planejdom",sub:"Plano D."}
   ],
   Sexta:[
     {time:"7:20",type:"livre"},
     {time:"8:10",type:"planej",sub:"Planejamento"},
     {time:"9:20",type:"arm",sub:"ARM",turma:"3ª C",alunos:"Amanda · Dalison · Ana Clara"},
-    {time:"10:10",type:"lec",sub:"LEC",eo:"2ª A"},
+    {time:"10:10",type:"lec",sub:"LEC",eo:"2ª A (Deuseline)"},
     {time:"11:00",type:"f3",sub:"Física",turma:"3ª C"},
     {time:"13:00",type:"lec",sub:"LEC"},
-    {time:"13:50",type:"f3",sub:"Física",turma:"3ª B",eo:"1ª C"},
+    {time:"13:50",type:"f3",sub:"Física",turma:"3ª B",eo:"1ª C (Romário)"},
     {time:"14:55",type:"f2",sub:"Física",turma:"2ª B"},
     {time:"15:45",type:"f3",sub:"Física",turma:"3ª A"}
   ]
@@ -317,6 +341,8 @@ function setView(v){
   view = v;
   document.getElementById("view-proposta").classList.toggle("hidden", v !== "proposta");
   document.getElementById("view-horario").classList.toggle("hidden", v !== "horario");
+  var vg = document.getElementById("view-geral");
+  if (vg) vg.classList.toggle("hidden", v !== "geral");
   document.getElementById("nav-proposta").classList.toggle("on", v === "proposta");
   document.getElementById("nav-horario").classList.toggle("on", v === "horario");
   var nh = document.getElementById("nav-horario");
@@ -432,7 +458,7 @@ function renderHorario(){
     {label:"ARM", desc:"Aulas de Reforço em Matemática", test:a=>a.some(s=>s.type==="arm")},
     {label:"Planejamento", desc:"Planejamento na escola (não domiciliar)", test:a=>a.some(s=>s.type==="planej")},
     {label:"Plano D.", desc:"Planejamento Domiciliar — até 4 h (trabalho em casa)", test:a=>a.some(s=>s.type==="planejdom")},
-    {label:"EO", desc:"Estudo Orientado — aula de outro professor; a turma pode fazer tarefas de outras disciplinas", test:a=>a.some(s=>s.eo)}
+    {label:"EO", desc:"Estudo Orientado — professor da turma no horário oficial", test:a=>a.some(s=>s.eo)}
   ].filter(e => e.test(arr));
 
   const gEl = document.getElementById("glossario");
@@ -447,17 +473,41 @@ renderProposta();
 renderHorario();
 setView("horario");
 (function(){
+  var geralDay = sel;
+  var geralPage = {Segunda:1,"Terça":2,Quarta:3,Quinta:4,Sexta:5};
+  function renderGeral(){
+    var img = document.getElementById("geral-img");
+    if (img) {
+      img.src = "./geral/dia-" + (geralPage[geralDay] || 1) + ".jpg";
+      img.alt = "Horário geral — " + geralDay;
+    }
+    var dEl = document.getElementById("geral-days");
+    if (!dEl) return;
+    dEl.innerHTML = "";
+    dn.forEach(function(d){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "day" + (geralDay === d ? " on" : "");
+      b.textContent = dayShort[d];
+      b.onclick = function(){ geralDay = d; renderGeral(); };
+      dEl.appendChild(b);
+    });
+  }
   var bp = document.getElementById("btn-open-proposta");
   if (bp) bp.onclick = function(){ setView("proposta"); };
+  var bg = document.getElementById("btn-open-geral");
+  if (bg) bg.onclick = function(){ geralDay = sel; renderGeral(); setView("geral"); };
   var bb = document.getElementById("btn-back-horario");
   if (bb) bb.onclick = function(){ setView("horario"); };
+  var bbg = document.getElementById("btn-back-horario-geral");
+  if (bbg) bbg.onclick = function(){ setView("horario"); };
 })();
 </script>
 
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
-    navigator.serviceWorker.register("./sw.js?v=20", { scope: "./" }).then(function (reg) {
+    navigator.serviceWorker.register("./sw.js?v=21", { scope: "./" }).then(function (reg) {
       reg.addEventListener("updatefound", function () {
         var nw = reg.installing;
         if (!nw) return;
