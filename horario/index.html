@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Física 2026 – Prof. Josué</title>
 
-<link rel="manifest" href="manifest.webmanifest?v=22">
+<link rel="manifest" href="manifest.webmanifest?v=23">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/wolf-favicon-32.png?v=8">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/wolf-192.png?v=8">
 <link rel="apple-touch-icon" href="icons/wolf-apple-180.png?v=8">
@@ -184,6 +184,218 @@ button:active{transform:scale(.98);opacity:.88}
   font-size:12px;font-weight:500;
 }
 
+/* UI 2026.2 — monitor escuro, preciso e responsivo */
+:root{
+  --bg:#101012;
+  --bg-deep:#0b0b0d;
+  --fg:#f8f7f4;
+  --muted:rgba(248,247,244,.78);
+  --subtle:rgba(248,247,244,.54);
+  --glass:rgba(22,22,25,.68);
+  --glass-hi:rgba(31,31,35,.84);
+  --glass-sel:linear-gradient(180deg,rgba(214,233,247,.30),rgba(126,158,181,.16));
+  --stroke:rgba(255,255,255,.12);
+  --stroke-soft:rgba(255,255,255,.075);
+  --line:rgba(255,255,255,.065);
+  --accent:#f4f4f2;
+  --accent-soft:rgba(255,255,255,.08);
+  --rd:20px;
+  --rd-sm:13px;
+  --glass-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 20px 55px rgba(0,0,0,.28);
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg-deep);
+  font-feature-settings:"ss01" 1,"tnum" 1;
+  letter-spacing:-.006em;
+}
+button{
+  transition:background-color .18s ease,border-color .18s ease,color .18s ease,transform .16s ease,opacity .18s ease;
+}
+button:hover{border-color:rgba(255,255,255,.16)}
+button:active{transform:scale(.975);opacity:1}
+button:focus-visible,a:focus-visible{
+  outline:2px solid rgba(222,239,252,.88);
+  outline-offset:3px;
+}
+.bg-fill{
+  background:
+    radial-gradient(70% 55% at 50% -4%,rgba(110,132,150,.16),transparent 66%),
+    radial-gradient(58% 50% at 82% 42%,rgba(90,105,118,.08),transparent 72%),
+    linear-gradient(180deg,#101012 0%,#0b0b0d 72%);
+}
+.bg img{
+  left:calc(50% + min(18vw,150px));top:36%;height:min(76vh,680px);max-width:min(92vw,560px);
+  opacity:.16;filter:grayscale(1) contrast(1.16) brightness(.82);
+}
+.bg-v{background:radial-gradient(ellipse at 66% 38%,transparent 0%,rgba(11,11,13,.16) 42%,rgba(11,11,13,.84) 100%)}
+.bg-t{height:8rem;background:linear-gradient(to bottom,rgba(11,11,13,.96),transparent)}
+.bg-b{height:12rem;background:linear-gradient(to top,rgba(11,11,13,.98),rgba(11,11,13,.55),transparent)}
+.shell{padding-bottom:calc(5.35rem + env(safe-area-inset-bottom))}
+.page{max-width:620px;padding:24px 16px 16px}
+.hdr{margin:2px 2px 20px}
+.hdr-k{
+  display:flex;align-items:center;gap:7px;margin-bottom:7px;
+  color:var(--subtle);font-size:10px;font-weight:800;letter-spacing:.105em;text-transform:uppercase;
+}
+.hdr-k::before{content:"";width:6px;height:6px;border-radius:50%;background:#dcebf5;box-shadow:0 0 0 4px rgba(220,235,245,.08)}
+.hdr-name{font-size:clamp(1.52rem,7vw,1.82rem);font-weight:800;letter-spacing:-.045em;line-height:1.08;text-shadow:none;text-wrap:balance}
+.hdr-sub{font-size:13px;color:var(--muted);margin-top:7px;letter-spacing:.01em}
+.btn-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:16px}
+.btn-proposta,.btn-back-horario{
+  min-height:48px;margin:0;padding:10px 12px;border-radius:14px;
+  border:1px solid var(--stroke-soft);background:rgba(255,255,255,.035);color:var(--muted);
+  font-size:12px;font-weight:800;line-height:1.2;
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.055);
+}
+.btn-proposta{justify-content:flex-start;text-align:left}
+.btn-proposta:hover,.btn-back-horario:hover{background:rgba(255,255,255,.065);color:var(--fg)}
+.btn-proposta svg{width:16px;height:16px;flex:0 0 auto;color:#dcebf5}
+.days{
+  gap:3px;margin-bottom:10px;padding:4px;border:1px solid var(--stroke-soft);border-radius:17px;
+  background:rgba(15,15,18,.72);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+}
+.day{
+  min-height:46px;padding:8px 2px;border:1px solid transparent;border-radius:13px;
+  background:transparent;color:var(--subtle);font-size:12px;font-weight:800;letter-spacing:.025em;
+  backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;
+}
+.day:hover{background:rgba(255,255,255,.04);color:var(--fg)}
+.day.on{
+  background:var(--glass-sel);color:#fff;border-color:rgba(217,235,248,.34);
+  backdrop-filter:blur(18px) saturate(1.35);-webkit-backdrop-filter:blur(18px) saturate(1.35);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 6px 16px rgba(0,0,0,.20);
+}
+.day .dot{top:auto;right:50%;bottom:5px;width:4px;height:4px;transform:translateX(50%);background:#eff8ff;box-shadow:0 0 0 3px rgba(239,248,255,.10)}
+.pill-bar{
+  gap:3px;padding:4px;margin-bottom:10px;border-radius:17px;
+  background:rgba(15,15,18,.72);border-color:var(--stroke-soft);
+  backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+}
+.pill{min-height:44px;padding:8px 10px;border:1px solid transparent;border-radius:13px;color:var(--subtle);font-size:12px;font-weight:800;letter-spacing:.015em}
+.pill:hover{background:rgba(255,255,255,.04);color:var(--fg)}
+.pill.on{
+  background:var(--glass-sel);color:#fff;border-color:rgba(217,235,248,.34);
+  backdrop-filter:blur(18px) saturate(1.35);-webkit-backdrop-filter:blur(18px) saturate(1.35);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 6px 16px rgba(0,0,0,.20);
+}
+.pill-count{min-width:20px;padding:2px 6px;background:rgba(0,0,0,.22);color:var(--muted);font-size:10px;font-weight:800}
+.pill.on .pill-count{background:rgba(4,8,12,.34);border:0;color:#fff}
+.months,.turmas{gap:6px;margin-bottom:12px;padding:1px 1px 5px;scroll-snap-type:x proximity}
+.month,.turma{
+  min-height:44px;padding:8px 13px;border-radius:12px;border-color:var(--stroke-soft);
+  background:rgba(255,255,255,.03);color:var(--subtle);font-size:12px;font-weight:800;
+  backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);scroll-snap-align:start;
+}
+.month.on,.turma.on{
+  background:var(--glass-sel);color:#fff;border-color:rgba(217,235,248,.34);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.20),0 5px 14px rgba(0,0,0,.18);
+}
+.prof{margin:0 2px 14px;color:var(--subtle);font-size:11px;line-height:1.5}
+.card,.gloss{
+  border:1px solid var(--stroke);border-radius:var(--rd);
+  background:rgba(20,20,23,.76);
+  backdrop-filter:blur(28px) saturate(1.18);-webkit-backdrop-filter:blur(28px) saturate(1.18);
+  box-shadow:var(--glass-shadow);
+}
+.card{margin-bottom:12px}
+.card-h{padding:16px 18px;border-bottom-color:var(--line)}
+.card-k,.sec-k{color:var(--subtle);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.card-t{font-size:1.18rem;font-weight:800;letter-spacing:-.028em}
+.sec{padding:15px 18px;border-bottom-color:var(--line)}
+.dl{gap:8px}
+.dl li{font-size:13px;line-height:1.45;color:var(--muted)}
+.dl li::before{background:#dcebf5;opacity:.58}
+.tag{border-color:var(--stroke-soft);background:rgba(255,255,255,.04);border-radius:8px;color:var(--muted)}
+.slots{padding:0}
+.row{
+  --row-accent:rgba(248,247,244,.34);
+  position:relative;grid-template-columns:4.9rem minmax(0,1fr);gap:10px;min-height:72px;
+  padding:14px 16px 14px 25px;border-bottom-color:var(--line);border-left:0;background:transparent;
+}
+.row::before{
+  content:"";position:absolute;left:11px;top:50%;width:6px;height:6px;border-radius:50%;
+  transform:translateY(-50%);background:var(--row-accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--row-accent) 12%,transparent);
+}
+.row:hover{background:rgba(255,255,255,.022)}
+.row:has(.s-f1){--row-accent:var(--f1)}
+.row:has(.s-f2){--row-accent:var(--f2)}
+.row:has(.s-f3){--row-accent:var(--f3)}
+.row:has(.s-cn){--row-accent:var(--cn)}
+.row:has(.s-pd){--row-accent:var(--pd)}
+.row:has(.s-pl){--row-accent:var(--pl)}
+.row:has(.s-lc){--row-accent:var(--lc)}
+.row:has(.s-arm){--row-accent:var(--arm)}
+.row.free{opacity:1;--row-accent:rgba(248,247,244,.28)}
+.row.free .row-time{color:var(--subtle)}
+.row-time{
+  display:flex;flex-direction:column;gap:2px;padding-top:0;color:var(--fg);
+  font-size:13px;font-weight:800;line-height:1.15;font-variant-numeric:tabular-nums;letter-spacing:.01em;
+}
+.row-time .end{display:block;color:var(--subtle);font-size:10px;font-weight:700;letter-spacing:0}
+.row-sub{font-size:16px;font-weight:800;letter-spacing:-.015em;text-shadow:none}
+.row-tu{
+  display:inline-flex;align-items:center;min-height:22px;margin-left:7px;padding:2px 7px;border-radius:7px;
+  border:1px solid var(--stroke-soft);background:rgba(255,255,255,.04);color:var(--muted);font-size:11px;font-weight:800;
+}
+.row-livre{font-size:12px;color:var(--subtle)}
+.row-eo,.row-nota,.row-prof{margin-top:5px;color:var(--subtle);font-size:11px;font-weight:700;line-height:1.4}
+.row-eo{letter-spacing:.025em}
+.row.me{background:rgba(190,216,235,.055)}
+.row-chip{color:var(--subtle);font-weight:800}
+.gloss{margin-bottom:12px;padding:14px 16px;background:rgba(18,18,21,.66);box-shadow:inset 0 1px 0 rgba(255,255,255,.055),0 12px 34px rgba(0,0,0,.18)}
+.gl-item{margin-bottom:7px;color:var(--subtle);font-size:11px;line-height:1.55}
+.gl-item b{color:var(--muted);font-weight:800}
+.footer{padding:5px 2px 12px;color:var(--subtle);font-size:10px;letter-spacing:.035em}
+.geral-note{margin:10px 2px 0;color:var(--subtle);font-size:11px}
+.geral-note a{display:inline-flex;min-height:42px;align-items:center;color:var(--muted);font-weight:800;text-underline-offset:3px}
+.nav{
+  left:50%;right:auto;inset-inline-end:auto;bottom:max(9px,env(safe-area-inset-bottom));
+  width:min(calc(100% - 20px),600px);transform:translateX(-50%);
+  border-color:rgba(255,255,255,.13);border-radius:20px;
+  background:rgba(21,21,24,.78);backdrop-filter:blur(30px) saturate(1.25);-webkit-backdrop-filter:blur(30px) saturate(1.25);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 18px 45px rgba(0,0,0,.38);
+}
+.nav-in{max-width:none;gap:4px;padding:5px}
+.nav-btn{
+  min-height:50px;gap:3px;border-radius:15px;color:var(--subtle);font-size:10px;font-weight:800;letter-spacing:.02em;
+}
+.nav-btn svg{width:17px;height:17px}
+.nav-btn:hover{background:rgba(255,255,255,.04);color:var(--fg)}
+.nav-btn.on,.nav-btn[data-view="proposta"].on,.nav-btn[data-view="horario"].on{
+  background:var(--glass-sel);color:#fff;border-color:rgba(217,235,248,.34);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 6px 16px rgba(0,0,0,.18);
+}
+.nav-btn[data-view="horario"]{flex:1;font-weight:800}
+.nav-btn[data-view="proposta"]{flex:1;opacity:1;background:transparent;border-color:transparent;color:var(--subtle);font-size:10px;font-weight:800}
+@keyframes row-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.slots .row{animation:row-in .28s both}
+.slots .row:nth-child(2){animation-delay:.025s}.slots .row:nth-child(3){animation-delay:.05s}.slots .row:nth-child(4){animation-delay:.075s}.slots .row:nth-child(5){animation-delay:.10s}
+@media (min-width:640px){
+  .page{padding:34px 20px 20px}
+  .hdr{margin-bottom:24px}
+  .btn-proposta{font-size:13px}
+  .row{grid-template-columns:5.4rem minmax(0,1fr);padding-inline:28px 20px}
+  .row::before{left:13px}
+}
+@media (max-width:380px){
+  .page{padding-inline:12px}
+  .btn-row{grid-template-columns:1fr}
+  .btn-proposta{min-height:44px}
+  .row{grid-template-columns:4.35rem minmax(0,1fr);gap:7px;padding-right:12px}
+  .row-tu{margin-left:4px;padding-inline:5px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .card,.gloss,.nav,.pill-bar,.days{background:#17171a}
+}
+
 </style>
 </head>
 <body>
@@ -236,7 +448,7 @@ button:active{transform:scale(.98);opacity:.88}
     </div>
     <div id="slots-wrap" class="card"><div class="slots" id="slots"></div></div>
     <div class="gloss" id="glossario" hidden></div>
-    <footer class="footer">Atualizado em 23/08/2026</footer>
+    <footer class="footer">Atualizado em 30/08/2026</footer>
   </div>
 
   <div id="view-geral" class="page hidden">
@@ -271,7 +483,7 @@ button:active{transform:scale(.98);opacity:.88}
   </div>
 </nav>
 
-<script src="./geral-data.js?v=22"></script>
+<script src="./geral-data.js?v=23"></script>
 <script>
 const CURRICULUM = {"1": {"label": "1ª série", "professores": "Josué da Silva Cavalcante e Edvan Araújo Rodrigues", "months": [{"id": "fevereiro", "label": "Fevereiro", "short": "Fev", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT303"], "objeto": "Introdução à Física", "detalhamento": ["O que é Física?", "Algarismos significativos", "Notação científica", "Ordem de grandeza", "Cálculo aritmético e algébrico aplicado à Física", "Grandezas físicas e unidades de medida", "Introdução à cinemática"]}, {"id": "marco", "label": "Março", "short": "Mar", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT303", "EM13CNT301"], "objeto": "Cinemática", "detalhamento": ["Conceitos fundamentais: posição, trajetória e referencial", "O que é o tempo?", "Deslocamento", "Velocidade", "Aceleração", "Aplicação matemática: sistemas de coordenadas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "abril", "label": "Abril", "short": "Abr", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT301", "EM13CNT302"], "objeto": "Cinemática", "detalhamento": ["Movimento retilíneo uniforme (MRU)", "Movimento retilíneo uniformemente variado (MRUV)", "Aplicação matemática: equações horárias", "Noções de cinemática rotacional", "Noções de movimento circular uniforme"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "maio", "label": "Maio", "short": "Mai", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT301", "EM13CNT302", "EM13CNT303"], "objeto": "Cinemática vetorial", "detalhamento": ["O que é um vetor?", "Grandezas escalares", "Grandezas vetoriais", "Operações com vetores", "Aplicação matemática: usando o teorema de Pitágoras"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "junho", "label": "Junho", "short": "Jun", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT301", "EM13CNT303"], "objeto": "Cinemática vetorial", "detalhamento": ["Aplicação matemática: trabalhando com medidas angulares", "Movimento de queda livre", "Lançamento de projéteis"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "agosto", "label": "Agosto", "short": "Ago", "competencias": "03", "habilidades": ["EM13CNT301", "EM13CNT306", "EM13CNT307"], "objeto": "Dinâmica", "detalhamento": ["O que é força?", "Leis de Newton"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "setembro", "label": "Setembro", "short": "Set", "competencias": "02 e 03", "habilidades": ["EM13CNT207", "EM13CNT301", "EM13CNT306", "EM13CNT307"], "objeto": "Dinâmica", "detalhamento": ["Força peso", "Força normal", "Forças de atrito", "Lei da gravitação universal", "Leis de Kepler"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "outubro", "label": "Outubro", "short": "Out", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT207", "EM13CNT301", "EM13CNT306", "EM13CNT307"], "objeto": "Dinâmica", "detalhamento": ["Energia", "Trabalho de uma força", "Tipos de energia", "Energia mecânica", "Conservação de energia mecânica"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "novembro", "label": "Novembro", "short": "Nov", "competencias": "01 e 03", "habilidades": ["EM13CNT101", "EM13CNT306", "EM13CNT307"], "objeto": "Hidrostática e hidrodinâmica", "detalhamento": ["Noções básicas de hidrostática", "Noções básicas de hidrodinâmica"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "dezembro", "label": "Dezembro", "short": "Dez", "competencias": "01 e 03", "habilidades": ["EM13CNT101", "EM13CNT301", "EM13CNT304", "EM13CNT307"], "objeto": "Estática", "detalhamento": ["Equilíbrio de forças", "Aplicações na engenharia"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}]}, "2": {"label": "2ª série", "professores": "Josué da Silva Cavalcante", "months": [{"id": "fevereiro", "label": "Fevereiro", "short": "Fev", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT204", "EM13CNT202"], "objeto": "Termologia", "detalhamento": ["O que é temperatura?", "Escalas de temperatura", "Equilíbrio térmico", "Conversões entre escalas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "marco", "label": "Março", "short": "Mar", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT204", "EM13CNT203", "EM13CNT104"], "objeto": "Termologia", "detalhamento": ["Dilatação térmica", "Introdução à calorimetria", "O que é calor?", "Medidas de calor", "Capacidade térmica", "Calor específico"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "abril", "label": "Abril", "short": "Abr", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT104", "EM13CNT202", "EM13CNT206"], "objeto": "Calorimetria", "detalhamento": ["Calor latente", "Relação fundamental da calorimetria", "Estados físicos da matéria", "Processos de transferência de calor"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "maio", "label": "Maio", "short": "Mai", "competencias": "01 e 03", "habilidades": ["EM13CNT102", "EM13CNT303"], "objeto": "Gases", "detalhamento": ["O que é um gás?", "Variáveis de estado", "Comportamento térmico dos gases", "Transformações gasosas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "junho", "label": "Junho", "short": "Jun", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT206"], "objeto": "Gases e introdução à termodinâmica", "detalhamento": ["Transformações gasosas", "Diagramas PV", "Lei dos gases ideais", "Gases reais", "Lei zero", "Primeira lei", "Trabalho em um sistema termodinâmico"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "agosto", "label": "Agosto", "short": "Ago", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT202"], "objeto": "Termodinâmica", "detalhamento": ["Noções sobre a segunda lei", "Máquinas térmicas", "Ciclo de Carnot", "Rendimento", "O que é entropia?", "Noções sobre a terceira lei"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "setembro", "label": "Setembro", "short": "Set", "competencias": "01 e 03", "habilidades": ["EM13CNT102", "EM13CNT104", "EM13CNT306", "EM13CNT303"], "objeto": "Introdução ao estudo da óptica geométrica", "detalhamento": ["Fontes de luz", "Velocidade da luz", "Princípios do movimento da luz", "Reflexão", "Refração"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "outubro", "label": "Outubro", "short": "Out", "competencias": "02 e 03", "habilidades": ["EM13CNT310", "EM13CNT306", "EM13CNT202"], "objeto": "Ondulatória", "detalhamento": ["O que é uma onda?", "Natureza das ondas", "Relação fundamental das ondas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "novembro", "label": "Novembro", "short": "Nov", "competencias": "01 e 03", "habilidades": ["EM13CNT310", "EM13CNT106", "EM13CNT107"], "objeto": "Ondulatória", "detalhamento": ["Fenômenos ondulatórios", "O fenômeno da interferência", "Aplicações"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "dezembro", "label": "Dezembro", "short": "Dez", "competencias": "01 e 03", "habilidades": ["EM13CNT310", "EM13CNT106", "EM13CNT107"], "objeto": "Acústica", "detalhamento": ["O som", "Efeito Doppler", "Noções básicas sobre acústica"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}]}, "3": {"label": "3ª série", "professores": "Josué da Silva Cavalcante", "months": [{"id": "fevereiro", "label": "Fevereiro", "short": "Fev", "competencias": "01", "habilidades": ["EM13CNT104", "EM13CNT106"], "objeto": "Eletricidade", "detalhamento": ["O que é eletricidade?", "Carga elétrica", "Carga elementar", "Processos por eletrização", "Força elétrica", "Lei de Coulomb"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "marco", "label": "Março", "short": "Mar", "competencias": "01", "habilidades": ["EM13CNT104", "EM13CNT106"], "objeto": "Eletricidade", "detalhamento": ["Campo elétrico", "Potencial elétrico", "Energia potencial elétrica"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "abril", "label": "Abril", "short": "Abr", "competencias": "01", "habilidades": ["EM13CNT104", "EM13CNT102"], "objeto": "Eletrodinâmica", "detalhamento": ["O que é corrente elétrica?", "Intensidade de corrente elétrica", "Corrente contínua", "Corrente alternada"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "maio", "label": "Maio", "short": "Mai", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT206"], "objeto": "Eletrodinâmica", "detalhamento": ["Elementos de um circuito elétrico", "Diferença de potencial elétrico", "Resistores", "Resistência elétrica", "Lei de Ohm"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "junho", "label": "Junho", "short": "Jun", "competencias": "01 e 02", "habilidades": ["EM13CNT203"], "objeto": "Eletrodinâmica", "detalhamento": ["Associação de resistores", "Capacitores", "Capacidade elétrica", "Associação de capacitores"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "agosto", "label": "Agosto", "short": "Ago", "competencias": "02", "habilidades": ["EM13CNT203"], "objeto": "Eletrodinâmica", "detalhamento": ["Geradores e receptores", "Fem", "Leis de Kirchhoff"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "setembro", "label": "Setembro", "short": "Set", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT203", "EM13CNT107", "EM13CNT304"], "objeto": "Eletrodinâmica", "detalhamento": ["Potência elétrica", "Consumo de energia", "O kWh", "Rendimento"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "outubro", "label": "Outubro", "short": "Out", "competencias": "03", "habilidades": ["EM13CNT308", "EM13CNT304"], "objeto": "Magnetismo", "detalhamento": ["O que é o magnetismo?", "Força magnética", "Campo magnético"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "novembro", "label": "Novembro", "short": "Nov", "competencias": "03", "habilidades": ["EM13CNT308", "EM13CNT303"], "objeto": "Eletromagnetismo", "detalhamento": ["Noções básicas", "Magnetismo e corrente elétrica", "Principais equações e leis", "Ondas eletromagnéticas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "dezembro", "label": "Dezembro", "short": "Dez", "competencias": "02 e 03", "habilidades": ["EM13CNT205", "EM13CNT303"], "objeto": "Física moderna", "detalhamento": ["Física quântica", "Física nuclear", "Teoria da relatividade"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}]}};
 const SCHEDULE = {
@@ -560,7 +772,7 @@ setView("horario");
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
-    navigator.serviceWorker.register("./sw.js?v=22", { scope: "./" }).then(function (reg) {
+    navigator.serviceWorker.register("./sw.js?v=23", { scope: "./" }).then(function (reg) {
       reg.addEventListener("updatefound", function () {
         var nw = reg.installing;
         if (!nw) return;
