@@ -1,9 +1,10 @@
 /* Offline shell for the schedule and curriculum app. */
-const CACHE = "fisica-josue-v24-liquid-glass-ui";
+const CACHE = "fisica-josue-v25-bncc-skills";
 const SHELL = [
   "./",
   "./index.html",
   "./styles.css",
+  "./bncc-skills.js",
   "./geral-data.js",
   "./manifest.webmanifest",
   "./icons/wolf-192.png",

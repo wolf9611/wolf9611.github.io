@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Física 2026 – Prof. Josué</title>
 
-<link rel="manifest" href="manifest.webmanifest?v=24">
+<link rel="manifest" href="manifest.webmanifest?v=25">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/wolf-favicon-32.png?v=8">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/wolf-192.png?v=8">
 <link rel="apple-touch-icon" href="icons/wolf-apple-180.png?v=8">
@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./styles.css?v=24">
+<link rel="stylesheet" href="./styles.css?v=25">
 </head>
 <body>
 <div class="bg" aria-hidden="true">
@@ -116,7 +116,25 @@
   </div>
 </nav>
 
-<script src="./geral-data.js?v=24"></script>
+<dialog class="skill-dialog" id="skill-dialog" aria-labelledby="skill-title" aria-describedby="skill-text">
+  <header class="skill-dialog-header">
+    <div>
+      <p class="card-k">Habilidade BNCC</p>
+      <h2 id="skill-title" class="skill-title"></h2>
+    </div>
+    <button type="button" class="skill-close" id="skill-close" aria-label="Fechar habilidade" autofocus>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+    </button>
+  </header>
+  <div class="skill-dialog-body">
+    <p class="skill-area">Ciências da Natureza · Ensino Médio</p>
+    <p id="skill-text" class="skill-text"></p>
+    <a id="skill-source" class="skill-source" target="_blank" rel="noopener">Consultar na BNCC · MEC</a>
+  </div>
+</dialog>
+
+<script src="./bncc-skills.js?v=25"></script>
+<script src="./geral-data.js?v=25"></script>
 <script>
 const CURRICULUM = {"1": {"label": "1ª série", "professores": "Josué da Silva Cavalcante e Edvan Araújo Rodrigues", "months": [{"id": "fevereiro", "label": "Fevereiro", "short": "Fev", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT303"], "objeto": "Introdução à Física", "detalhamento": ["O que é Física?", "Algarismos significativos", "Notação científica", "Ordem de grandeza", "Cálculo aritmético e algébrico aplicado à Física", "Grandezas físicas e unidades de medida", "Introdução à cinemática"]}, {"id": "marco", "label": "Março", "short": "Mar", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT303", "EM13CNT301"], "objeto": "Cinemática", "detalhamento": ["Conceitos fundamentais: posição, trajetória e referencial", "O que é o tempo?", "Deslocamento", "Velocidade", "Aceleração", "Aplicação matemática: sistemas de coordenadas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "abril", "label": "Abril", "short": "Abr", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT301", "EM13CNT302"], "objeto": "Cinemática", "detalhamento": ["Movimento retilíneo uniforme (MRU)", "Movimento retilíneo uniformemente variado (MRUV)", "Aplicação matemática: equações horárias", "Noções de cinemática rotacional", "Noções de movimento circular uniforme"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "maio", "label": "Maio", "short": "Mai", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT301", "EM13CNT302", "EM13CNT303"], "objeto": "Cinemática vetorial", "detalhamento": ["O que é um vetor?", "Grandezas escalares", "Grandezas vetoriais", "Operações com vetores", "Aplicação matemática: usando o teorema de Pitágoras"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "junho", "label": "Junho", "short": "Jun", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT301", "EM13CNT303"], "objeto": "Cinemática vetorial", "detalhamento": ["Aplicação matemática: trabalhando com medidas angulares", "Movimento de queda livre", "Lançamento de projéteis"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "agosto", "label": "Agosto", "short": "Ago", "competencias": "03", "habilidades": ["EM13CNT301", "EM13CNT306", "EM13CNT307"], "objeto": "Dinâmica", "detalhamento": ["O que é força?", "Leis de Newton"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "setembro", "label": "Setembro", "short": "Set", "competencias": "02 e 03", "habilidades": ["EM13CNT207", "EM13CNT301", "EM13CNT306", "EM13CNT307"], "objeto": "Dinâmica", "detalhamento": ["Força peso", "Força normal", "Forças de atrito", "Lei da gravitação universal", "Leis de Kepler"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "outubro", "label": "Outubro", "short": "Out", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT207", "EM13CNT301", "EM13CNT306", "EM13CNT307"], "objeto": "Dinâmica", "detalhamento": ["Energia", "Trabalho de uma força", "Tipos de energia", "Energia mecânica", "Conservação de energia mecânica"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "novembro", "label": "Novembro", "short": "Nov", "competencias": "01 e 03", "habilidades": ["EM13CNT101", "EM13CNT306", "EM13CNT307"], "objeto": "Hidrostática e hidrodinâmica", "detalhamento": ["Noções básicas de hidrostática", "Noções básicas de hidrodinâmica"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "dezembro", "label": "Dezembro", "short": "Dez", "competencias": "01 e 03", "habilidades": ["EM13CNT101", "EM13CNT301", "EM13CNT304", "EM13CNT307"], "objeto": "Estática", "detalhamento": ["Equilíbrio de forças", "Aplicações na engenharia"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}]}, "2": {"label": "2ª série", "professores": "Josué da Silva Cavalcante", "months": [{"id": "fevereiro", "label": "Fevereiro", "short": "Fev", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT204", "EM13CNT202"], "objeto": "Termologia", "detalhamento": ["O que é temperatura?", "Escalas de temperatura", "Equilíbrio térmico", "Conversões entre escalas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "marco", "label": "Março", "short": "Mar", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT204", "EM13CNT203", "EM13CNT104"], "objeto": "Termologia", "detalhamento": ["Dilatação térmica", "Introdução à calorimetria", "O que é calor?", "Medidas de calor", "Capacidade térmica", "Calor específico"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "abril", "label": "Abril", "short": "Abr", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT104", "EM13CNT202", "EM13CNT206"], "objeto": "Calorimetria", "detalhamento": ["Calor latente", "Relação fundamental da calorimetria", "Estados físicos da matéria", "Processos de transferência de calor"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "maio", "label": "Maio", "short": "Mai", "competencias": "01 e 03", "habilidades": ["EM13CNT102", "EM13CNT303"], "objeto": "Gases", "detalhamento": ["O que é um gás?", "Variáveis de estado", "Comportamento térmico dos gases", "Transformações gasosas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "junho", "label": "Junho", "short": "Jun", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT206"], "objeto": "Gases e introdução à termodinâmica", "detalhamento": ["Transformações gasosas", "Diagramas PV", "Lei dos gases ideais", "Gases reais", "Lei zero", "Primeira lei", "Trabalho em um sistema termodinâmico"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "agosto", "label": "Agosto", "short": "Ago", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT202"], "objeto": "Termodinâmica", "detalhamento": ["Noções sobre a segunda lei", "Máquinas térmicas", "Ciclo de Carnot", "Rendimento", "O que é entropia?", "Noções sobre a terceira lei"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "setembro", "label": "Setembro", "short": "Set", "competencias": "01 e 03", "habilidades": ["EM13CNT102", "EM13CNT104", "EM13CNT306", "EM13CNT303"], "objeto": "Introdução ao estudo da óptica geométrica", "detalhamento": ["Fontes de luz", "Velocidade da luz", "Princípios do movimento da luz", "Reflexão", "Refração"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "outubro", "label": "Outubro", "short": "Out", "competencias": "02 e 03", "habilidades": ["EM13CNT310", "EM13CNT306", "EM13CNT202"], "objeto": "Ondulatória", "detalhamento": ["O que é uma onda?", "Natureza das ondas", "Relação fundamental das ondas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "novembro", "label": "Novembro", "short": "Nov", "competencias": "01 e 03", "habilidades": ["EM13CNT310", "EM13CNT106", "EM13CNT107"], "objeto": "Ondulatória", "detalhamento": ["Fenômenos ondulatórios", "O fenômeno da interferência", "Aplicações"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "dezembro", "label": "Dezembro", "short": "Dez", "competencias": "01 e 03", "habilidades": ["EM13CNT310", "EM13CNT106", "EM13CNT107"], "objeto": "Acústica", "detalhamento": ["O som", "Efeito Doppler", "Noções básicas sobre acústica"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}]}, "3": {"label": "3ª série", "professores": "Josué da Silva Cavalcante", "months": [{"id": "fevereiro", "label": "Fevereiro", "short": "Fev", "competencias": "01", "habilidades": ["EM13CNT104", "EM13CNT106"], "objeto": "Eletricidade", "detalhamento": ["O que é eletricidade?", "Carga elétrica", "Carga elementar", "Processos por eletrização", "Força elétrica", "Lei de Coulomb"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "marco", "label": "Março", "short": "Mar", "competencias": "01", "habilidades": ["EM13CNT104", "EM13CNT106"], "objeto": "Eletricidade", "detalhamento": ["Campo elétrico", "Potencial elétrico", "Energia potencial elétrica"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "abril", "label": "Abril", "short": "Abr", "competencias": "01", "habilidades": ["EM13CNT104", "EM13CNT102"], "objeto": "Eletrodinâmica", "detalhamento": ["O que é corrente elétrica?", "Intensidade de corrente elétrica", "Corrente contínua", "Corrente alternada"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "maio", "label": "Maio", "short": "Mai", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT206"], "objeto": "Eletrodinâmica", "detalhamento": ["Elementos de um circuito elétrico", "Diferença de potencial elétrico", "Resistores", "Resistência elétrica", "Lei de Ohm"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "junho", "label": "Junho", "short": "Jun", "competencias": "01 e 02", "habilidades": ["EM13CNT203"], "objeto": "Eletrodinâmica", "detalhamento": ["Associação de resistores", "Capacitores", "Capacidade elétrica", "Associação de capacitores"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "agosto", "label": "Agosto", "short": "Ago", "competencias": "02", "habilidades": ["EM13CNT203"], "objeto": "Eletrodinâmica", "detalhamento": ["Geradores e receptores", "Fem", "Leis de Kirchhoff"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "setembro", "label": "Setembro", "short": "Set", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT203", "EM13CNT107", "EM13CNT304"], "objeto": "Eletrodinâmica", "detalhamento": ["Potência elétrica", "Consumo de energia", "O kWh", "Rendimento"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "outubro", "label": "Outubro", "short": "Out", "competencias": "03", "habilidades": ["EM13CNT308", "EM13CNT304"], "objeto": "Magnetismo", "detalhamento": ["O que é o magnetismo?", "Força magnética", "Campo magnético"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "novembro", "label": "Novembro", "short": "Nov", "competencias": "03", "habilidades": ["EM13CNT308", "EM13CNT303"], "objeto": "Eletromagnetismo", "detalhamento": ["Noções básicas", "Magnetismo e corrente elétrica", "Principais equações e leis", "Ondas eletromagnéticas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "dezembro", "label": "Dezembro", "short": "Dez", "competencias": "02 e 03", "habilidades": ["EM13CNT205", "EM13CNT303"], "objeto": "Física moderna", "detalhamento": ["Física quântica", "Física nuclear", "Teoria da relatividade"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}]}};
 const SCHEDULE = {
@@ -227,6 +245,36 @@ function focusSelection(id){
   if (selected) selected.focus({preventScroll: true});
 }
 
+const skillDialog = document.getElementById("skill-dialog");
+let skillTrigger = null;
+document.getElementById("month-card").addEventListener("click", event => {
+  const button = event.target.closest("button[data-skill]");
+  if (!button) return;
+  const code = button.dataset.skill;
+  const skill = BNCC_SKILLS[code];
+  if (!skill) return;
+  skillTrigger = button;
+  document.getElementById("skill-title").textContent = code;
+  document.getElementById("skill-text").textContent = skill.text;
+  document.getElementById("skill-source").href = BNCC_SOURCE.url + "#page=" + skill.page;
+  skillDialog.showModal();
+  skillDialog.scrollTop = 0;
+  document.documentElement.classList.add("skill-modal-open");
+});
+document.getElementById("skill-close").addEventListener("click", () => skillDialog.close());
+skillDialog.addEventListener("close", () => {
+  document.documentElement.classList.remove("skill-modal-open");
+  if (skillTrigger && skillTrigger.isConnected) skillTrigger.focus({preventScroll: true});
+  skillTrigger = null;
+});
+skillDialog.addEventListener("click", event => {
+  if (event.target !== skillDialog) return;
+  const bounds = skillDialog.getBoundingClientRect();
+  if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) {
+    skillDialog.close();
+  }
+});
+
 function renderProposta(){
   const serie = CURRICULUM[serieId];
   const months = serie.months;
@@ -272,7 +320,7 @@ function renderProposta(){
         month.detalhamento.map(i => '<li>' + esc(i) + '</li>').join('') +
       '</ul></div>' +
       '<div class="sec"><div class="sec-k">Habilidades BNCC</div><div class="tags">' +
-        month.habilidades.map(h => '<span class="tag">' + esc(h) + '</span>').join('') +
+        month.habilidades.map(h => '<button type="button" class="tag skill-btn" data-skill="' + esc(h) + '" aria-haspopup="dialog" aria-controls="skill-dialog" aria-label="Ler habilidade ' + esc(h) + '">' + esc(h) + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></svg></button>').join('') +
       '</div><p class="meta">Competências específicas: <b>' + esc(month.competencias) + '</b></p></div>' +
       proj +
     '</div>';
@@ -437,7 +485,7 @@ setView("horario");
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
-    navigator.serviceWorker.register("./sw.js?v=24", { scope: "./" }).then(function (reg) {
+    navigator.serviceWorker.register("./sw.js?v=25", { scope: "./" }).then(function (reg) {
       reg.addEventListener("updatefound", function () {
         var nw = reg.installing;
         if (!nw) return;
