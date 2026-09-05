@@ -2,12 +2,12 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<meta name="theme-color" content="#0e0e10">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0c0f">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Física 2026 – Prof. Josué</title>
 
-<link rel="manifest" href="manifest.webmanifest?v=23">
+<link rel="manifest" href="manifest.webmanifest?v=24">
 <link rel="icon" type="image/png" sizes="32x32" href="icons/wolf-favicon-32.png?v=8">
 <link rel="icon" type="image/png" sizes="192x192" href="icons/wolf-192.png?v=8">
 <link rel="apple-touch-icon" href="icons/wolf-apple-180.png?v=8">
@@ -20,383 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#161618;
-  --bg-deep:#0e0e10;
-  --fg:#f8f6f0;
-  --muted:rgba(248,246,240,.88);
-  --subtle:rgba(248,246,240,.72);
-  --glass:rgba(18,18,20,.42);
-  --glass-hi:rgba(28,28,30,.62);
-  --glass-sel:linear-gradient(180deg,rgba(186,214,236,.55),rgba(110,148,176,.28));
-  --stroke:rgba(255,255,255,.22);
-  --stroke-soft:rgba(255,255,255,.10);
-  --line:rgba(255,255,255,.08);
-  --accent:#e8e8ea;
-  --accent-soft:rgba(255,255,255,.12);
-  --f1:#e0c4a4;--f2:#b7d4b0;--f3:#c9d6a4;--cn:#a8d4cc;--pd:#e0d0a8;--pl:#c8c8c0;--lc:#9fd4c4;--arm:#e8c4a0;--eo:#d0d0cc;
-  --rd:22px;
-  --rd-sm:14px;
-  --font:"Nunito",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  --glass-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 10px 28px rgba(0,0,0,.28);
-}
-*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{-webkit-text-size-adjust:100%;color-scheme:dark}
-body{font-family:var(--font);background:var(--bg-deep);min-height:100dvh;color:var(--fg);overflow-x:hidden;line-height:1.45;font-weight:600;-webkit-font-smoothing:antialiased}
-button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
-button:active{transform:scale(.98);opacity:.88}
-.bg{pointer-events:none;position:fixed;inset:0;z-index:0;overflow:hidden;background:var(--bg-deep)}
-.bg-fill{position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 20%,#222226 0%,#161618 42%,#0e0e10 100%)}
-.bg img{position:absolute;left:50%;top:48%;height:min(100vh,820px);width:auto;max-width:min(100vw,520px);transform:translate(-50%,-50%);object-fit:contain;opacity:.28;filter:grayscale(1) contrast(1.08) brightness(.92)}
-.bg-v{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,transparent 32%,rgba(14,14,16,.50) 68%,rgba(14,14,16,.92) 100%)}
-.bg-t{position:absolute;inset-inline:0;top:0;height:6.5rem;background:linear-gradient(to bottom,rgba(14,14,16,.94),transparent)}
-.bg-b{position:absolute;inset-inline:0;bottom:0;height:9rem;background:linear-gradient(to top,rgba(14,14,16,.96),rgba(14,14,16,.62),transparent)}
-.shell{position:relative;z-index:10;padding-bottom:calc(4.6rem + env(safe-area-inset-bottom))}
-.page{max-width:480px;margin:0 auto;padding:18px 14px 14px}
-.hdr{text-align:left;margin-bottom:16px}
-.hdr-icon{display:none}
-.hdr-k{font-size:11px;font-weight:500;letter-spacing:.03em;color:var(--subtle);margin-bottom:4px}
-.hdr-name{font-size:1.36rem;font-weight:800;letter-spacing:-.03em;line-height:1.18;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.55)}
-.hdr-sub{font-size:13px;color:var(--muted);margin-top:4px}
-.pill-bar{
-  display:flex;gap:4px;padding:4px;margin-bottom:12px;border-radius:999px;
-  background:var(--glass);border:1px solid var(--stroke-soft);
-  backdrop-filter:blur(22px) saturate(1.5);-webkit-backdrop-filter:blur(22px) saturate(1.5);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.16);
-}
-.pill{flex:1;min-height:38px;padding:8px 8px;border-radius:999px;color:var(--muted);font-weight:550;font-size:13px;display:flex;align-items:center;justify-content:center;gap:6px}
-.pill.on{background:var(--glass-sel);color:#fff;font-weight:800;border:1px solid rgba(210,232,255,.7);backdrop-filter:blur(22px) saturate(1.8);-webkit-backdrop-filter:blur(22px) saturate(1.8);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 0 0 1px rgba(160,200,230,.35),0 6px 18px rgba(0,0,0,.4)}
-.pill-count{min-width:18px;padding:1px 6px;border-radius:999px;font-size:10px;font-weight:650;background:rgba(0,0,0,.22);color:var(--subtle)}
-.pill.on .pill-count{background:rgba(8,16,24,.55);color:#fff;border-color:rgba(210,232,255,.45)}
-.prof{text-align:left;font-size:12px;color:var(--subtle);margin-bottom:12px;line-height:1.4}
-.months{display:flex;gap:6px;overflow-x:auto;margin-bottom:14px;padding-bottom:2px;scrollbar-width:none}
-.months::-webkit-scrollbar{display:none}
-.month{flex-shrink:0;min-height:36px;padding:7px 12px;border-radius:999px;border:1px solid var(--stroke-soft);background:var(--glass);color:var(--muted);font-weight:500;font-size:13px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
-.month.on{background:var(--glass-sel);color:#fff;font-weight:800;border:1px solid rgba(210,232,255,.7);backdrop-filter:blur(22px) saturate(1.8);-webkit-backdrop-filter:blur(22px) saturate(1.8);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 0 0 1px rgba(160,200,230,.35),0 6px 18px rgba(0,0,0,.4)}
-.days{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:12px}
-.day{
-  min-height:42px;padding:8px 2px;border-radius:var(--rd-sm);
-  border:1px solid var(--stroke-soft);background:var(--glass);color:var(--muted);
-  font-weight:550;font-size:13px;text-align:center;position:relative;
-  backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.14);
-}
-.day.on{background:var(--glass-sel);color:#fff;font-weight:800;border:1px solid rgba(210,232,255,.7);backdrop-filter:blur(22px) saturate(1.8);-webkit-backdrop-filter:blur(22px) saturate(1.8);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 0 0 1px rgba(160,200,230,.35),0 6px 18px rgba(0,0,0,.4)}
-.day .dot{position:absolute;top:5px;right:6px;width:5px;height:5px;border-radius:50%;background:var(--fg);border:none}
-.card{
-  margin-bottom:14px;overflow:hidden;border-radius:var(--rd);
-  border:1px solid var(--stroke);background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.06));
-  backdrop-filter:blur(28px) saturate(1.65);-webkit-backdrop-filter:blur(28px) saturate(1.65);
-  box-shadow:var(--glass-shadow);
-}
-.card-h{padding:13px 16px;border-bottom:1px solid var(--line)}
-.card-k{font-size:11px;font-weight:500;color:var(--subtle);margin-bottom:2px}
-.card-t{font-size:1.12rem;font-weight:650;letter-spacing:-.02em}
-.sec{padding:13px 16px;border-bottom:1px solid var(--line)}
-.sec:last-child{border-bottom:none}
-.sec-k{font-size:11px;font-weight:500;color:var(--subtle);margin-bottom:8px}
-.dl{list-style:none;display:flex;flex-direction:column;gap:6px}
-.dl li{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.4}
-.dl li::before{content:"";width:4px;height:4px;margin-top:7px;border-radius:50%;background:var(--fg);flex-shrink:0;opacity:.55}
-.tags{display:flex;flex-wrap:wrap;gap:5px}
-.tag{border:1px solid var(--stroke-soft);background:rgba(255,255,255,.06);padding:3px 8px;border-radius:8px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;font-weight:500;color:var(--fg)}
-.meta{margin-top:10px;font-size:12px;color:var(--muted)}
-.meta b{color:var(--fg);font-weight:600}
-.slots{padding:0}
-.row{display:grid;grid-template-columns:4.8rem minmax(0,1fr);gap:10px;align-items:start;padding:12px 16px;border-bottom:1px solid var(--line);border-left:3px solid transparent}
-.row:last-child{border-bottom:none}
-.row.free{opacity:.48}
-.row-time{font-size:12px;font-weight:500;color:var(--subtle);font-variant-numeric:tabular-nums;padding-top:2px}
-.row-time .end{color:var(--subtle)}
-.row-sub{font-size:17px;font-weight:800;letter-spacing:-.015em;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.45)}
-.row-tu{font-size:13px;font-weight:500;color:var(--muted);margin-left:6px}
-.row-livre{font-size:13px;font-style:italic;color:var(--subtle)}
-.row-eo{margin-top:4px;font-size:11px;font-weight:600;letter-spacing:.02em;color:var(--eo)}
-.s-f1{color:var(--f1)}.s-f2{color:var(--f2)}.s-f3{color:var(--f3)}
-.s-cn{color:var(--cn)}.s-pd{color:var(--pd)}.s-pl{color:var(--pl)}.s-lc{color:var(--lc)}.s-arm{color:var(--arm)}
-.row:has(.s-f1){border-left-color:var(--f1)}
-.row:has(.s-f2){border-left-color:var(--f2)}
-.row:has(.s-f3){border-left-color:var(--f3)}
-.row:has(.s-cn){border-left-color:var(--cn)}
-.row:has(.s-pd){border-left-color:var(--pd)}
-.row:has(.s-pl){border-left-color:var(--pl)}
-.row:has(.s-lc){border-left-color:var(--lc)}
-.row:has(.s-arm){border-left-color:var(--arm)}
-.row-nota{margin-top:4px;font-size:12px;font-weight:500;color:var(--muted)}
-.gloss{
-  margin:0 0 14px;border-radius:var(--rd);padding:13px 16px;
-  border:1px solid var(--stroke);background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.05));
-  backdrop-filter:blur(24px) saturate(1.5);-webkit-backdrop-filter:blur(24px) saturate(1.5);
-  box-shadow:var(--glass-shadow);
-}
-.gl-item{font-size:12px;line-height:1.5;color:var(--muted);margin-bottom:6px}
-.gl-item:last-child{margin-bottom:0}
-.gl-item b{color:var(--fg);font-weight:600}
-.footer{text-align:left;font-size:11px;font-weight:500;color:var(--subtle);padding:4px 0 8px}
-.nav{
-  position:fixed;inset-inline:10px;bottom:max(8px,env(safe-area-inset-bottom));z-index:50;
-  border:1px solid var(--stroke);border-radius:28px;
-  background:linear-gradient(180deg,rgba(40,40,44,.62),rgba(28,28,30,.48));
-  backdrop-filter:blur(32px) saturate(1.8);-webkit-backdrop-filter:blur(32px) saturate(1.8);
-  box-shadow:var(--glass-shadow);padding:0;
-}
-.nav-in{max-width:480px;margin:0 auto;display:flex;gap:6px;padding:7px 8px;align-items:center;justify-content:center}
-.nav-btn{flex:1;min-height:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border-radius:20px;font-size:11px;font-weight:500;color:var(--subtle);border:1px solid transparent}
-.nav-btn.on{background:var(--glass-sel);color:#fff;font-weight:800;border:1px solid rgba(210,232,255,.7);backdrop-filter:blur(22px) saturate(1.8);-webkit-backdrop-filter:blur(22px) saturate(1.8);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 0 0 1px rgba(160,200,230,.35),0 6px 18px rgba(0,0,0,.4)}
-.nav-btn svg{width:18px;height:18px}
-.hidden{display:none!important}
-@media (min-width:480px){
-  .hdr-name{font-size:1.42rem}
-  .row{grid-template-columns:5.5rem minmax(0,1fr)}
-  .row-sub{font-size:17px}
-}
-.nav-btn[data-view="horario"]{flex:1.2;font-weight:600}
-.nav-btn[data-view="proposta"]{
-  flex:0.9;opacity:.88;background:transparent;
-  border:1px solid var(--stroke-soft);color:var(--muted);font-weight:500;font-size:.86em;
-}
-.nav-btn[data-view="proposta"].on{opacity:1;color:#fff;background:var(--glass-sel);border-color:rgba(210,232,255,.7);font-weight:800}
-.nav-btn[data-view="horario"].on{background:var(--glass-sel);color:#fff;border-color:rgba(210,232,255,.7);font-weight:800}
-.btn-proposta{
-  display:inline-flex;align-items:center;justify-content:center;gap:6px;
-  margin:0;padding:8px 12px;border-radius:999px;
-  border:1px solid var(--stroke);background:var(--glass);color:var(--muted);
-  font-size:12px;font-weight:500;
-  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-}
-.btn-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
-.btn-proposta svg{width:13px;height:13px;opacity:.85}
-.geral-img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--stroke-soft);background:#111}
-.geral-note{font-size:12px;color:var(--subtle);margin:10px 0 0;line-height:1.4}
-.geral-note a{color:var(--fg)}
-.turmas{display:flex;gap:6px;overflow-x:auto;margin:0 0 12px;padding-bottom:2px;scrollbar-width:none}
-.turmas::-webkit-scrollbar{display:none}
-.turma{flex-shrink:0;min-height:34px;padding:6px 11px;border-radius:999px;border:1px solid var(--stroke-soft);background:var(--glass);color:var(--muted);font-weight:500;font-size:12px}
-.turma.on{background:var(--glass-sel);color:#fff;font-weight:800;border:1px solid rgba(210,232,255,.7)}
-.row-prof{display:block;margin-top:2px;font-size:12px;font-weight:500;color:var(--subtle)}
-.row.me{background:rgba(186,214,236,.10)}
-.row-chip{font-size:11px;font-weight:600;color:var(--muted);margin-right:4px}
-.btn-back-horario{
-  display:inline-flex;align-items:center;gap:6px;
-  margin:0 0 12px;padding:8px 12px;border-radius:999px;
-  border:1px solid var(--stroke);background:var(--glass-hi);color:var(--fg);
-  font-size:12px;font-weight:500;
-}
-
-/* UI 2026.2 — monitor escuro, preciso e responsivo */
-:root{
-  --bg:#101012;
-  --bg-deep:#0b0b0d;
-  --fg:#f8f7f4;
-  --muted:rgba(248,247,244,.78);
-  --subtle:rgba(248,247,244,.54);
-  --glass:rgba(22,22,25,.68);
-  --glass-hi:rgba(31,31,35,.84);
-  --glass-sel:linear-gradient(180deg,rgba(214,233,247,.30),rgba(126,158,181,.16));
-  --stroke:rgba(255,255,255,.12);
-  --stroke-soft:rgba(255,255,255,.075);
-  --line:rgba(255,255,255,.065);
-  --accent:#f4f4f2;
-  --accent-soft:rgba(255,255,255,.08);
-  --rd:20px;
-  --rd-sm:13px;
-  --glass-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 20px 55px rgba(0,0,0,.28);
-}
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg-deep);
-  font-feature-settings:"ss01" 1,"tnum" 1;
-  letter-spacing:-.006em;
-}
-button{
-  transition:background-color .18s ease,border-color .18s ease,color .18s ease,transform .16s ease,opacity .18s ease;
-}
-button:hover{border-color:rgba(255,255,255,.16)}
-button:active{transform:scale(.975);opacity:1}
-button:focus-visible,a:focus-visible{
-  outline:2px solid rgba(222,239,252,.88);
-  outline-offset:3px;
-}
-.bg-fill{
-  background:
-    radial-gradient(70% 55% at 50% -4%,rgba(110,132,150,.16),transparent 66%),
-    radial-gradient(58% 50% at 82% 42%,rgba(90,105,118,.08),transparent 72%),
-    linear-gradient(180deg,#101012 0%,#0b0b0d 72%);
-}
-.bg img{
-  left:calc(50% + min(18vw,150px));top:36%;height:min(76vh,680px);max-width:min(92vw,560px);
-  opacity:.16;filter:grayscale(1) contrast(1.16) brightness(.82);
-}
-.bg-v{background:radial-gradient(ellipse at 66% 38%,transparent 0%,rgba(11,11,13,.16) 42%,rgba(11,11,13,.84) 100%)}
-.bg-t{height:8rem;background:linear-gradient(to bottom,rgba(11,11,13,.96),transparent)}
-.bg-b{height:12rem;background:linear-gradient(to top,rgba(11,11,13,.98),rgba(11,11,13,.55),transparent)}
-.shell{padding-bottom:calc(5.35rem + env(safe-area-inset-bottom))}
-.page{max-width:620px;padding:24px 16px 16px}
-.hdr{margin:2px 2px 20px}
-.hdr-k{
-  display:flex;align-items:center;gap:7px;margin-bottom:7px;
-  color:var(--subtle);font-size:10px;font-weight:800;letter-spacing:.105em;text-transform:uppercase;
-}
-.hdr-k::before{content:"";width:6px;height:6px;border-radius:50%;background:#dcebf5;box-shadow:0 0 0 4px rgba(220,235,245,.08)}
-.hdr-name{font-size:clamp(1.52rem,7vw,1.82rem);font-weight:800;letter-spacing:-.045em;line-height:1.08;text-shadow:none;text-wrap:balance}
-.hdr-sub{font-size:13px;color:var(--muted);margin-top:7px;letter-spacing:.01em}
-.btn-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:16px}
-.btn-proposta,.btn-back-horario{
-  min-height:48px;margin:0;padding:10px 12px;border-radius:14px;
-  border:1px solid var(--stroke-soft);background:rgba(255,255,255,.035);color:var(--muted);
-  font-size:12px;font-weight:800;line-height:1.2;
-  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.055);
-}
-.btn-proposta{justify-content:flex-start;text-align:left}
-.btn-proposta:hover,.btn-back-horario:hover{background:rgba(255,255,255,.065);color:var(--fg)}
-.btn-proposta svg{width:16px;height:16px;flex:0 0 auto;color:#dcebf5}
-.days{
-  gap:3px;margin-bottom:10px;padding:4px;border:1px solid var(--stroke-soft);border-radius:17px;
-  background:rgba(15,15,18,.72);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
-}
-.day{
-  min-height:46px;padding:8px 2px;border:1px solid transparent;border-radius:13px;
-  background:transparent;color:var(--subtle);font-size:12px;font-weight:800;letter-spacing:.025em;
-  backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;
-}
-.day:hover{background:rgba(255,255,255,.04);color:var(--fg)}
-.day.on{
-  background:var(--glass-sel);color:#fff;border-color:rgba(217,235,248,.34);
-  backdrop-filter:blur(18px) saturate(1.35);-webkit-backdrop-filter:blur(18px) saturate(1.35);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 6px 16px rgba(0,0,0,.20);
-}
-.day .dot{top:auto;right:50%;bottom:5px;width:4px;height:4px;transform:translateX(50%);background:#eff8ff;box-shadow:0 0 0 3px rgba(239,248,255,.10)}
-.pill-bar{
-  gap:3px;padding:4px;margin-bottom:10px;border-radius:17px;
-  background:rgba(15,15,18,.72);border-color:var(--stroke-soft);
-  backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
-}
-.pill{min-height:44px;padding:8px 10px;border:1px solid transparent;border-radius:13px;color:var(--subtle);font-size:12px;font-weight:800;letter-spacing:.015em}
-.pill:hover{background:rgba(255,255,255,.04);color:var(--fg)}
-.pill.on{
-  background:var(--glass-sel);color:#fff;border-color:rgba(217,235,248,.34);
-  backdrop-filter:blur(18px) saturate(1.35);-webkit-backdrop-filter:blur(18px) saturate(1.35);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 6px 16px rgba(0,0,0,.20);
-}
-.pill-count{min-width:20px;padding:2px 6px;background:rgba(0,0,0,.22);color:var(--muted);font-size:10px;font-weight:800}
-.pill.on .pill-count{background:rgba(4,8,12,.34);border:0;color:#fff}
-.months,.turmas{gap:6px;margin-bottom:12px;padding:1px 1px 5px;scroll-snap-type:x proximity}
-.month,.turma{
-  min-height:44px;padding:8px 13px;border-radius:12px;border-color:var(--stroke-soft);
-  background:rgba(255,255,255,.03);color:var(--subtle);font-size:12px;font-weight:800;
-  backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);scroll-snap-align:start;
-}
-.month.on,.turma.on{
-  background:var(--glass-sel);color:#fff;border-color:rgba(217,235,248,.34);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.20),0 5px 14px rgba(0,0,0,.18);
-}
-.prof{margin:0 2px 14px;color:var(--subtle);font-size:11px;line-height:1.5}
-.card,.gloss{
-  border:1px solid var(--stroke);border-radius:var(--rd);
-  background:rgba(20,20,23,.76);
-  backdrop-filter:blur(28px) saturate(1.18);-webkit-backdrop-filter:blur(28px) saturate(1.18);
-  box-shadow:var(--glass-shadow);
-}
-.card{margin-bottom:12px}
-.card-h{padding:16px 18px;border-bottom-color:var(--line)}
-.card-k,.sec-k{color:var(--subtle);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-.card-t{font-size:1.18rem;font-weight:800;letter-spacing:-.028em}
-.sec{padding:15px 18px;border-bottom-color:var(--line)}
-.dl{gap:8px}
-.dl li{font-size:13px;line-height:1.45;color:var(--muted)}
-.dl li::before{background:#dcebf5;opacity:.58}
-.tag{border-color:var(--stroke-soft);background:rgba(255,255,255,.04);border-radius:8px;color:var(--muted)}
-.slots{padding:0}
-.row{
-  --row-accent:rgba(248,247,244,.34);
-  position:relative;grid-template-columns:4.9rem minmax(0,1fr);gap:10px;min-height:72px;
-  padding:14px 16px 14px 25px;border-bottom-color:var(--line);border-left:0;background:transparent;
-}
-.row::before{
-  content:"";position:absolute;left:11px;top:50%;width:6px;height:6px;border-radius:50%;
-  transform:translateY(-50%);background:var(--row-accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--row-accent) 12%,transparent);
-}
-.row:hover{background:rgba(255,255,255,.022)}
-.row:has(.s-f1){--row-accent:var(--f1)}
-.row:has(.s-f2){--row-accent:var(--f2)}
-.row:has(.s-f3){--row-accent:var(--f3)}
-.row:has(.s-cn){--row-accent:var(--cn)}
-.row:has(.s-pd){--row-accent:var(--pd)}
-.row:has(.s-pl){--row-accent:var(--pl)}
-.row:has(.s-lc){--row-accent:var(--lc)}
-.row:has(.s-arm){--row-accent:var(--arm)}
-.row.free{opacity:1;--row-accent:rgba(248,247,244,.28)}
-.row.free .row-time{color:var(--subtle)}
-.row-time{
-  display:flex;flex-direction:column;gap:2px;padding-top:0;color:var(--fg);
-  font-size:13px;font-weight:800;line-height:1.15;font-variant-numeric:tabular-nums;letter-spacing:.01em;
-}
-.row-time .end{display:block;color:var(--subtle);font-size:10px;font-weight:700;letter-spacing:0}
-.row-sub{font-size:16px;font-weight:800;letter-spacing:-.015em;text-shadow:none}
-.row-tu{
-  display:inline-flex;align-items:center;min-height:22px;margin-left:7px;padding:2px 7px;border-radius:7px;
-  border:1px solid var(--stroke-soft);background:rgba(255,255,255,.04);color:var(--muted);font-size:11px;font-weight:800;
-}
-.row-livre{font-size:12px;color:var(--subtle)}
-.row-eo,.row-nota,.row-prof{margin-top:5px;color:var(--subtle);font-size:11px;font-weight:700;line-height:1.4}
-.row-eo{letter-spacing:.025em}
-.row.me{background:rgba(190,216,235,.055)}
-.row-chip{color:var(--subtle);font-weight:800}
-.gloss{margin-bottom:12px;padding:14px 16px;background:rgba(18,18,21,.66);box-shadow:inset 0 1px 0 rgba(255,255,255,.055),0 12px 34px rgba(0,0,0,.18)}
-.gl-item{margin-bottom:7px;color:var(--subtle);font-size:11px;line-height:1.55}
-.gl-item b{color:var(--muted);font-weight:800}
-.footer{padding:5px 2px 12px;color:var(--subtle);font-size:10px;letter-spacing:.035em}
-.geral-note{margin:10px 2px 0;color:var(--subtle);font-size:11px}
-.geral-note a{display:inline-flex;min-height:42px;align-items:center;color:var(--muted);font-weight:800;text-underline-offset:3px}
-.nav{
-  left:50%;right:auto;inset-inline-end:auto;bottom:max(9px,env(safe-area-inset-bottom));
-  width:min(calc(100% - 20px),600px);transform:translateX(-50%);
-  border-color:rgba(255,255,255,.13);border-radius:20px;
-  background:rgba(21,21,24,.78);backdrop-filter:blur(30px) saturate(1.25);-webkit-backdrop-filter:blur(30px) saturate(1.25);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 18px 45px rgba(0,0,0,.38);
-}
-.nav-in{max-width:none;gap:4px;padding:5px}
-.nav-btn{
-  min-height:50px;gap:3px;border-radius:15px;color:var(--subtle);font-size:10px;font-weight:800;letter-spacing:.02em;
-}
-.nav-btn svg{width:17px;height:17px}
-.nav-btn:hover{background:rgba(255,255,255,.04);color:var(--fg)}
-.nav-btn.on,.nav-btn[data-view="proposta"].on,.nav-btn[data-view="horario"].on{
-  background:var(--glass-sel);color:#fff;border-color:rgba(217,235,248,.34);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 6px 16px rgba(0,0,0,.18);
-}
-.nav-btn[data-view="horario"]{flex:1;font-weight:800}
-.nav-btn[data-view="proposta"]{flex:1;opacity:1;background:transparent;border-color:transparent;color:var(--subtle);font-size:10px;font-weight:800}
-@keyframes row-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
-.slots .row{animation:row-in .28s both}
-.slots .row:nth-child(2){animation-delay:.025s}.slots .row:nth-child(3){animation-delay:.05s}.slots .row:nth-child(4){animation-delay:.075s}.slots .row:nth-child(5){animation-delay:.10s}
-@media (min-width:640px){
-  .page{padding:34px 20px 20px}
-  .hdr{margin-bottom:24px}
-  .btn-proposta{font-size:13px}
-  .row{grid-template-columns:5.4rem minmax(0,1fr);padding-inline:28px 20px}
-  .row::before{left:13px}
-}
-@media (max-width:380px){
-  .page{padding-inline:12px}
-  .btn-row{grid-template-columns:1fr}
-  .btn-proposta{min-height:44px}
-  .row{grid-template-columns:4.35rem minmax(0,1fr);gap:7px;padding-right:12px}
-  .row-tu{margin-left:4px;padding-inline:5px}
-}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-}
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
-  .card,.gloss,.nav,.pill-bar,.days{background:#17171a}
-}
-
-</style>
+<link rel="stylesheet" href="./styles.css?v=24">
 </head>
 <body>
 <div class="bg" aria-hidden="true">
@@ -405,17 +29,16 @@ button:focus-visible,a:focus-visible{
   <div class="bg-v"></div><div class="bg-t"></div><div class="bg-b"></div>
 </div>
 
-<div class="shell">
+<main class="shell">
   <div id="view-proposta" class="page hidden">
     <header class="hdr">
-      <div class="hdr-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5z"/></svg></div>
       <p class="hdr-k">Proposta curricular 2026</p>
       <h1 class="hdr-name">Física · Formação Geral Básica</h1>
       <p class="hdr-sub">Ciências da Natureza</p>
     </header>
-    <div class="pill-bar" id="series" role="tablist" aria-label="Série"></div>
+    <div class="pill-bar" id="series" role="group" aria-label="Série"></div>
     <p class="prof" id="prof"></p>
-    <div class="months" id="months" role="tablist" aria-label="Mês"></div>
+    <div class="months" id="months" role="group" aria-label="Mês"></div>
     <div id="month-card"></div>
     <div class="gloss">
       <div class="gl-item"><b>Sobre</b> · Área: Ciências da Natureza · Componente: Física · Ano letivo 2026. Conteúdos por mês, conforme a proposta da Formação Geral Básica.</div>
@@ -425,30 +48,27 @@ button:focus-visible,a:focus-visible{
 
   <div id="view-horario" class="page">
     <header class="hdr">
-      <div class="hdr-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5z"/></svg></div>
       <p class="hdr-k">EEMTI José Cláudio de Araújo</p>
       <h1 class="hdr-name">Prof. Josué Cavalcante</h1>
       <p class="hdr-sub">Física · C.N. ENEM · LEC</p>
-    
-      <div class="btn-row">
-      <button type="button" class="btn-proposta" id="btn-open-proposta" aria-label="Abrir proposta curricular">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8M8 11h6"/></svg>
-        Proposta curricular 2026
-      </button>
-      <button type="button" class="btn-proposta" id="btn-open-geral" aria-label="Abrir horário geral da escola">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        Horário geral
-      </button>
-      </div>
-</header>
-    <div class="days" id="days" role="tablist" aria-label="Dia"></div>
-    <div class="pill-bar" role="tablist" aria-label="Turno">
+    </header>
+    <div class="schedule-layout">
+    <div class="schedule-controls">
+    <div class="days" id="days" role="group" aria-label="Dia"></div>
+    <div class="pill-bar" role="group" aria-label="Turno">
       <button type="button" class="pill" data-turno="manha" id="btn-manha">Manhã <span class="pill-count" id="cm">0</span></button>
       <button type="button" class="pill" data-turno="tarde" id="btn-tarde">Tarde <span class="pill-count" id="ct">0</span></button>
     </div>
-    <div id="slots-wrap" class="card"><div class="slots" id="slots"></div></div>
+    </div>
+    <div class="schedule-content">
+    <section id="slots-wrap" class="card" aria-labelledby="schedule-title">
+      <div class="card-h schedule-heading"><h2 class="card-t" id="schedule-title"></h2><p class="card-k" id="schedule-meta"></p></div>
+      <div class="slots" id="slots"></div>
+    </section>
     <div class="gloss" id="glossario" hidden></div>
-    <footer class="footer">Atualizado em 30/08/2026</footer>
+    <footer class="footer">Grade atualizada em 30/08/2026</footer>
+    </div>
+    </div>
   </div>
 
   <div id="view-geral" class="page hidden">
@@ -458,32 +78,45 @@ button:focus-visible,a:focus-visible{
       <h1 class="hdr-name">Horário geral</h1>
       <p class="hdr-sub">Grade oficial 2026 · todas as turmas</p>
     </header>
-    <div class="days" id="geral-days" role="tablist" aria-label="Dia da grade geral"></div>
-    <div class="turmas" id="geral-turmas" role="tablist" aria-label="Turma"></div>
-    <div class="pill-bar" role="tablist" aria-label="Turno geral">
+    <div class="schedule-layout">
+    <div class="schedule-controls">
+    <div class="days" id="geral-days" role="group" aria-label="Dia da grade geral"></div>
+    <div class="turmas" id="geral-turmas" role="group" aria-label="Turma"></div>
+    <div class="pill-bar" role="group" aria-label="Turno geral">
       <button type="button" class="pill" data-gturno="manha" id="g-manha">Manhã</button>
       <button type="button" class="pill" data-gturno="tarde" id="g-tarde">Tarde</button>
     </div>
     <p class="prof" id="geral-coord"></p>
-    <div id="geral-wrap" class="card"><div class="slots" id="geral-slots"></div></div>
+    </div>
+    <div class="schedule-content">
+    <section id="geral-wrap" class="card" aria-labelledby="geral-title">
+      <div class="card-h schedule-heading"><h2 class="card-t" id="geral-title"></h2><p class="card-k" id="geral-meta"></p></div>
+      <div class="slots" id="geral-slots"></div>
+    </section>
     <p class="geral-note"><a href="./geral/horario.pdf" target="_blank" rel="noopener">PDF da grade oficial</a></p>
+    </div>
+    </div>
   </div>
-</div>
+</main>
 
-<nav class="nav" aria-label="Navegação">
+<nav class="nav" data-active="horario" aria-label="Navegação">
   <div class="nav-in">
     <button type="button" class="nav-btn on" data-view="horario" id="nav-horario" aria-current="page">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-      Horário
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      Meu horário
+    </button>
+    <button type="button" class="nav-btn" data-view="geral" id="nav-geral" title="Horário geral da escola">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-5h6v5M9 10h.01M15 10h.01M9 13h.01M15 13h.01"/></svg>
+      Escola
     </button>
     <button type="button" class="nav-btn" data-view="proposta" id="nav-proposta" title="Proposta curricular anual">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8M8 11h6"/></svg>
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M8 7h8M8 11h6"/></svg>
       Proposta
     </button>
   </div>
 </nav>
 
-<script src="./geral-data.js?v=23"></script>
+<script src="./geral-data.js?v=24"></script>
 <script>
 const CURRICULUM = {"1": {"label": "1ª série", "professores": "Josué da Silva Cavalcante e Edvan Araújo Rodrigues", "months": [{"id": "fevereiro", "label": "Fevereiro", "short": "Fev", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT303"], "objeto": "Introdução à Física", "detalhamento": ["O que é Física?", "Algarismos significativos", "Notação científica", "Ordem de grandeza", "Cálculo aritmético e algébrico aplicado à Física", "Grandezas físicas e unidades de medida", "Introdução à cinemática"]}, {"id": "marco", "label": "Março", "short": "Mar", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT303", "EM13CNT301"], "objeto": "Cinemática", "detalhamento": ["Conceitos fundamentais: posição, trajetória e referencial", "O que é o tempo?", "Deslocamento", "Velocidade", "Aceleração", "Aplicação matemática: sistemas de coordenadas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "abril", "label": "Abril", "short": "Abr", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT301", "EM13CNT302"], "objeto": "Cinemática", "detalhamento": ["Movimento retilíneo uniforme (MRU)", "Movimento retilíneo uniformemente variado (MRUV)", "Aplicação matemática: equações horárias", "Noções de cinemática rotacional", "Noções de movimento circular uniforme"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "maio", "label": "Maio", "short": "Mai", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT301", "EM13CNT302", "EM13CNT303"], "objeto": "Cinemática vetorial", "detalhamento": ["O que é um vetor?", "Grandezas escalares", "Grandezas vetoriais", "Operações com vetores", "Aplicação matemática: usando o teorema de Pitágoras"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "junho", "label": "Junho", "short": "Jun", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT101", "EM13CNT301", "EM13CNT303"], "objeto": "Cinemática vetorial", "detalhamento": ["Aplicação matemática: trabalhando com medidas angulares", "Movimento de queda livre", "Lançamento de projéteis"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "agosto", "label": "Agosto", "short": "Ago", "competencias": "03", "habilidades": ["EM13CNT301", "EM13CNT306", "EM13CNT307"], "objeto": "Dinâmica", "detalhamento": ["O que é força?", "Leis de Newton"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "setembro", "label": "Setembro", "short": "Set", "competencias": "02 e 03", "habilidades": ["EM13CNT207", "EM13CNT301", "EM13CNT306", "EM13CNT307"], "objeto": "Dinâmica", "detalhamento": ["Força peso", "Força normal", "Forças de atrito", "Lei da gravitação universal", "Leis de Kepler"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "outubro", "label": "Outubro", "short": "Out", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT207", "EM13CNT301", "EM13CNT306", "EM13CNT307"], "objeto": "Dinâmica", "detalhamento": ["Energia", "Trabalho de uma força", "Tipos de energia", "Energia mecânica", "Conservação de energia mecânica"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "novembro", "label": "Novembro", "short": "Nov", "competencias": "01 e 03", "habilidades": ["EM13CNT101", "EM13CNT306", "EM13CNT307"], "objeto": "Hidrostática e hidrodinâmica", "detalhamento": ["Noções básicas de hidrostática", "Noções básicas de hidrodinâmica"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "dezembro", "label": "Dezembro", "short": "Dez", "competencias": "01 e 03", "habilidades": ["EM13CNT101", "EM13CNT301", "EM13CNT304", "EM13CNT307"], "objeto": "Estática", "detalhamento": ["Equilíbrio de forças", "Aplicações na engenharia"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}]}, "2": {"label": "2ª série", "professores": "Josué da Silva Cavalcante", "months": [{"id": "fevereiro", "label": "Fevereiro", "short": "Fev", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT204", "EM13CNT202"], "objeto": "Termologia", "detalhamento": ["O que é temperatura?", "Escalas de temperatura", "Equilíbrio térmico", "Conversões entre escalas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "marco", "label": "Março", "short": "Mar", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT204", "EM13CNT203", "EM13CNT104"], "objeto": "Termologia", "detalhamento": ["Dilatação térmica", "Introdução à calorimetria", "O que é calor?", "Medidas de calor", "Capacidade térmica", "Calor específico"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "abril", "label": "Abril", "short": "Abr", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT104", "EM13CNT202", "EM13CNT206"], "objeto": "Calorimetria", "detalhamento": ["Calor latente", "Relação fundamental da calorimetria", "Estados físicos da matéria", "Processos de transferência de calor"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "maio", "label": "Maio", "short": "Mai", "competencias": "01 e 03", "habilidades": ["EM13CNT102", "EM13CNT303"], "objeto": "Gases", "detalhamento": ["O que é um gás?", "Variáveis de estado", "Comportamento térmico dos gases", "Transformações gasosas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "junho", "label": "Junho", "short": "Jun", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT206"], "objeto": "Gases e introdução à termodinâmica", "detalhamento": ["Transformações gasosas", "Diagramas PV", "Lei dos gases ideais", "Gases reais", "Lei zero", "Primeira lei", "Trabalho em um sistema termodinâmico"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "agosto", "label": "Agosto", "short": "Ago", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT202"], "objeto": "Termodinâmica", "detalhamento": ["Noções sobre a segunda lei", "Máquinas térmicas", "Ciclo de Carnot", "Rendimento", "O que é entropia?", "Noções sobre a terceira lei"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "setembro", "label": "Setembro", "short": "Set", "competencias": "01 e 03", "habilidades": ["EM13CNT102", "EM13CNT104", "EM13CNT306", "EM13CNT303"], "objeto": "Introdução ao estudo da óptica geométrica", "detalhamento": ["Fontes de luz", "Velocidade da luz", "Princípios do movimento da luz", "Reflexão", "Refração"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "outubro", "label": "Outubro", "short": "Out", "competencias": "02 e 03", "habilidades": ["EM13CNT310", "EM13CNT306", "EM13CNT202"], "objeto": "Ondulatória", "detalhamento": ["O que é uma onda?", "Natureza das ondas", "Relação fundamental das ondas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "novembro", "label": "Novembro", "short": "Nov", "competencias": "01 e 03", "habilidades": ["EM13CNT310", "EM13CNT106", "EM13CNT107"], "objeto": "Ondulatória", "detalhamento": ["Fenômenos ondulatórios", "O fenômeno da interferência", "Aplicações"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "dezembro", "label": "Dezembro", "short": "Dez", "competencias": "01 e 03", "habilidades": ["EM13CNT310", "EM13CNT106", "EM13CNT107"], "objeto": "Acústica", "detalhamento": ["O som", "Efeito Doppler", "Noções básicas sobre acústica"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}]}, "3": {"label": "3ª série", "professores": "Josué da Silva Cavalcante", "months": [{"id": "fevereiro", "label": "Fevereiro", "short": "Fev", "competencias": "01", "habilidades": ["EM13CNT104", "EM13CNT106"], "objeto": "Eletricidade", "detalhamento": ["O que é eletricidade?", "Carga elétrica", "Carga elementar", "Processos por eletrização", "Força elétrica", "Lei de Coulomb"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "marco", "label": "Março", "short": "Mar", "competencias": "01", "habilidades": ["EM13CNT104", "EM13CNT106"], "objeto": "Eletricidade", "detalhamento": ["Campo elétrico", "Potencial elétrico", "Energia potencial elétrica"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "abril", "label": "Abril", "short": "Abr", "competencias": "01", "habilidades": ["EM13CNT104", "EM13CNT102"], "objeto": "Eletrodinâmica", "detalhamento": ["O que é corrente elétrica?", "Intensidade de corrente elétrica", "Corrente contínua", "Corrente alternada"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "maio", "label": "Maio", "short": "Mai", "competencias": "01 e 02", "habilidades": ["EM13CNT102", "EM13CNT206"], "objeto": "Eletrodinâmica", "detalhamento": ["Elementos de um circuito elétrico", "Diferença de potencial elétrico", "Resistores", "Resistência elétrica", "Lei de Ohm"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "junho", "label": "Junho", "short": "Jun", "competencias": "01 e 02", "habilidades": ["EM13CNT203"], "objeto": "Eletrodinâmica", "detalhamento": ["Associação de resistores", "Capacitores", "Capacidade elétrica", "Associação de capacitores"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "agosto", "label": "Agosto", "short": "Ago", "competencias": "02", "habilidades": ["EM13CNT203"], "objeto": "Eletrodinâmica", "detalhamento": ["Geradores e receptores", "Fem", "Leis de Kirchhoff"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "setembro", "label": "Setembro", "short": "Set", "competencias": "01, 02 e 03", "habilidades": ["EM13CNT203", "EM13CNT107", "EM13CNT304"], "objeto": "Eletrodinâmica", "detalhamento": ["Potência elétrica", "Consumo de energia", "O kWh", "Rendimento"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "outubro", "label": "Outubro", "short": "Out", "competencias": "03", "habilidades": ["EM13CNT308", "EM13CNT304"], "objeto": "Magnetismo", "detalhamento": ["O que é o magnetismo?", "Força magnética", "Campo magnético"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "novembro", "label": "Novembro", "short": "Nov", "competencias": "03", "habilidades": ["EM13CNT308", "EM13CNT303"], "objeto": "Eletromagnetismo", "detalhamento": ["Noções básicas", "Magnetismo e corrente elétrica", "Principais equações e leis", "Ondas eletromagnéticas"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}, {"id": "dezembro", "label": "Dezembro", "short": "Dez", "competencias": "02 e 03", "habilidades": ["EM13CNT205", "EM13CNT303"], "objeto": "Física moderna", "detalhamento": ["Física quântica", "Física nuclear", "Teoria da relatividade"], "projeto": "Educação Ambiental, Sustentabilidade e Emergência Climática"}]}};
 const SCHEDULE = {
@@ -567,17 +200,32 @@ function setView(v){
   document.getElementById("view-horario").classList.toggle("hidden", v !== "horario");
   var vg = document.getElementById("view-geral");
   if (vg) vg.classList.toggle("hidden", v !== "geral");
-  document.getElementById("nav-proposta").classList.toggle("on", v === "proposta");
-  document.getElementById("nav-horario").classList.toggle("on", v === "horario");
-  var nh = document.getElementById("nav-horario");
-  var np = document.getElementById("nav-proposta");
-  if (nh) nh.setAttribute("aria-current", v === "horario" ? "page" : "false");
-  if (np) np.setAttribute("aria-current", v === "proposta" ? "page" : "false");
+  document.querySelector(".nav").dataset.active = v;
+  document.querySelectorAll(".nav-btn").forEach(b => {
+    const active = b.dataset.view === v;
+    b.classList.toggle("on", active);
+    if (active) b.setAttribute("aria-current", "page");
+    else b.removeAttribute("aria-current");
+  });
+  if (v === "proposta") revealSelection("months");
   try { window.scrollTo({ top: 0, behavior: "instant" }); } catch (e) { window.scrollTo(0, 0); }
 }
 document.querySelectorAll(".nav-btn").forEach(b => b.onclick = () => setView(b.dataset.view));
 
 function esc(s){ return String(s).replace(/&/g,"&").replace(/</g,"<").replace(/>/g,">"); }
+
+// Keep a selected filter visible and retain keyboard focus after rendering.
+function revealSelection(id){
+  const group = document.getElementById(id);
+  const selected = group.querySelector(".on");
+  if (selected && group.clientWidth) {
+    group.scrollLeft = selected.offsetLeft - (group.clientWidth - selected.offsetWidth) / 2;
+  }
+}
+function focusSelection(id){
+  const selected = document.getElementById(id).querySelector(".on");
+  if (selected) selected.focus({preventScroll: true});
+}
 
 function renderProposta(){
   const serie = CURRICULUM[serieId];
@@ -591,8 +239,9 @@ function renderProposta(){
     const b = document.createElement("button");
     b.type = "button";
     b.className = "pill" + (serieId === id ? " on" : "");
+    b.setAttribute("aria-pressed", String(serieId === id));
     b.textContent = CURRICULUM[id].label;
-    b.onclick = () => { serieId = id; renderProposta(); };
+    b.onclick = () => { serieId = id; renderProposta(); focusSelection("series"); };
     sEl.appendChild(b);
   });
 
@@ -604,13 +253,16 @@ function renderProposta(){
     const b = document.createElement("button");
     b.type = "button";
     b.className = "month" + (month.id === m.id ? " on" : "");
+    b.setAttribute("aria-pressed", String(month.id === m.id));
+    b.setAttribute("aria-label", m.label);
     b.textContent = m.short;
-    b.onclick = () => { monthId = m.id; renderProposta(); };
+    b.onclick = () => { monthId = m.id; renderProposta(); focusSelection("months"); };
     mEl.appendChild(b);
   });
+  revealSelection("months");
 
   const proj = month.projeto
-    ? '<div class="sec"><div class="sec-k">Projeto integrador</div><p style="font-size:14px;font-weight:500;line-height:1.5">' + esc(month.projeto) + '</p></div>'
+    ? '<div class="sec"><div class="sec-k">Projeto integrador</div><p class="project-text">' + esc(month.projeto) + '</p></div>'
     : "";
 
   document.getElementById("month-card").innerHTML =
@@ -648,6 +300,8 @@ function renderHorario(){
   const mn = data.filter(s => isM(s.time));
   const af = data.filter(s => !isM(s.time));
   const arr = turno === "manha" ? mn : af;
+  document.getElementById("schedule-title").textContent = sel + "-feira";
+  document.getElementById("schedule-meta").textContent = turno === "manha" ? "Manhã" : "Tarde";
 
   const dEl = document.getElementById("days");
   dEl.innerHTML = "";
@@ -655,13 +309,16 @@ function renderHorario(){
     const b = document.createElement("button");
     b.type = "button";
     b.className = "day" + (sel === d ? " on" : "");
+    b.setAttribute("aria-pressed", String(sel === d));
+    b.setAttribute("aria-label", d + "-feira" + (today === d ? ", hoje" : ""));
     b.textContent = dayShort[d];
     if (today === d) {
       const dot = document.createElement("span");
       dot.className = "dot";
+      dot.setAttribute("aria-hidden", "true");
       b.appendChild(dot);
     }
-    b.onclick = () => { sel = d; renderHorario(); };
+    b.onclick = () => { sel = d; renderHorario(); focusSelection("days"); };
     dEl.appendChild(b);
   });
 
@@ -669,6 +326,7 @@ function renderHorario(){
   document.getElementById("ct").textContent = countActive(af);
   document.querySelectorAll("[data-turno]").forEach(t => {
     t.classList.toggle("on", t.dataset.turno === turno);
+    t.setAttribute("aria-pressed", String(t.dataset.turno === turno));
     t.onclick = () => { turno = t.dataset.turno; renderHorario(); };
   });
 
@@ -703,14 +361,18 @@ setView("horario");
   function renderGeral(){
     var dayMap = GERAL[geralDay] || {};
     var times = GERAL_TIMES.filter(function(t){ return geralTurno === "manha" ? isM(t) : !isM(t); });
+    document.getElementById("geral-title").textContent = geralDay + "-feira";
+    document.getElementById("geral-meta").textContent = geralTurno === "manha" ? "Manhã" : "Tarde";
     var dEl = document.getElementById("geral-days");
     dEl.innerHTML = "";
     dn.forEach(function(d){
       var b = document.createElement("button");
       b.type = "button";
       b.className = "day" + (geralDay === d ? " on" : "");
+      b.setAttribute("aria-pressed", String(geralDay === d));
+      b.setAttribute("aria-label", d + "-feira");
       b.textContent = dayShort[d];
-      b.onclick = function(){ geralDay = d; renderGeral(); };
+      b.onclick = function(){ geralDay = d; renderGeral(); focusSelection("geral-days"); };
       dEl.appendChild(b);
     });
     var tEl = document.getElementById("geral-turmas");
@@ -719,12 +381,15 @@ setView("horario");
       var b = document.createElement("button");
       b.type = "button";
       b.className = "turma" + (geralTurma === tu.id ? " on" : "");
+      b.setAttribute("aria-pressed", String(geralTurma === tu.id));
       b.textContent = tu.label;
-      b.onclick = function(){ geralTurma = tu.id; renderGeral(); };
+      b.onclick = function(){ geralTurma = tu.id; renderGeral(); focusSelection("geral-turmas"); };
       tEl.appendChild(b);
     });
+    revealSelection("geral-turmas");
     document.querySelectorAll("[data-gturno]").forEach(function(t){
       t.classList.toggle("on", t.dataset.gturno === geralTurno);
+      t.setAttribute("aria-pressed", String(t.dataset.gturno === geralTurno));
       t.onclick = function(){ geralTurno = t.dataset.gturno; renderGeral(); };
     });
     var info = GERAL_TURMAS.find(function(x){ return x.id === geralTurma; });
@@ -742,7 +407,7 @@ setView("horario");
           var c = cells[tu.id];
           if (!c) return "";
           var me = c.p === "Josué" ? " class=\"s-f2\"" : "";
-          return "<div><span class=\"row-chip\">" + esc(tu.label) + "</span><span" + me + ">" + esc(c.d) + "</span> <span class=\"row-prof\" style=\"display:inline;margin:0\">" + esc(c.p) + "</span></div>";
+          return "<div class=\"school-cell\"><span class=\"row-chip\">" + esc(tu.label) + "</span><span" + me + ">" + esc(c.d) + "</span> <span class=\"row-prof\" style=\"display:inline;margin:0\">" + esc(c.p) + "</span></div>";
         }).join("");
         row.innerHTML = '<div class="row-time">' + tm + (tEnd ? '<span class="end"> – ' + tEnd + "</span>" : "") + "</div><div>" + bits + "</div>";
       } else {
@@ -758,21 +423,21 @@ setView("horario");
       slots.appendChild(row);
     });
   }
-  var bp = document.getElementById("btn-open-proposta");
-  if (bp) bp.onclick = function(){ setView("proposta"); };
-  var bg = document.getElementById("btn-open-geral");
-  if (bg) bg.onclick = function(){ geralDay = sel; renderGeral(); setView("geral"); };
-  var bb = document.getElementById("btn-back-horario");
-  if (bb) bb.onclick = function(){ setView("horario"); };
+  document.getElementById("nav-geral").onclick = function(){
+    if (view !== "geral") { geralDay = sel; geralTurno = turno; }
+    renderGeral();
+    setView("geral");
+    revealSelection("geral-turmas");
+  };
   var bbg = document.getElementById("btn-back-horario-geral");
-  if (bbg) bbg.onclick = function(){ setView("horario"); };
+  if (bbg) bbg.onclick = function(){ setView("horario"); document.getElementById("nav-horario").focus({preventScroll: true}); };
 })();
 </script>
 
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
-    navigator.serviceWorker.register("./sw.js?v=23", { scope: "./" }).then(function (reg) {
+    navigator.serviceWorker.register("./sw.js?v=24", { scope: "./" }).then(function (reg) {
       reg.addEventListener("updatefound", function () {
         var nw = reg.installing;
         if (!nw) return;

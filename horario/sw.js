@@ -1,8 +1,9 @@
-/* Service Worker — Física 2026 unified (proposta + horário) v6 */
-const CACHE = "fisica-josue-v23-modern-monitor-ui";
+/* Offline shell for the schedule and curriculum app. */
+const CACHE = "fisica-josue-v24-liquid-glass-ui";
 const SHELL = [
   "./",
   "./index.html",
+  "./styles.css",
   "./geral-data.js",
   "./manifest.webmanifest",
   "./icons/wolf-192.png",

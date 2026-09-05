@@ -5,7 +5,7 @@
   "description": "Proposta curricular 2026 e horário de aulas — Prof. Josué Cavalcante · Física · C.N. ENEM · LEC",
   "lang": "pt-BR",
   "dir": "ltr",
-  "start_url": "./index.html?v=23",
+  "start_url": "./index.html?v=24",
   "scope": "./",
   "display": "standalone",
   "display_override": [
@@ -13,8 +13,8 @@
     "minimal-ui"
   ],
   "orientation": "portrait-primary",
-  "background_color": "#0e0e10",
-  "theme_color": "#0e0e10",
+  "background_color": "#0b0c0f",
+  "theme_color": "#0b0c0f",
   "categories": [
     "education",
     "productivity"
