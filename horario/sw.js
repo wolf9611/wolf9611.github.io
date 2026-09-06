@@ -1,5 +1,5 @@
 /* Offline shell for the schedule and curriculum app. */
-const CACHE = "fisica-josue-v25-bncc-skills";
+const CACHE = "fisica-josue-v26-modern-wolf-icon";
 const SHELL = [
   "./",
   "./index.html",
@@ -7,17 +7,13 @@ const SHELL = [
   "./bncc-skills.js",
   "./geral-data.js",
   "./manifest.webmanifest",
-  "./icons/wolf-192.png",
-  "./icons/wolf-512.png",
-  "./icons/wolf-maskable-192.png",
-  "./icons/wolf-maskable-512.png",
-  "./icons/wolf-apple-180.png",
-  "./icons/wolf-favicon-32.png",
+  "./icons/wolf-glass-192.png",
+  "./icons/wolf-glass-512.png",
+  "./icons/wolf-glass-maskable-192.png",
+  "./icons/wolf-glass-maskable-512.png",
+  "./icons/wolf-glass-apple-180.png",
+  "./icons/wolf-glass-favicon-32.png",
   "./icons/wolf-bg.png",
-  "./icons/icon-192.png",
-  "./icons/icon-512.png",
-  "./icons/apple-touch-icon.png",
-  "./icons/favicon-32.png",
 ];
 
 self.addEventListener("install", (event) => {
