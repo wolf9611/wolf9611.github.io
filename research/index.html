@@ -4,12 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research — Josué da Silva Cavalcante</title>
+  <meta name="description" content="From positional astronomy at UVA to measurements of Chariklo at Observatório Nacional: methods, thesis figures, astrometric results, and research directions.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css?v=2">
+  <link rel="stylesheet" href="/css/style.css?v=3">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <div class="wrap">
       <div class="site-title"><a href="/">Josué da Silva Cavalcante</a></div>
@@ -24,36 +26,70 @@
     </div>
   </header>
 
-  <main class="wrap">
-    <div class="kicker">Research</div>
+  <main id="main-content" class="wrap">
     <article class="prose">
-      <p class="lead">My research addresses high-precision astrometry and photometry of small Solar System bodies in dense stellar fields, and the development of measurement software—including methods based on machine learning and artificial intelligence.</p>
+      <div class="kicker">Research</div>
+      <h1>Positions, light &amp; small bodies</h1>
+      <p class="lead">My work connects the geometry of the celestial sphere with the practical challenge of measuring moving objects in crowded astronomical images.</p>
+      <p class="text-links"><a href="#undergraduate">Undergraduate work</a><a href="#masters">Master’s research</a><a href="#doctoral">Doctoral direction</a></p>
 
-      <h2>Master’s thesis — Observatório Nacional</h2>
-      <p><em>Astrometria e fotometria de pequenos corpos do Sistema Solar em imagens com campos estelares densos</em><br>
-      Supervisor: <strong>Dr.&nbsp;Julio I.&nbsp;Bueno de Camargo</strong> · Co-supervisor: <strong>Dr.&nbsp;Adriano Pieres</strong> · <a href="/files/dissertacao_cavalcante_2025.pdf">PDF</a></p>
+      <section aria-labelledby="undergraduate">
+        <h2 id="undergraduate">Positional astronomy · undergraduate work</h2>
+        <p class="institution">Licenciatura in Physics · Universidade Estadual Vale do Acaraú · Sobral · 2018 thesis</p>
+        <p>My undergraduate thesis, <em lang="pt-BR">Astronomia de Posição</em> (<em>Positional Astronomy</em>), brings together celestial reference systems, spherical trigonometry, and transformations between astronomical coordinates. It also discusses apparent celestial motion and uses Stellarium to illustrate astronomical situations.</p>
+        <p>This work addresses a basic question behind astrometry: how do we define and relate the coordinates used to describe a position in the sky?</p>
+        <p class="source-link">Supervisor: Prof. Dr. Antônio Fernandes Siqueira.</p>
+        <div class="work-grid"><figure class="research-figure">
+      <a class="figure-image" href="/assets/research/horizontal-coordinates.webp" aria-label="Open full-size figure">
+        <img src="/assets/research/horizontal-coordinates.webp" alt="A celestial sphere with the horizon plane in blue and arcs indicating altitude and azimuth." width="1026" height="771" loading="lazy" decoding="async">
+      </a>
+      <figcaption><strong>Horizontal coordinates.</strong> Altitude and azimuth locate an object relative to an observer’s horizon. Original diagram from <em lang="pt-BR">Astronomia de Posição</em>. Figure 5, p. 24.</figcaption>
+    </figure><figure class="research-figure">
+      <a class="figure-image" href="/assets/research/position-triangle.webp" aria-label="Open full-size figure">
+        <img src="/assets/research/position-triangle.webp" alt="Spherical position triangle connecting the zenith, the elevated celestial pole and a star, with angular relationships marked." width="1107" height="774" loading="lazy" decoding="async">
+      </a>
+      <figcaption><strong>The position triangle.</strong> Spherical geometry connects the observer’s latitude with horizontal and equatorial coordinates. Original diagram from the undergraduate thesis. Figure 12, p. 34.</figcaption>
+    </figure></div>
+      </section>
 
-      <p>In crowded fields, flux from neighboring stars contaminates measurements of moving targets and degrades both positions and light curves. The thesis evaluates and applies <strong>difference image analysis (DIA)</strong> to mitigate that contamination and to support dense-field programs aimed at <strong>stellar occultation</strong> prediction and physical characterization.</p>
+      <section aria-labelledby="masters">
+        <h2 id="masters">Small bodies in crowded fields · master’s research</h2>
+        <p class="institution">Master’s in Astronomy · Observatório Nacional · Rio de Janeiro · 2025 thesis</p>
+        <p>My master’s thesis, <em lang="pt-BR">Astrometria e fotometria de pequenos corpos do Sistema Solar em imagens com campos estelares densos</em>, studies how neighboring stars affect the measured position and brightness of a moving Solar System body.</p>
+        <p class="source-link">Supervisor: Dr. Julio I. Bueno de Camargo. Co-supervisor: Dr. Adriano Pieres. <a href="/files/dissertacao_cavalcante_2025.pdf">Read the full thesis (PDF, Portuguese)</a>.</p>
+        <h3>Separating the target from the background</h3>
+        <p>I first compared <strong>PRAIA</strong> and <strong>DAOPHOT</strong> measurements of reference-star positions in a simulated dense field. I then applied <strong>difference image analysis (DIA)</strong>, using <strong>DIAPL2</strong>, to a sequence of <strong>SOAR/SOI</strong> observations of the centaur <strong>(10199) Chariklo</strong>.</p>
+        <p>A reference image models the stellar background without the moving target. Subtracting that model from aligned science images makes it possible to measure Chariklo with less contamination. Reference stars are measured with PRAIA on the resampled science images.</p>
+        <figure class="research-figure">
+      <a class="figure-image" href="/assets/research/chariklo-image-subtraction.webp" aria-label="Open full-size figure">
+        <img src="/assets/research/chariklo-image-subtraction.webp" alt="Science, template, resampled science and difference images of a dense stellar field. Red arrows indicate Chariklo in the science images." width="1326" height="417" loading="lazy" decoding="async">
+      </a>
+      <figcaption><strong>Removing the stellar background.</strong> From left to right: the science image, reference template, resampled science image, and difference image. The red arrows identify Chariklo in the science frames. <a href="/files/dissertacao_cavalcante_2025.pdf#page=55">Figure 4.5, p. 43</a>.</figcaption>
+    </figure>
+        <h3>Astrometric results</h3>
+        <p>The analysis found smaller scatter in position residuals relative to the <strong>NIMA</strong> ephemeris after image subtraction. The table below reproduces the scatter values and sample sizes reported in the dissertation.</p>
+        <div class="table-wrap">
+          <table class="results-table">
+            <caption>Chariklo astrometry · dissertation, Table 4.1</caption>
+            <thead><tr><th scope="col">Reduction</th><th scope="col">Measurements</th><th scope="col">Scatter in Δα cos δ</th><th scope="col">Scatter in Δδ</th></tr></thead>
+            <tbody><tr><th scope="row">Without DIA</th><td>95</td><td>0.066″</td><td>0.075″</td></tr><tr><th scope="row">With DIA</th><td>129</td><td>0.018″</td><td>0.017″</td></tr></tbody>
+          </table>
+        </div>
+        <p class="source-link">The reductions contain different numbers of accepted measurements. These results describe this observing sequence. <a href="/files/dissertacao_cavalcante_2025.pdf#page=57">See Table 4.1 and its discussion, p. 45</a>.</p>
+        <h3>Recovering the light curve</h3>
+        <p>Photometry on the difference images also recovered Chariklo’s rotational brightness variation. Cleaner position and brightness measurements can support stellar-occultation predictions and the physical study of small bodies.</p>
+        <figure class="research-figure">
+      <a class="figure-image" href="/assets/research/chariklo-photometry.webp" aria-label="Open full-size figure">
+        <img src="/assets/research/chariklo-photometry.webp" alt="Two plots of instrumental magnitude against time: original-image PSF photometry on the left and difference-image aperture photometry on the right. The vertical scales differ." width="1302" height="471" loading="lazy" decoding="async">
+      </a>
+      <figcaption><strong>Photometry before and after subtraction.</strong> Original-image PSF photometry (left) and difference-image aperture photometry (right). The panels use different vertical scales; the comparison illustrates the effect of stellar contamination. <a href="/files/dissertacao_cavalcante_2025.pdf#page=69">Figure 5.2, p. 57</a>.</figcaption>
+    </figure>
+      </section>
 
-      <h3>Approach and principal results</h3>
-      <ul>
-        <li><strong>Controlled tests on a simulated dense field</strong> (globular-cluster-like): comparison of <strong>PRAIA</strong> and <strong>DAOPHOT</strong> for reference-star centroids in regimes where DIA is not applicable; PRAIA remained competitive at high stellar density.</li>
-        <li><strong>DIA with DIAPL2</strong> on a <strong>SOAR/SOI</strong> time series of the centaur <strong>(10199)&nbsp;Chariklo</strong>: construction of a static model frame, subtraction from re-sampled science images, measurement of the moving source on the residuals, and measurement of reference stars with PRAIA on the re-sampled frames.</li>
-        <li><strong>Astrometry:</strong> residual scatter relative to the <strong>NIMA</strong> ephemeris decreased substantially (e.g., from 0.066″ to 0.018″ in ∆α&nbsp;cos&nbsp;δ).</li>
-        <li><strong>Photometry:</strong> fluxes on difference images yielded a rotational light curve and a rotational phase with σ<sub>φ</sub>&nbsp;=&nbsp;0.0025.</li>
-      </ul>
-
-      <h2>Science case: (10199) Chariklo</h2>
-      <p>Chariklo is a well-studied centaur whose ring system was revealed by stellar occultations. SOAR/SOI imaging against a dense stellar background provides a stringent test of whether DIA recovers cleaner astrometry and a scientifically usable light curve when aperture or PSF photometry on the original frames is compromised by crowding.</p>
-
-      <h2>Doctoral research directions</h2>
-      <p>I am <strong>beginning doctoral studies</strong> in the same area, with emphasis on <strong>astrometric software that incorporates machine learning and artificial intelligence</strong>. Building on the master’s results, near-term themes include:</p>
-      <ul>
-        <li>Learning-based or hybrid approaches to detection and centroiding under crowding and complex PSFs;</li>
-        <li>Robust measurement of moving objects when classical DIA or PSF fitting is limited;</li>
-        <li>Reproducible pipelines that connect established tools (PRAIA-class reductions, DIA) to modern ML frameworks;</li>
-        <li>Applications to centaurs, trans-Neptunian objects, and related populations for occultation work and survey follow-up.</li>
-      </ul>
+      <section aria-labelledby="doctoral">
+        <h2 id="doctoral">Doctoral research direction</h2>
+        <p>I am beginning doctoral studies in small-body astrometry and photometry, with an emphasis on measurement software that incorporates machine learning and artificial intelligence. My interests include detection and centroid estimation under crowding, robust treatment of moving sources, and reproducible processing of astronomical images.</p>
+      </section>
     </article>
   </main>
 
