@@ -3,14 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Josué da Silva Cavalcante</title>
-  <meta name="description" content="Dense-field astrometry and photometry of small Solar System bodies. Licenciatura in Physics (UVA); M.S. Astronomy (Observatório Nacional); beginning doctoral research in ML-enabled astrometric software.">
+  <title>Josué da Silva Cavalcante — Physicist & Astronomer</title>
+  <meta name="description" content="Physicist and astronomer. Physics degree from UVA in Sobral, master’s in Astronomy from Observatório Nacional, research on small Solar System bodies, and teaching in Ceará.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css?v=2">
+  <link rel="stylesheet" href="/css/style.css?v=3">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <div class="wrap">
       <div class="site-title"><a href="/">Josué da Silva Cavalcante</a></div>
@@ -25,18 +26,65 @@
     </div>
   </header>
 
-  <main class="wrap">
-    <div class="kicker">Home</div>
+  <main id="main-content" class="wrap">
     <article class="prose">
-      <p class="lead">I work on high-precision astrometry and photometry of small Solar System bodies, with emphasis on measurements in dense stellar fields.</p>
+      <div class="kicker">About me</div>
+      <h1>Physicist &amp; astronomer</h1>
+      <p class="lead">I study the positions and brightness of small Solar System bodies, with a focus on measuring them against dense stellar backgrounds.</p>
+      <p>My path connects a degree in Physics in Sobral, a master’s in Astronomy in Rio de Janeiro, and teaching in Ceará’s public schools. I am also a technology and artificial intelligence enthusiast.</p>
+      <p class="text-links"><a href="/research/">Research &amp; figures</a><a href="/cv/">Curriculum vitae</a><a href="/portugues/" lang="pt-BR">Ler em português</a></p>
 
-      <p>I earned a <strong>Licenciatura in Physics</strong> (undergraduate degree) from the <a href="https://www.uvanet.br/">Universidade Estadual Vale do Acaraú</a> (UVA, Ceará, Brazil) and an <strong>M.S. in Astronomy</strong> from the <a href="https://www.gov.br/observatorio/pt-br">Observatório Nacional</a> (ON, Rio de Janeiro), under the supervision of <strong>Dr.&nbsp;Julio I.&nbsp;Bueno de Camargo</strong> and the co-supervision of <strong>Dr.&nbsp;Adriano Pieres</strong>. My master’s thesis, <em>Astrometria e fotometria de pequenos corpos do Sistema Solar em imagens com campos estelares densos</em> (<a href="/files/dissertacao_cavalcante_2025.pdf">PDF</a>), develops and tests <strong>difference image analysis (DIA)</strong> with <strong>DIAPL2</strong> to isolate the flux of moving targets in crowded fields. After benchmarking <strong>PRAIA</strong> against DAOPHOT on a simulated dense field for reference-star centroids, I applied DIA to a <strong>SOAR/SOI</strong> time series of the centaur <strong>(10199)&nbsp;Chariklo</strong>. Combining difference-image positions with PRAIA reference stars reduced the residual scatter relative to the <strong>NIMA</strong> ephemeris (e.g., from 0.066″ to 0.018″ in ∆α&nbsp;cos&nbsp;δ); difference-image photometry recovered a rotational light curve with phase uncertainty σ<sub>φ</sub>&nbsp;=&nbsp;0.0025. The broader goal is to establish DIA as a routine tool for dense-field programs that support <strong>stellar occultation</strong> predictions and physical characterization.</p>
+      <section aria-labelledby="education">
+        <h2 id="education">From physics to astronomy</h2>
+        <div class="trajectory">
+          <div class="trajectory-entry">
+            <p class="when">2018 thesis</p>
+            <div>
+              <h3>Undergraduate degree in Physics</h3>
+              <p class="institution"><a href="https://www.uvanet.br/">Universidade Estadual Vale do Acaraú (UVA)</a> · Sobral, Ceará</p>
+              <p>I earned a <strong>Licenciatura in Physics</strong>, an undergraduate degree that includes teacher education. My thesis, <em lang="pt-BR">Astronomia de Posição</em>, explores celestial coordinates, spherical trigonometry, and the geometry used to locate objects in the sky.</p>
+              <p class="source-link"><a href="/research/#undergraduate">Explore the undergraduate research</a></p>
+            </div>
+          </div>
+          <div class="trajectory-entry">
+            <p class="when">2025 thesis</p>
+            <div>
+              <h3>Master’s degree in Astronomy</h3>
+              <p class="institution"><a href="https://www.gov.br/observatorio/pt-br">Observatório Nacional (ON/MCTI)</a> · Rio de Janeiro</p>
+              <p>My master’s research investigated astrometry and photometry of small Solar System bodies in crowded fields. Using observations of <strong>(10199) Chariklo</strong>, I studied how difference image analysis can improve measurements when neighboring stars interfere.</p>
+              <p class="source-link"><a href="/files/dissertacao_cavalcante_2025.pdf">Read the master’s thesis (PDF, Portuguese)</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <p>I am <strong>beginning doctoral studies</strong> along the same research trajectory—small-body astrometry and photometry—with a focus on <strong>astrometric software development that integrates machine learning and artificial intelligence</strong>, targeting robust measurements under crowding and scalable pipelines for wide-field survey data.</p>
+      <section aria-labelledby="selected-figures">
+        <h2 id="selected-figures">Figures from my work</h2>
+        <div class="work-grid"><figure class="research-figure compact">
+      <a class="figure-image" href="/assets/research/horizontal-coordinates.webp" aria-label="Open full-size figure">
+        <img src="/assets/research/horizontal-coordinates.webp" alt="Celestial sphere showing altitude, azimuth, the horizon and the local meridian." width="1026" height="771" loading="lazy" decoding="async">
+      </a>
+      <figcaption><strong>Describing a position in the sky.</strong> A diagram from my undergraduate thesis illustrates the horizontal coordinate system. Figure 5, p. 24.</figcaption>
+    </figure><figure class="research-figure compact">
+      <a class="figure-image" href="/assets/research/chariklo-image-subtraction.webp" aria-label="Open full-size figure">
+        <img src="/assets/research/chariklo-image-subtraction.webp" alt="Four astronomical images: science frame, reference template, resampled science frame and difference image, with Chariklo marked by red arrows in the science frames." width="1326" height="417" loading="lazy" decoding="async">
+      </a>
+      <figcaption><strong>Measuring Chariklo in a crowded field.</strong> Image subtraction separates a moving object from the stellar background in my master’s work. <a href="/files/dissertacao_cavalcante_2025.pdf#page=55">Figure 4.5, p. 43</a>.</figcaption>
+    </figure></div>
+        <p class="source-link"><a href="/research/">Explore the methods, results, and more figures</a></p>
+      </section>
 
-      <p>Further detail is available under <a href="/research/">Research</a>. A concise curriculum vitae is <a href="/cv/">here</a>; the thesis and related records appear under <a href="/pubs/">Publications</a>. A Portuguese version of this page is available <a href="/portugues/">here</a>.</p>
+      <section aria-labelledby="teaching">
+        <h2 id="teaching">Teaching &amp; public service</h2>
+        <p>I teach Physics in the Ceará state public-school network, through <strong>SEDUC-CE</strong>. My work in education accompanies my academic training in Physics and Astronomy.</p>
+        <p>I passed the <strong>SEDUC-CE 2018 competitive examination for Physics teachers</strong>. My name appears in the final list of approved candidates published on 30 December 2019.</p>
+        <p class="source-link"><a href="https://www.cev.uece.br/wp-content/uploads/2021/10/comunicado131.2019.pdf#page=16">Official result · CEV/UECE, Comunicado 131/2019, p. 16 (PDF)</a></p>
+      </section>
 
-      <p>Email: <a href="mailto:cavalcante_wolf@proton.me">cavalcante_wolf@proton.me</a> · <a href="http://lattes.cnpq.br/4498102376995368" rel="me noopener" target="_blank">Lattes CV</a></p>
+      <section aria-labelledby="next">
+        <h2 id="next">Astronomy, technology &amp; AI</h2>
+        <p>I am beginning doctoral studies along the same research trajectory, with a focus on astrometric software that integrates machine learning and artificial intelligence. I am interested in making measurements of small bodies more reliable in challenging stellar fields.</p>
+      </section>
     </article>
   </main>
 

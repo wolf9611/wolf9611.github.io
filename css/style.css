@@ -25,7 +25,7 @@ a{color:var(--accent-hi);text-decoration:none;border-bottom:1px solid transparen
 a:hover{color:var(--paper);border-bottom-color:var(--accent)}
 
 .wrap{
-  max-width:720px;
+  max-width:880px;
   margin:0 auto;
   padding:0 1.35rem;
 }
@@ -49,7 +49,7 @@ a:hover{color:var(--paper);border-bottom-color:var(--accent)}
 }
 .site-tag{
   margin-top:0.45rem;
-  font-size:0.78rem;
+  font-size:0.875rem;
   letter-spacing:0.16em;
   text-transform:uppercase;
   color:var(--muted);
@@ -61,7 +61,7 @@ a:hover{color:var(--paper);border-bottom-color:var(--accent)}
   gap:0.15rem 0;
   margin-top:1.6rem;
   padding-bottom:0.9rem;
-  font-size:0.72rem;
+  font-size:0.875rem;
   letter-spacing:0.14em;
   text-transform:uppercase;
   color:var(--muted);
@@ -82,7 +82,7 @@ a:hover{color:var(--paper);border-bottom-color:var(--accent)}
 /* content */
 main{padding-bottom:3rem;min-height:50vh}
 .kicker{
-  font-size:0.68rem;
+  font-size:0.8rem;
   letter-spacing:0.18em;
   text-transform:uppercase;
   color:var(--accent);
@@ -107,7 +107,6 @@ main{padding-bottom:3rem;min-height:50vh}
   padding-top:0.4rem;
   border-top:1px solid var(--line);
 }
-.prose h2:first-of-type{border-top:none;padding-top:0}
 .prose h3{
   font-size:0.95rem;
   letter-spacing:0.06em;
@@ -187,10 +186,10 @@ main{padding-bottom:3rem;min-height:50vh}
 .footer-list a:hover{color:var(--accent-hi)}
 .footer-copy{
   margin-top:1.5rem;
-  font-size:0.72rem;
+  font-size:0.8rem;
   letter-spacing:0.08em;
   text-transform:uppercase;
-  color:var(--accent-dim);
+  color:var(--muted);
 }
 
 /* subtle top edge stripe */
@@ -224,7 +223,7 @@ body::before{
 .page-cv .cv-name a:hover{color:var(--paper);border:none}
 .page-cv .cv-line{
   margin-top:0.25rem;
-  font-size:0.8rem;
+  font-size:0.875rem;
   color:var(--muted);
 }
 .page-cv .cv-top .nav{margin-top:1.1rem;padding-bottom:0.7rem}
@@ -233,8 +232,8 @@ body::before{
   max-width:34rem;
 }
 .page-cv .cv-main section + section{margin-top:1.85rem}
-.page-cv .cv-main h1{
-  font-size:0.68rem;
+.page-cv .cv-main h2{
+  font-size:0.875rem;
   letter-spacing:0.16em;
   text-transform:uppercase;
   color:var(--accent);
@@ -279,3 +278,82 @@ body::before{
 }
 .page-cv .cv-contact span{margin:0 0.35rem;color:var(--accent-dim)}
 .page-cv .site-footer{display:none}
+
+/* Academic trajectory and original research figures */
+a:focus-visible{outline:2px solid var(--paper);outline-offset:5px}
+.skip-link{position:absolute;left:1rem;top:0;transform:translateY(-150%);z-index:10;padding:.7rem 1rem;background:var(--paper);color:var(--bg)}
+.skip-link:focus{transform:translateY(.5rem);color:var(--bg)}
+.prose h1,.page-cv .cv-main h1{
+  font:500 clamp(1.8rem,4vw,2.5rem)/1.2 "IBM Plex Serif",Georgia,serif;
+  color:var(--paper);
+  letter-spacing:-.02em;
+  margin:0 0 1.2rem;
+}
+.prose p{max-width:70ch}
+.prose p.lead{font-size:1.2rem;line-height:1.6;max-width:60ch}
+.prose section{margin-top:2.6rem}
+.prose section > h2{
+  font-size:1.4rem;
+  margin:0 0 1.2rem;
+  padding-top:1rem;
+  border-top:1px solid var(--line);
+}
+.prose h3{font-size:1.1rem;text-transform:none;letter-spacing:0;margin:1.5rem 0 .6rem}
+.prose a:not(.figure-image){border-bottom-color:var(--accent-dim)}
+.prose a:hover{border-bottom-color:var(--paper)}
+.prose .text-links{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;font-size:.95rem;margin:1.5rem 0}
+.prose .when,.when{font-size:.875rem;color:var(--muted);line-height:1.6}
+.prose .institution{font-size:.95rem;color:var(--muted);margin-bottom:.85rem}
+.prose .source-link{font-size:.9rem;color:var(--muted)}
+.trajectory{display:grid;gap:1.8rem}
+.trajectory-entry{display:grid;grid-template-columns:9rem minmax(0,1fr);gap:1rem}
+.trajectory-entry + .trajectory-entry{padding-top:1.8rem;border-top:1px solid var(--line)}
+.trajectory-entry h3{margin:0 0 .3rem;font-size:1.15rem}
+.trajectory-entry p:last-child{margin-bottom:0}
+.work-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.6rem;margin:1rem 0 1.5rem;align-items:start}
+.research-figure{margin:1.2rem 0 1.8rem;min-width:0}
+.work-grid .research-figure{margin:0}
+.figure-image{display:block;border:0;background:#fff;padding:.65rem}
+.figure-image:hover{border:0}
+.figure-image img{width:100%;height:auto}
+.work-grid .figure-image{height:17rem;display:flex;align-items:center;justify-content:center}
+.work-grid .figure-image img{height:100%;object-fit:contain}
+.work-grid .compact .figure-image{height:14rem}
+.research-figure figcaption{font-size:.9rem;line-height:1.6;color:var(--muted);padding-top:.8rem}
+.research-figure figcaption strong{color:var(--ink);font-weight:500}
+.table-wrap{width:100%;margin:1.2rem 0}
+.results-table{border-collapse:collapse;width:100%;font-size:.95rem;table-layout:fixed}
+.results-table caption{text-align:left;color:var(--muted);font-size:.875rem;padding-bottom:.6rem}
+.results-table th,.results-table td{padding:.8rem .6rem;text-align:left;border-bottom:1px solid var(--line);overflow-wrap:anywhere;vertical-align:top}
+.results-table th{font-weight:500}
+.results-table thead th{color:var(--muted);font-size:.875rem;background:var(--bg-elev)}
+.results-table td{font-variant-numeric:tabular-nums}
+.prose .pub{padding-bottom:2rem;margin-bottom:0}
+.prose .pub h2{border:0;padding:0;margin:.5rem 0 .8rem;font-size:1.35rem}
+.prose .muted{color:var(--muted)}
+.page-cv .cv-main{max-width:42rem;padding:2rem 1.35rem 4rem}
+.page-cv .cv-dl dd + dd{margin-top:.4rem}
+.page-cv .cv-dl a,.page-cv .cv-contact a{border-bottom-color:var(--accent-dim)}
+.page-cv .cv-main h2{padding-top:.8rem;border-top:1px solid var(--line)}
+.page-cv .cv-contact{margin-top:.5rem;overflow-wrap:anywhere}
+.footer-list a{overflow-wrap:anywhere}
+[id]{scroll-margin-top:1.5rem}
+@media(max-width:640px){
+  .wrap{padding-left:1.15rem;padding-right:1.15rem}
+  .site-header{padding-top:2rem}
+  .site-tag{letter-spacing:.07em;line-height:1.8}
+  .nav{letter-spacing:.08em;gap:.2rem 0;margin-top:1.2rem}
+  .nav a{margin-right:1rem;padding:.6rem 0}
+  .trajectory-entry{grid-template-columns:minmax(0,1fr);gap:.2rem}
+  .trajectory-entry .when{margin-bottom:.3rem}
+  .work-grid{grid-template-columns:minmax(0,1fr);gap:1.8rem}
+  .work-grid .figure-image,.work-grid .compact .figure-image{height:auto;min-height:0}
+  .work-grid .figure-image img{height:auto;max-height:19rem;object-fit:contain}
+  .results-table{font-size:.875rem}
+  .results-table th,.results-table td{padding:.65rem .35rem}
+  .prose section{margin-top:2.2rem}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  a{transition:none}
+}
