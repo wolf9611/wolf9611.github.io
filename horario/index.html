@@ -12,6 +12,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="icons/wolf-glass-192.png?v=26">
 <link rel="apple-touch-icon" sizes="180x180" href="icons/wolf-glass-apple-180.png?v=26">
 <meta name="description" content="Proposta curricular 2026 + horário — Prof. Josué · Física · C.N. ENEM · LEC">
+<meta name="robots" content="noindex">
 <meta name="apple-mobile-web-app-title" content="Física Josué">
 <meta name="application-name" content="Física Josué">
 <meta name="mobile-web-app-capable" content="yes">
@@ -20,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./styles.css?v=26">
+<link rel="stylesheet" href="./styles.css?v=27">
 </head>
 <body>
 <div class="bg" aria-hidden="true">
@@ -43,7 +44,7 @@
     <div class="gloss">
       <div class="gl-item"><b>Sobre</b> · Área: Ciências da Natureza · Componente: Física · Ano letivo 2026. Conteúdos por mês, conforme a proposta da Formação Geral Básica.</div>
     </div>
-    <footer class="footer">Proposta curricular 2026</footer>
+    <footer class="footer">Proposta curricular 2026 · <a href="/">Página acadêmica</a></footer>
   </div>
 
   <div id="view-horario" class="page">
@@ -66,7 +67,7 @@
       <div class="slots" id="slots"></div>
     </section>
     <div class="gloss" id="glossario" hidden></div>
-    <footer class="footer">Grade atualizada em 30/08/2026</footer>
+    <footer class="footer">Grade atualizada em 30/08/2026 · <a href="/">Página acadêmica</a></footer>
     </div>
     </div>
   </div>
@@ -93,7 +94,7 @@
       <div class="card-h schedule-heading"><h2 class="card-t" id="geral-title"></h2><p class="card-k" id="geral-meta"></p></div>
       <div class="slots" id="geral-slots"></div>
     </section>
-    <p class="geral-note"><a href="./geral/horario.pdf" target="_blank" rel="noopener">PDF da grade oficial</a></p>
+    <p class="geral-note"><a href="./geral/horario.pdf" target="_blank" rel="noopener">PDF da grade oficial</a> · <a href="/">Página acadêmica</a></p>
     </div>
     </div>
   </div>
@@ -166,11 +167,11 @@ const SCHEDULE = {
     {time:"8:10",type:"f2",sub:"Física",turma:"2ª C",eo:"3ª B (Chagas)"},
     {time:"9:20",type:"planej",sub:"Planejamento",eo:"3ª C (Chagas)"},
     {time:"10:10",type:"planej",sub:"Planejamento"},
-    {time:"11:00",type:"arm",sub:"ARM",turma:"3ª A",alunos:"Gustavo · Gabriel Soares · Deysiane"},
+    {time:"11:00",type:"arm",sub:"ARM",turma:"3ª A"},
     {time:"13:00",type:"planej",sub:"Planejamento"},
     {time:"13:50",type:"planej",sub:"Planejamento",eo:"2ª B (Valéria)"},
-    {time:"14:55",type:"arm",sub:"ARM",turma:"3ª A",alunos:"Gustavo · Gabriel Soares · Deysiane"},
-    {time:"15:45",type:"arm",sub:"ARM",turma:"3ª C",alunos:"Amanda · Dalison · Ana Clara"}
+    {time:"14:55",type:"arm",sub:"ARM",turma:"3ª A"},
+    {time:"15:45",type:"arm",sub:"ARM",turma:"3ª C"}
   ],
   Quinta:[
     {time:"7:20",type:"livre"},
@@ -186,7 +187,7 @@ const SCHEDULE = {
   Sexta:[
     {time:"7:20",type:"livre"},
     {time:"8:10",type:"planej",sub:"Planejamento"},
-    {time:"9:20",type:"arm",sub:"ARM",turma:"3ª C",alunos:"Amanda · Dalison · Ana Clara"},
+    {time:"9:20",type:"arm",sub:"ARM",turma:"3ª C"},
     {time:"10:10",type:"lec",sub:"LEC",eo:"2ª A (Deuseline)"},
     {time:"11:00",type:"f3",sub:"Física",turma:"3ª C"},
     {time:"13:00",type:"lec",sub:"LEC"},
@@ -230,7 +231,7 @@ function setView(v){
 }
 document.querySelectorAll(".nav-btn").forEach(b => b.onclick = () => setView(b.dataset.view));
 
-function esc(s){ return String(s).replace(/&/g,"&").replace(/</g,"<").replace(/>/g,">"); }
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 
 // Keep a selected filter visible and retain keyboard focus after rendering.
 function revealSelection(id){
@@ -485,7 +486,7 @@ setView("horario");
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
-    navigator.serviceWorker.register("./sw.js?v=26", { scope: "./" }).then(function (reg) {
+    navigator.serviceWorker.register("./sw.js?v=27", { scope: "./" }).then(function (reg) {
       reg.addEventListener("updatefound", function () {
         var nw = reg.installing;
         if (!nw) return;
