@@ -1,4 +1,4 @@
-/* Grade oficial EEMTI JCA 2026 — /work/JCA/2026/schedules/horario.pdf */
+/* Grade oficial 2026 */
 const GERAL_TURMAS = [
   {id:"1A",label:"1ª A",coord:"Edvan"},
   {id:"1B",label:"1ª B",coord:"Jaelson"},
