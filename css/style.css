@@ -1,19 +1,17 @@
-/* ==========================================================================
-   Josué da Silva Cavalcante · Academic homepage
-   Minimalist gray design system · IBM Plex Sans + IBM Plex Serif
-   Dark theme by default, with a warm paper light counterpart.
-   No build step: plain, hand-written CSS.
-   ========================================================================== */
+/* Academic homepage of Josué da Silva Cavalcante.
+   Hand-written CSS, no build step. Dark theme by default, with a light
+   counterpart. Sections: tokens, base, layout, skip link, header, prose,
+   trajectory, figures, tables, publications, projects, figure viewer, CV,
+   footer, anchors, responsive, reduced motion, print. */
 
-/* --------------------------------------------------------------------------
-   1. Design tokens
-   -------------------------------------------------------------------------- */
+/* 1. Design tokens */
 :root {
   color-scheme: dark;
 
   /* Dark palette (default) */
   --bg: #121214;
   --bg-elev: #1a1a1c;
+  --bg-elev-hi: #262629;
   --ink: #e6e6e8;
   --muted: #9c9ca2;
   --line: #2c2c30;
@@ -38,6 +36,7 @@
   /* Light palette: warm paper counterpart of the gray dark theme */
   --bg: #f6f5f2;
   --bg-elev: #ffffff;
+  --bg-elev-hi: #efece5;
   --ink: #2b2b31;
   --muted: #5d5d66;
   --line: #e3e1da;
@@ -49,9 +48,7 @@
   --figure-bg: #ffffff;
 }
 
-/* --------------------------------------------------------------------------
-   2. Reset and base typography
-   -------------------------------------------------------------------------- */
+/* 2. Reset and base typography */
 * {
   box-sizing: border-box;
 }
@@ -59,6 +56,31 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+
+  /* Thin scrollbar with a transparent track. The tokens follow the theme. */
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-dim) transparent;
+}
+
+/* WebKit engines need these to match the thin preset and to round the thumb,
+   which the standard properties cannot express. */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-dim);
+  border-radius: 999px;
+  transition: background-color 0.15s var(--ease);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-hi);
 }
 
 body,
@@ -145,9 +167,7 @@ button:focus-visible {
   border: 0;
 }
 
-/* --------------------------------------------------------------------------
-   3. Layout containers
-   -------------------------------------------------------------------------- */
+/* 3. Layout containers */
 .wrap {
   max-width: var(--wrap);
   margin-inline: auto;
@@ -166,9 +186,7 @@ main {
   }
 }
 
-/* --------------------------------------------------------------------------
-   4. Skip link
-   -------------------------------------------------------------------------- */
+/* 4. Skip link */
 .skip-link {
   position: absolute;
   left: 1rem;
@@ -188,9 +206,7 @@ main {
   color: var(--bg);
 }
 
-/* --------------------------------------------------------------------------
-   5. Header: fully centered
-   -------------------------------------------------------------------------- */
+/* 5. Header */
 .site-header {
   text-align: center;
   padding: clamp(2rem, 1.5rem + 2.5vw, 3.25rem) 0 0;
@@ -207,7 +223,8 @@ main {
   margin-bottom: clamp(1.25rem, 1rem + 1vw, 1.9rem);
 }
 
-/* Compact EN | PT segmented switcher */
+/* Compact EN | PT switcher. Each segment is a button: switching rewrites the
+   page in place instead of navigating. */
 .lang-switch {
   display: inline-flex;
   align-items: stretch;
@@ -217,38 +234,59 @@ main {
   background: var(--bg-elev);
 }
 
-.lang-switch a {
+.lang-switch-btn {
   display: block;
   padding: 0.32rem 0.85rem;
+  font-family: inherit;
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--muted);
+  background: transparent;
   border: none;
   line-height: 1.5;
+  cursor: pointer;
   transition:
     color 0.15s var(--ease),
     background-color 0.15s var(--ease);
 }
 
-.lang-switch a + a {
+.lang-switch-btn + .lang-switch-btn {
   border-left: 1px solid var(--line);
 }
 
-.lang-switch a:hover {
+.lang-switch-btn:hover {
   color: var(--paper);
-  background: var(--bg);
-  border-bottom: none;
+  background: var(--bg-elev-hi);
 }
 
-.lang-switch a[aria-current="true"] {
+.lang-switch-btn.is-active,
+.lang-switch-btn[aria-pressed="true"] {
   color: var(--bg);
   background: var(--paper);
 }
 
-.lang-switch a[aria-current="true"]:hover {
+.lang-switch-btn.is-active:hover,
+.lang-switch-btn[aria-pressed="true"]:hover {
   color: var(--bg);
+}
+
+/* Inline language switch inside prose. Looks like a link, behaves as a
+   button, so the switch never leaves the page. */
+.prose .link-button {
+  padding: 0;
+  font: inherit;
+  color: var(--accent-hi);
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--accent-dim);
+  cursor: pointer;
+}
+
+.prose .link-button:hover {
+  color: var(--paper);
+  border-bottom-color: var(--paper);
 }
 
 /* Icon-only theme toggle */
@@ -366,9 +404,7 @@ main {
   width: 100%;
 }
 
-/* --------------------------------------------------------------------------
-   6. Prose: shared article typography
-   -------------------------------------------------------------------------- */
+/* 6. Prose */
 .kicker {
   font-size: 0.78rem;
   letter-spacing: 0.18em;
@@ -444,10 +480,6 @@ main {
   border-bottom-color: var(--paper);
 }
 
-.prose .muted {
-  color: var(--muted);
-}
-
 .prose .text-links {
   display: flex;
   flex-wrap: wrap;
@@ -474,9 +506,7 @@ main {
   color: var(--muted);
 }
 
-/* --------------------------------------------------------------------------
-   7. Academic trajectory
-   -------------------------------------------------------------------------- */
+/* 7. Academic trajectory */
 .trajectory {
   display: grid;
   gap: 1.9rem;
@@ -502,9 +532,7 @@ main {
   margin-bottom: 0;
 }
 
-/* --------------------------------------------------------------------------
-   8. Figures
-   -------------------------------------------------------------------------- */
+/* 8. Figures */
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -524,9 +552,11 @@ main {
 
 .figure-image {
   display: block;
+  width: 100%;
   border: 1px solid var(--line);
   background: var(--figure-bg);
   padding: 0.65rem;
+  cursor: zoom-in;
   transition: border-color 0.2s var(--ease);
 }
 
@@ -569,9 +599,7 @@ main {
   font-weight: 500;
 }
 
-/* --------------------------------------------------------------------------
-   9. Data tables
-   -------------------------------------------------------------------------- */
+/* 9. Data tables */
 .table-wrap {
   width: 100%;
   margin: 1.2rem 0;
@@ -615,9 +643,7 @@ main {
   font-variant-numeric: tabular-nums;
 }
 
-/* --------------------------------------------------------------------------
-   10. Publications
-   -------------------------------------------------------------------------- */
+/* 10. Publications */
 .pub {
   padding-bottom: 2rem;
   margin-bottom: 0;
@@ -636,9 +662,7 @@ main {
   font-size: clamp(1.2rem, 1.1rem + 0.5vw, 1.38rem);
 }
 
-/* --------------------------------------------------------------------------
-   11. Educational project cards
-   -------------------------------------------------------------------------- */
+/* 11. Educational project cards */
 .project-list {
   display: grid;
   gap: 1.35rem;
@@ -660,65 +684,67 @@ main {
   margin: 0;
 }
 
-/* --------------------------------------------------------------------------
-   12. Note callouts
-   -------------------------------------------------------------------------- */
-.note {
-  margin: 1.5rem 0;
-  padding: 0.9rem 1.1rem;
+/* 12. Figure viewer */
+.figure-viewer {
+  max-width: min(94vw, 76rem);
+  max-height: 92vh;
+  padding: 0;
   border: 1px solid var(--line);
-  border-left: 3px solid var(--accent);
   background: var(--bg-elev);
-  font-size: 0.92rem;
-  color: var(--muted);
-  transition:
-    background-color 0.3s var(--ease),
-    border-color 0.3s var(--ease);
+  color: var(--ink);
+  overflow: hidden;
 }
 
-.note strong {
-  color: var(--paper);
-  font-weight: 500;
+.figure-viewer::backdrop {
+  background: rgb(0 0 0 / 72%);
 }
 
-/* --------------------------------------------------------------------------
-   13. CV page: compact centered header, print-friendly layout
-   -------------------------------------------------------------------------- */
-.page-cv .cv-top {
-  text-align: center;
-  padding: 2rem 0 0;
+.figure-viewer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0.9rem;
   border-bottom: 1px solid var(--line);
-  margin-bottom: 0;
 }
 
-.page-cv .cv-name {
-  font-family: "IBM Plex Serif", Georgia, serif;
+.figure-viewer-title {
+  font-size: 0.78rem;
   font-weight: 500;
-  font-size: clamp(1.45rem, 1.25rem + 1vw, 1.8rem);
-  letter-spacing: 0.01em;
-  line-height: 1.2;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
-.page-cv .cv-name a,
-.page-cv .cv-name a:hover {
-  color: var(--paper);
-  border: none;
-}
-
-.page-cv .cv-line {
-  margin-top: 0.3rem;
-  font-size: 0.875rem;
+.figure-viewer-close {
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.35rem;
+  line-height: 1;
   color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    color 0.15s var(--ease),
+    border-color 0.15s var(--ease);
 }
 
-.page-cv .cv-top .header-controls {
-  margin-bottom: 1.1rem;
-}
-.page-cv .cv-top .nav {
-  margin-top: 1.1rem;
-  padding-bottom: 0.85rem;
+.figure-viewer-close:hover {
+  color: var(--paper);
+  border-color: var(--accent);
 }
 
+.figure-viewer-img {
+  display: block;
+  width: 100%;
+  max-height: calc(92vh - 4rem);
+  object-fit: contain;
+  background: var(--figure-bg);
+}
+
+/* 13. CV page */
 .page-cv .cv-main {
   max-width: 42rem;
   padding: 2rem var(--gutter) 4rem;
@@ -820,18 +846,7 @@ main {
   overflow-wrap: anywhere;
 }
 
-.page-cv .cv-contact span {
-  margin: 0 0.35rem;
-  color: var(--accent-dim);
-}
-
-.page-cv .site-footer {
-  display: none;
-}
-
-/* --------------------------------------------------------------------------
-   14. Footer
-   -------------------------------------------------------------------------- */
+/* 14. Footer */
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 1.9rem 0 2.5rem;
@@ -846,7 +861,7 @@ main {
 
 @media (min-width: 700px) {
   .footer-grid {
-    grid-template-columns: 1.3fr 1fr 1fr;
+    grid-template-columns: 1.6fr 1fr;
     gap: 2rem;
   }
 }
@@ -887,91 +902,21 @@ main {
 }
 
 .footer-copy {
-  clear: both;
   margin-top: 1.7rem;
   padding-top: 1.2rem;
   border-top: 1px solid var(--line);
+  text-align: center;
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
-.footer-copy a {
-  color: var(--muted);
-  border-bottom-color: var(--accent-dim);
-}
-.footer-copy a:hover {
-  color: var(--paper);
-  border-bottom-color: var(--paper);
+.footer-copy p {
+  margin: 0;
 }
 
-/* --------------------------------------------------------------------------
-   15. Root redirect page (language negotiation)
-   -------------------------------------------------------------------------- */
-.page-redirect {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: var(--gutter);
-  gap: 0.4rem;
-}
-
-.page-redirect .redirect-name {
-  font-family: "IBM Plex Serif", Georgia, serif;
-  font-weight: 500;
-  font-size: clamp(1.7rem, 1.3rem + 2vw, 2.4rem);
-  color: var(--paper);
-  line-height: 1.2;
-}
-
-.page-redirect .redirect-tag {
-  margin-top: 0.5rem;
-  font-size: 0.78rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.page-redirect .redirect-choose {
-  margin-top: 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.9rem;
-}
-
-.page-redirect .redirect-link {
-  display: inline-block;
-  padding: 0.6rem 1.6rem;
-  border: 1px solid var(--line);
-  background: var(--bg-elev);
-  color: var(--ink);
-  font-size: 0.9rem;
-  border-radius: 999px;
-  transition:
-    color 0.15s var(--ease),
-    border-color 0.15s var(--ease);
-}
-
-.page-redirect .redirect-link:hover {
-  color: var(--paper);
-  border-color: var(--accent);
-  border-bottom: 1px solid var(--accent);
-}
-
-.page-redirect .redirect-note {
-  margin-top: 2.2rem;
-  font-size: 0.82rem;
-  color: var(--muted);
-}
-
-/* --------------------------------------------------------------------------
-   16. Anchors and global details
-   -------------------------------------------------------------------------- */
+/* 15. Anchors and global details */
 [id] {
   scroll-margin-top: 1.5rem;
 }
@@ -984,9 +929,7 @@ body::before {
   background: var(--line);
 }
 
-/* --------------------------------------------------------------------------
-   17. Responsive adjustments
-   -------------------------------------------------------------------------- */
+/* 16. Responsive adjustments */
 @media (max-width: 640px) {
   .site-tag {
     letter-spacing: 0.08em;
@@ -1039,9 +982,7 @@ body::before {
   }
 }
 
-/* --------------------------------------------------------------------------
-   18. Reduced motion
-   -------------------------------------------------------------------------- */
+/* 17. Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -1051,14 +992,13 @@ body::before {
   a::after,
   .theme-toggle,
   .figure-image,
-  .lang-switch a {
+  .lang-switch-btn,
+  ::-webkit-scrollbar-thumb {
     transition: none;
   }
 }
 
-/* --------------------------------------------------------------------------
-   19. Print: force the light palette, hide interactive chrome
-   -------------------------------------------------------------------------- */
+/* 18. Print */
 @media print {
   :root,
   :root[data-theme="light"],
@@ -1082,12 +1022,13 @@ body::before {
   .nav,
   .site-footer,
   .text-links,
-  .source-link {
+  .source-link,
+  .figure-viewer {
     display: none !important;
   }
 
   .site-header,
-  .page-cv .cv-top {
+  .page-cv .cv-main {
     padding-top: 0;
     border: none;
     margin: 0;
@@ -1099,5 +1040,11 @@ body::before {
 
   .figure-image {
     border: 1px solid #d4d4d8;
+  }
+
+  /* Let the browser use its default scrollbar when printing. */
+  html {
+    scrollbar-width: auto;
+    scrollbar-color: auto;
   }
 }
