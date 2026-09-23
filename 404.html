@@ -3,10 +3,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Page not found · Josué da Silva Cavalcante</title>
+    <title data-i18n="notfound.title">
+      Page not found · Josué da Silva Cavalcante
+    </title>
     <meta
       name="description"
+      data-i18n-attr="content:notfound.description"
       content="This address does not match a page on the site of Josué da Silva Cavalcante."
+    />
+    <link rel="canonical" href="https://wolf9611.github.io/" />
+    <link rel="alternate" hreflang="en" href="https://wolf9611.github.io/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://wolf9611.github.io/" />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://wolf9611.github.io/"
     />
     <meta name="robots" content="noindex" />
     <meta name="theme-color" content="#121214" />
@@ -17,32 +28,81 @@
       type="image/png"
       sizes="32x32"
     />
+    <link rel="apple-touch-icon" href="/assets/mark/apple-touch-180.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Josué da Silva Cavalcante" />
+    <meta
+      property="og:title"
+      data-i18n-attr="content:notfound.title"
+      content="Page not found · Josué da Silva Cavalcante"
+    />
+    <meta
+      property="og:description"
+      data-i18n-attr="content:notfound.description"
+      content="This address does not match a page on the site of Josué da Silva Cavalcante."
+    />
+    <meta
+      property="og:image"
+      content="https://wolf9611.github.io/assets/mark/icon-512.png"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      data-i18n-attr="content:notfound.title"
+      content="Page not found · Josué da Silva Cavalcante"
+    />
+    <meta
+      name="twitter:description"
+      data-i18n-attr="content:notfound.description"
+      content="This address does not match a page on the site of Josué da Silva Cavalcante."
+    />
+    <meta
+      name="twitter:image"
+      content="https://wolf9611.github.io/assets/mark/icon-512.png"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/style.css?v=5" />
-    <script src="/js/main.js?v=5"></script>
+    <link rel="stylesheet" href="/css/style.css?v=7" />
+    <script src="/js/i18n.js?v=7"></script>
+    <script src="/js/main.js?v=7"></script>
   </head>
-  <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
+  <body data-page="notfound">
+    <a class="skip-link" href="#main-content" data-i18n="common.skip"
+      >Skip to content</a
+    >
+    <!-- Header -->
     <header class="site-header">
       <div class="wrap">
         <div class="header-controls">
-          <div class="lang-switch" role="group" aria-label="Language">
-            <a
-              href="/en/"
-              hreflang="en"
+          <div
+            class="lang-switch"
+            role="group"
+            data-i18n-attr="aria-label:common.langGroup"
+            aria-label="Language"
+          >
+            <button
+              type="button"
+              class="lang-switch-btn is-active"
+              data-set-lang="en"
               lang="en"
-              data-lang="en"
-              aria-current="true"
-              >EN</a
+              aria-pressed="true"
             >
-            <a href="/pt/" hreflang="pt-BR" lang="pt-BR" data-lang="pt-BR"
-              >PT</a
+              EN
+            </button>
+            <button
+              type="button"
+              class="lang-switch-btn"
+              data-set-lang="pt-BR"
+              lang="pt-BR"
+              aria-pressed="false"
             >
+              PT
+            </button>
           </div>
           <button
             type="button"
@@ -82,32 +142,117 @@
           </button>
         </div>
         <div class="site-title">
-          <a href="/en/">Josué da Silva Cavalcante</a>
+          <a href="/" data-i18n="common.siteTitle">Josué da Silva Cavalcante</a>
         </div>
-        <div class="site-tag">
+        <div class="site-tag" data-i18n="common.siteTag">
           Astronomy · Small bodies · Astrometry · Machine learning
         </div>
-        <nav class="nav" aria-label="Main">
-          <a href="/en/">Home</a>
-          <a href="/en/research/">Research</a>
-          <a href="/en/cv/">CV</a>
-          <a href="/en/pubs/">Publications</a>
+        <nav
+          class="nav"
+          data-i18n-attr="aria-label:common.navAria"
+          aria-label="Main"
+        >
+          <a href="/" data-i18n="common.navHome">Home</a>
+          <a href="/research/" data-i18n="common.navResearch">Research</a>
+          <a href="/cv/" data-i18n="common.navCv">CV</a>
+          <a href="/pubs/" data-i18n="common.navPubs">Publications</a>
         </nav>
       </div>
     </header>
     <main id="main-content" class="wrap">
       <article class="prose">
-        <div class="kicker">404</div>
-        <h1>This page is not on the site</h1>
-        <p class="lead">The address does not match a page here.</p>
+        <div class="kicker" data-i18n="notfound.kicker">404</div>
+        <h1 data-i18n="notfound.h1">This page is not on the site</h1>
+        <p class="lead" data-i18n="notfound.lead">
+          The address does not match a page here.
+        </p>
         <p class="text-links">
-          <a href="/en/">Home</a><a href="/en/research/">Research</a
-          ><a href="/en/cv/">CV</a><a href="/en/pubs/">Publications</a
-          ><a href="/pt/" hreflang="pt-BR" lang="pt-BR" data-lang="pt-BR"
-            >Português</a
-          >
+          <a href="/" data-i18n="common.navHome">Home</a
+          ><a href="/research/" data-i18n="common.navResearch">Research</a
+          ><a href="/cv/" data-i18n="common.navCv">CV</a
+          ><a href="/pubs/" data-i18n="common.navPubs">Publications</a>
         </p>
       </article>
     </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <div class="footer-name">Josué da Silva Cavalcante</div>
+          <ul class="footer-list">
+            <li>
+              <a
+                href="mailto:cavalcante_wolf@proton.me"
+                data-i18n="common.footerEmail"
+                >cavalcante_wolf@proton.me</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://lattes.cnpq.br/4498102376995368"
+                rel="me noopener"
+                target="_blank"
+                data-i18n="common.footerLattes"
+                >Lattes CV</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/wolf9611"
+                rel="me noopener"
+                target="_blank"
+                data-i18n="common.footerGithub"
+                >GitHub</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://x.com/CavalcanteWolf"
+                rel="me noopener"
+                target="_blank"
+                data-i18n="common.footerX"
+                >X · @CavalcanteWolf</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/cavalcante_josue96/"
+                rel="me noopener"
+                target="_blank"
+                data-i18n="common.footerInstagram"
+                >Instagram · cavalcante_josue96</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer-heading" data-i18n="common.footerSite">Site</h2>
+          <ul class="footer-list">
+            <li><a href="/" data-i18n="common.navHome">Home</a></li>
+            <li>
+              <a href="/research/" data-i18n="common.navResearch">Research</a>
+            </li>
+            <li><a href="/cv/" data-i18n="common.navCv">CV</a></li>
+            <li>
+              <a href="/pubs/" data-i18n="common.navPubs">Publications</a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/eemtijca/buscapp"
+                rel="noopener"
+                target="_blank"
+                >BuscApp</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="wrap footer-copy">
+        <p data-i18n="common.copyright">
+          © 2026 Josué da Silva Cavalcante. All rights reserved.
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

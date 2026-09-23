@@ -3,12 +3,30 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Theses &amp; Publications · Josué da Silva Cavalcante</title>
+    <title data-i18n="pubs.title">
+      Theses &amp; Publications · Josué da Silva Cavalcante
+    </title>
     <meta
       name="description"
+      data-i18n-attr="content:pubs.description"
       content="Explore Josué Cavalcante's undergraduate research in positional astronomy (UVA, 2018) and master's research on dense-field astrometry and photometry (Observatório Nacional, 2025)."
     />
-    <link rel="canonical" href="https://wolf9611.github.io/en/pubs/" />
+    <link rel="canonical" href="https://wolf9611.github.io/pubs/" />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://wolf9611.github.io/pubs/"
+    />
+    <link
+      rel="alternate"
+      hreflang="pt-BR"
+      href="https://wolf9611.github.io/pubs/"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://wolf9611.github.io/pubs/"
+    />
     <meta name="theme-color" content="#121214" />
     <meta name="color-scheme" content="dark light" />
     <link
@@ -23,13 +41,15 @@
     <meta property="og:site_name" content="Josué da Silva Cavalcante" />
     <meta
       property="og:title"
+      data-i18n-attr="content:pubs.ogTitle"
       content="Theses &amp; Publications · Josué da Silva Cavalcante"
     />
     <meta
       property="og:description"
+      data-i18n-attr="content:pubs.description"
       content="Explore Josué Cavalcante's undergraduate research in positional astronomy (UVA, 2018) and master's research on dense-field astrometry and photometry (Observatório Nacional, 2025)."
     />
-    <meta property="og:url" content="https://wolf9611.github.io/en/pubs/" />
+    <meta property="og:url" content="https://wolf9611.github.io/pubs/" />
     <meta
       property="og:image"
       content="https://wolf9611.github.io/assets/mark/icon-512.png"
@@ -37,10 +57,12 @@
     <meta name="twitter:card" content="summary" />
     <meta
       name="twitter:title"
+      data-i18n-attr="content:pubs.ogTitle"
       content="Theses &amp; Publications · Josué da Silva Cavalcante"
     />
     <meta
       name="twitter:description"
+      data-i18n-attr="content:pubs.description"
       content="Explore Josué Cavalcante's undergraduate research in positional astronomy (UVA, 2018) and master's research on dense-field astrometry and photometry (Observatório Nacional, 2025)."
     />
     <meta
@@ -53,26 +75,42 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/css/style.css?v=5" />
-    <script src="/js/main.js?v=5"></script>
+    <link rel="stylesheet" href="/css/style.css?v=7" />
+    <script src="/js/i18n.js?v=7"></script>
+    <script src="/js/main.js?v=7"></script>
   </head>
-  <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
+  <body data-page="pubs">
+    <a class="skip-link" href="#main-content" data-i18n="common.skip"
+      >Skip to content</a
+    >
+    <!-- Header -->
     <header class="site-header">
       <div class="wrap">
         <div class="header-controls">
-          <div class="lang-switch" role="group" aria-label="Language">
-            <a
-              href="/en/"
-              hreflang="en"
+          <div
+            class="lang-switch"
+            role="group"
+            data-i18n-attr="aria-label:common.langGroup"
+            aria-label="Language"
+          >
+            <button
+              type="button"
+              class="lang-switch-btn is-active"
+              data-set-lang="en"
               lang="en"
-              data-lang="en"
-              aria-current="true"
-              >EN</a
+              aria-pressed="true"
             >
-            <a href="/pt/" hreflang="pt-BR" lang="pt-BR" data-lang="pt-BR"
-              >PT</a
+              EN
+            </button>
+            <button
+              type="button"
+              class="lang-switch-btn"
+              data-set-lang="pt-BR"
+              lang="pt-BR"
+              aria-pressed="false"
             >
+              PT
+            </button>
           </div>
           <button
             type="button"
@@ -112,87 +150,106 @@
           </button>
         </div>
         <div class="site-title">
-          <a href="/en/">Josué da Silva Cavalcante</a>
+          <a href="/" data-i18n="common.siteTitle">Josué da Silva Cavalcante</a>
         </div>
-        <div class="site-tag">
+        <div class="site-tag" data-i18n="common.siteTag">
           Astronomy · Small bodies · Astrometry · Machine learning
         </div>
-        <nav class="nav" aria-label="Main">
-          <a href="/en/">Home</a>
-          <a href="/en/research/">Research</a>
-          <a href="/en/cv/">CV</a>
-          <a href="/en/pubs/" aria-current="page">Publications</a>
+        <nav
+          class="nav"
+          data-i18n-attr="aria-label:common.navAria"
+          aria-label="Main"
+        >
+          <a href="/" data-i18n="common.navHome">Home</a>
+          <a href="/research/" data-i18n="common.navResearch">Research</a>
+          <a href="/cv/" data-i18n="common.navCv">CV</a>
+          <a href="/pubs/" aria-current="page" data-i18n="common.navPubs"
+            >Publications</a
+          >
         </nav>
       </div>
     </header>
 
     <main id="main-content" class="wrap">
       <article class="prose">
-        <div class="kicker">Publications</div>
-        <h1>Theses &amp; academic work</h1>
-        <p class="lead">
+        <div class="kicker" data-i18n="pubs.kicker">Publications</div>
+        <h1 data-i18n="pubs.h1">Theses &amp; academic work</h1>
+        <p class="lead" data-i18n="pubs.lead">
           My undergraduate and master's research, with summaries and figures
           from both works and the full text of the master's thesis. Both works
           are written in Portuguese.
         </p>
         <section class="pub" aria-labelledby="masters">
-          <p class="when">Master's thesis · 2025</p>
-          <h2 id="masters" lang="pt-BR">
+          <p class="when" data-i18n="pubs.msWhen">Master's thesis · 2025</p>
+          <h2 id="masters" lang="pt-BR" data-i18n="pubs.msHeading">
             Astrometria e fotometria de pequenos corpos do Sistema Solar em
             imagens com campos estelares densos
           </h2>
-          <p class="institution">
+          <p class="institution" data-i18n="pubs.msInstitution">
             Josué da Silva Cavalcante · Master's in Astronomy · Observatório
             Nacional, Rio de Janeiro
           </p>
-          <p>
+          <p data-i18n="pubs.msBody">
             Astrometry and photometry of small Solar System bodies in dense
             stellar fields. The work compares reference-star measurements and
             applies difference image analysis to SOAR/SOI observations of
             (10199) Chariklo.
           </p>
-          <p class="source-link">
+          <p class="source-link" data-i18n="pubs.msSupervisor">
             Supervisor: Dr. Julio I. Bueno de Camargo. Co-supervisor: Dr.
             Adriano Pieres.
           </p>
           <p class="text-links">
-            <a href="/files/dissertacao_cavalcante_2025.pdf"
+            <a
+              href="/files/dissertacao_cavalcante_2025.pdf"
+              data-i18n="pubs.msPdf"
               >Read thesis (PDF · 9.6 MB)</a
-            ><a href="/en/research/#masters">Methods, figures &amp; results</a>
+            ><a href="/research/#masters" data-i18n="pubs.msMethods"
+              >Methods, figures &amp; results</a
+            >
           </p>
-          <p class="source-link">
+          <p class="source-link" data-i18n="pubs.msRecord">
             Institutional record · TEDE ON, handle tede/207.
           </p>
         </section>
         <section class="pub" aria-labelledby="undergraduate">
-          <p class="when">Undergraduate thesis · 2018</p>
-          <h2 id="undergraduate" lang="pt-BR">Astronomia de Posição</h2>
-          <p class="institution">
+          <p class="when" data-i18n="pubs.ugWhen">
+            Undergraduate thesis · 2018
+          </p>
+          <h2 id="undergraduate" lang="pt-BR" data-i18n="pubs.ugHeading">
+            Astronomia de Posição
+          </h2>
+          <p class="institution" data-i18n="pubs.ugInstitution">
             Josué da Silva Cavalcante · Licenciatura in Physics · Universidade
             Estadual Vale do Acaraú, Sobral
           </p>
-          <p>
+          <p data-i18n="pubs.ugBody">
             Positional astronomy: the celestial sphere, astronomical coordinate
             systems, spherical trigonometry, coordinate transformations, and
             apparent celestial motion, with examples using Stellarium.
           </p>
-          <p class="source-link">
+          <p class="source-link" data-i18n="pubs.ugSupervisor">
             Supervisor: Prof. Dr. Antônio Fernandes Siqueira.
           </p>
           <p class="text-links">
-            <a href="/en/research/#undergraduate">Summary &amp; figures</a>
+            <a href="/research/#undergraduate" data-i18n="pubs.ugLink"
+              >Summary &amp; figures</a
+            >
           </p>
         </section>
       </article>
     </main>
 
+    <!-- Footer -->
     <footer class="site-footer">
       <div class="wrap footer-grid">
         <div>
           <div class="footer-name">Josué da Silva Cavalcante</div>
           <ul class="footer-list">
             <li>
-              <a href="mailto:cavalcante_wolf@proton.me"
+              <a
+                href="mailto:cavalcante_wolf@proton.me"
+                data-i18n="common.footerEmail"
                 >cavalcante_wolf@proton.me</a
               >
             </li>
@@ -201,6 +258,7 @@
                 href="https://lattes.cnpq.br/4498102376995368"
                 rel="me noopener"
                 target="_blank"
+                data-i18n="common.footerLattes"
                 >Lattes CV</a
               >
             </li>
@@ -209,6 +267,7 @@
                 href="https://github.com/wolf9611"
                 rel="me noopener"
                 target="_blank"
+                data-i18n="common.footerGithub"
                 >GitHub</a
               >
             </li>
@@ -217,6 +276,7 @@
                 href="https://x.com/CavalcanteWolf"
                 rel="me noopener"
                 target="_blank"
+                data-i18n="common.footerX"
                 >X · @CavalcanteWolf</a
               >
             </li>
@@ -225,23 +285,23 @@
                 href="https://www.instagram.com/cavalcante_josue96/"
                 rel="me noopener"
                 target="_blank"
+                data-i18n="common.footerInstagram"
                 >Instagram · cavalcante_josue96</a
               >
             </li>
           </ul>
         </div>
         <div>
-          <h2 class="footer-heading">Site</h2>
+          <h2 class="footer-heading" data-i18n="common.footerSite">Site</h2>
           <ul class="footer-list">
-            <li><a href="/en/">Home</a></li>
-            <li><a href="/en/research/">Research</a></li>
-            <li><a href="/en/cv/">CV</a></li>
-            <li><a href="/en/pubs/">Publications</a></li>
-          </ul>
-        </div>
-        <div>
-          <h2 class="footer-heading">Educational projects</h2>
-          <ul class="footer-list">
+            <li><a href="/" data-i18n="common.navHome">Home</a></li>
+            <li>
+              <a href="/research/" data-i18n="common.navResearch">Research</a>
+            </li>
+            <li><a href="/cv/" data-i18n="common.navCv">CV</a></li>
+            <li>
+              <a href="/pubs/" data-i18n="common.navPubs">Publications</a>
+            </li>
             <li>
               <a
                 href="https://github.com/eemtijca/buscapp"
@@ -250,19 +310,13 @@
                 >BuscApp</a
               >
             </li>
-            <li>
-              <a href="/pt/" lang="pt-BR" data-lang="pt-BR"
-                >Versão em português</a
-              >
-            </li>
           </ul>
         </div>
       </div>
       <div class="wrap footer-copy">
-        Academic homepage · Educational tools co-developed with
-        <a href="https://github.com/emanuellcs" rel="noopener" target="_blank"
-          >Emanuel Lázaro</a
-        >
+        <p data-i18n="common.copyright">
+          © 2026 Josué da Silva Cavalcante. All rights reserved.
+        </p>
       </div>
     </footer>
   </body>
