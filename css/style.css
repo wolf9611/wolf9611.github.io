@@ -1,381 +1,1103 @@
-/* Josué Cavalcante — modern gray, minimal academic */
-:root{
-  color-scheme:dark;
-  --bg:#121214;
-  --bg-elev:#1a1a1c;
-  --ink:#e6e6e8;
-  --muted:#9c9ca2;
-  --line:#2c2c30;
-  --accent:#8b8b92;
-  --accent-hi:#d0d0d4;
-  --accent-dim:#5c5c62;
-  --paper:#f3f3f5;
+/* ==========================================================================
+   Josué da Silva Cavalcante · Academic homepage
+   Minimalist gray design system · IBM Plex Sans + IBM Plex Serif
+   Dark theme by default, with a warm paper light counterpart.
+   No build step: plain, hand-written CSS.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design tokens
+   -------------------------------------------------------------------------- */
+:root {
+  color-scheme: dark;
+
+  /* Dark palette (default) */
+  --bg: #121214;
+  --bg-elev: #1a1a1c;
+  --ink: #e6e6e8;
+  --muted: #9c9ca2;
+  --line: #2c2c30;
+  --accent: #8b8b92;
+  --accent-hi: #d0d0d4;
+  --accent-dim: #5c5c62;
+  --paper: #f3f3f5;
+  --focus: #f3f3f5;
+  --figure-bg: #ffffff;
+
+  /* Layout */
+  --wrap: 55rem;
+  --gutter: clamp(1.15rem, 4vw, 2rem);
+
+  /* Motion */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body,h1,h2,h3,h4,h5,h6,p,blockquote,pre,hr,dl,dd,ol,ul,figure{margin:0;padding:0}
-body{
-  font:400 17px/1.55 "IBM Plex Sans", "Source Sans 3", Helvetica, Arial, sans-serif;
-  color:var(--ink);
-  background:var(--bg);
-  -webkit-font-smoothing:antialiased;
-}
-img{max-width:100%;display:block}
-a{color:var(--accent-hi);text-decoration:none;border-bottom:1px solid transparent;transition:color .15s,border-color .15s}
-a:hover{color:var(--paper);border-bottom-color:var(--accent)}
+:root[data-theme="light"] {
+  color-scheme: light;
 
-.wrap{
-  max-width:880px;
-  margin:0 auto;
-  padding:0 1.35rem;
+  /* Light palette: warm paper counterpart of the gray dark theme */
+  --bg: #f6f5f2;
+  --bg-elev: #ffffff;
+  --ink: #2b2b31;
+  --muted: #5d5d66;
+  --line: #e3e1da;
+  --accent: #66666f;
+  --accent-hi: #1b1b20;
+  --accent-dim: #b4b2ab;
+  --paper: #131318;
+  --focus: #1b1b20;
+  --figure-bg: #ffffff;
 }
 
-/* header */
-.site-header{
-  padding:2.75rem 0 0;
-  border-bottom:1px solid var(--line);
-  margin-bottom:2rem;
-}
-.site-title{
-  font-family:"IBM Plex Serif", "Source Serif 4", Georgia, serif;
-  font-weight:500;
-  font-size:clamp(1.85rem, 4.5vw, 2.35rem);
-  letter-spacing:0.02em;
-  color:var(--paper);
-  line-height:1.15;
-}
-.site-title a,.site-title a:hover{
-  color:var(--paper);border:none;
-}
-.site-tag{
-  margin-top:0.45rem;
-  font-size:0.875rem;
-  letter-spacing:0.16em;
-  text-transform:uppercase;
-  color:var(--muted);
-  font-weight:400;
-}
-.nav{
-  display:flex;
-  flex-wrap:wrap;
-  gap:0.15rem 0;
-  margin-top:1.6rem;
-  padding-bottom:0.9rem;
-  font-size:0.875rem;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-.nav a{
-  color:var(--muted);
-  border:none;
-  padding:0.35rem 0;
-  margin-right:1.1rem;
-}
-.nav a:hover,.nav a[aria-current="page"]{
-  color:var(--paper);
-}
-.nav .sep{
-  display:none;
+/* --------------------------------------------------------------------------
+   2. Reset and base typography
+   -------------------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
 }
 
-/* content */
-main{padding-bottom:3rem;min-height:50vh}
-.kicker{
-  font-size:0.8rem;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  color:var(--accent);
-  margin-bottom:1.25rem;
-}
-.prose p{
-  margin-bottom:1.05em;
-  font-size:1.05rem;
-  color:var(--ink);
-  font-weight:400;
-}
-.prose p.lead{
-  font-size:1.12rem;
-  color:var(--paper);
-}
-.prose h2{
-  font-family:"IBM Plex Serif", Georgia, serif;
-  font-size:1.2rem;
-  font-weight:500;
-  color:var(--paper);
-  margin:2rem 0 0.7rem;
-  padding-top:0.4rem;
-  border-top:1px solid var(--line);
-}
-.prose h3{
-  font-size:0.95rem;
-  letter-spacing:0.06em;
-  text-transform:uppercase;
-  color:var(--accent-hi);
-  margin:1.4rem 0 0.5rem;
-  font-weight:500;
-}
-.prose ul{
-  margin:0 0 1.1em 1.15em;
-}
-.prose li{
-  margin-bottom:0.4em;
-  color:var(--ink);
-  font-size:1.02rem;
-}
-.prose li::marker{color:var(--accent)}
-
-.note{
-  margin:1.5rem 0;
-  padding:0.85rem 1rem;
-  border:1px solid var(--line);
-  border-left:3px solid var(--accent);
-  background:var(--bg-elev);
-  font-size:0.92rem;
-  color:var(--muted);
-}
-.note strong{color:var(--paper);font-weight:500}
-
-.pub{
-  margin-bottom:1.35rem;
-  padding-bottom:1.15rem;
-  border-bottom:1px solid var(--line);
-}
-.pub:last-child{border-bottom:none}
-.pub .title{color:var(--paper);font-size:1.05rem;margin-bottom:0.25rem}
-.pub .meta{font-size:0.92rem;color:var(--muted)}
-
-.cv-block{margin-bottom:1.5rem}
-.cv-block .when{
-  font-size:0.78rem;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  color:var(--accent);
-  margin-bottom:0.2rem;
-}
-.cv-block .role{
-  color:var(--paper);
-  font-size:1.05rem;
-  margin-bottom:0.2rem;
-}
-.cv-block .place{color:var(--muted);font-size:0.95rem}
-
-/* footer */
-.site-footer{
-  border-top:1px solid var(--line);
-  padding:1.75rem 0 2.5rem;
-  margin-top:1rem;
-}
-.footer-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:1.25rem;
-}
-@media(min-width:560px){
-  .footer-grid{grid-template-columns:1fr 1fr}
-}
-.footer-name{
-  font-family:"IBM Plex Serif", Georgia, serif;
-  font-size:1rem;
-  color:var(--paper);
-  margin-bottom:0.5rem;
-}
-.footer-list{list-style:none}
-.footer-list li{margin-bottom:0.35rem;font-size:0.88rem;color:var(--muted)}
-.footer-list a{color:var(--muted);border:none}
-.footer-list a:hover{color:var(--accent-hi)}
-.footer-copy{
-  margin-top:1.5rem;
-  font-size:0.8rem;
-  letter-spacing:0.08em;
-  text-transform:uppercase;
-  color:var(--muted);
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
-/* subtle top edge stripe */
-body::before{
-  content:"";
-  display:block;
-  height:1px;
-  background:var(--line);
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+hr,
+dl,
+dd,
+ol,
+ul,
+figure {
+  margin: 0;
+  padding: 0;
 }
 
-/* CV — tighter, no footer, academic only */
-.page-cv .cv-lead{
-  font-size:1.02rem;
-  line-height:1.55;
-  color:var(--paper);
-  margin:0 0 2rem;
+body {
+  font-family: "IBM Plex Sans", "Source Sans 3", Helvetica, Arial, sans-serif;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition:
+    background-color 0.3s var(--ease),
+    color 0.3s var(--ease);
 }
-.page-cv .cv-top{
-  padding:2rem 0 0;
-  border-bottom:1px solid var(--line);
-  margin-bottom:0;
-}
-.page-cv .cv-name{
-  font-family:"IBM Plex Serif", Georgia, serif;
-  font-weight:500;
-  font-size:1.45rem;
-  letter-spacing:0.01em;
-  line-height:1.2;
-}
-.page-cv .cv-name a,
-.page-cv .cv-name a:hover{color:var(--paper);border:none}
-.page-cv .cv-line{
-  margin-top:0.25rem;
-  font-size:0.875rem;
-  color:var(--muted);
-}
-.page-cv .cv-top .nav{margin-top:1.1rem;padding-bottom:0.7rem}
-.page-cv .cv-main{
-  padding:2rem 0 4rem;
-  max-width:34rem;
-}
-.page-cv .cv-main section + section{margin-top:1.85rem}
-.page-cv .cv-main h2{
-  font-size:0.875rem;
-  letter-spacing:0.16em;
-  text-transform:uppercase;
-  color:var(--accent);
-  font-weight:500;
-  margin:0 0 0.7rem;
-}
-.page-cv .cv-dl{display:grid;gap:1.05rem}
-.page-cv .cv-dl dt{
-  color:var(--paper);
-  font-size:0.98rem;
-  font-weight:500;
-  margin-bottom:0.15rem;
-}
-.page-cv .cv-dl dd{
-  color:var(--muted);
-  font-size:0.92rem;
-  line-height:1.45;
-}
-.page-cv .cv-dl em{color:var(--ink);font-style:italic}
-.page-cv .cv-list{
-  margin:0;
-  padding:0;
-  list-style:none;
-}
-.page-cv .cv-list li{
-  color:var(--ink);
-  font-size:0.95rem;
-  line-height:1.45;
-  padding:0.28rem 0 0.28rem 0.85rem;
-  position:relative;
-}
-.page-cv .cv-list li::before{
-  content:"";
-  position:absolute;
-  left:0;top:0.72em;
-  width:0.35rem;height:1px;
-  background:var(--accent);
-}
-.page-cv .cv-contact{
-  font-size:0.92rem;
-  color:var(--muted);
-}
-.page-cv .cv-contact span{margin:0 0.35rem;color:var(--accent-dim)}
-.page-cv .site-footer{display:none}
 
-/* Academic trajectory and original research figures */
-a:focus-visible{outline:2px solid var(--paper);outline-offset:5px}
-.skip-link{position:absolute;left:1rem;top:0;transform:translateY(-150%);z-index:10;padding:.7rem 1rem;background:var(--paper);color:var(--bg)}
-.skip-link:focus{transform:translateY(.5rem);color:var(--bg)}
-.prose h1,.page-cv .cv-main h1{
-  font:500 clamp(1.8rem,4vw,2.5rem)/1.2 "IBM Plex Serif",Georgia,serif;
-  color:var(--paper);
-  letter-spacing:-.02em;
-  margin:0 0 1.2rem;
-}
-.prose p{max-width:70ch}
-.prose p.lead{font-size:1.2rem;line-height:1.6;max-width:60ch}
-.prose section{margin-top:2.6rem}
-.prose section > h2{
-  font-size:1.4rem;
-  margin:0 0 1.2rem;
-  padding-top:1rem;
-  border-top:1px solid var(--line);
-}
-.prose h3{font-size:1.1rem;text-transform:none;letter-spacing:0;margin:1.5rem 0 .6rem}
-.prose a:not(.figure-image){border-bottom-color:var(--accent-dim)}
-.prose a:hover{border-bottom-color:var(--paper)}
-.prose .text-links{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;font-size:.95rem;margin:1.5rem 0}
-.project-list{display:grid;gap:1.35rem;margin-top:.35rem}
-.project-list h3{margin:0 0 .35rem;font-size:1.08rem}
-.project-list p{margin:0}
-.prose .when,.when{font-size:.875rem;color:var(--muted);line-height:1.6}
-.prose .institution{font-size:.95rem;color:var(--muted);margin-bottom:.85rem}
-.prose .source-link{font-size:.9rem;color:var(--muted)}
-.trajectory{display:grid;gap:1.8rem}
-.trajectory-entry{display:grid;grid-template-columns:9rem minmax(0,1fr);gap:1rem}
-.trajectory-entry + .trajectory-entry{padding-top:1.8rem;border-top:1px solid var(--line)}
-.trajectory-entry h3{margin:0 0 .3rem;font-size:1.15rem}
-.trajectory-entry p:last-child{margin-bottom:0}
-.work-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.6rem;margin:1rem 0 1.5rem;align-items:start}
-.research-figure{margin:1.2rem 0 1.8rem;min-width:0}
-.work-grid .research-figure{margin:0}
-.figure-image{display:block;border:0;background:#fff;padding:.65rem}
-.figure-image:hover{border:0}
-.figure-image img{width:100%;height:auto}
-.work-grid .figure-image{height:17rem;display:flex;align-items:center;justify-content:center}
-.work-grid .figure-image img{height:100%;object-fit:contain}
-.work-grid .compact .figure-image{height:14rem}
-.research-figure figcaption{font-size:.9rem;line-height:1.6;color:var(--muted);padding-top:.8rem}
-.research-figure figcaption strong{color:var(--ink);font-weight:500}
-.table-wrap{width:100%;margin:1.2rem 0}
-.results-table{border-collapse:collapse;width:100%;font-size:.95rem;table-layout:fixed}
-.results-table caption{text-align:left;color:var(--muted);font-size:.875rem;padding-bottom:.6rem}
-.results-table th,.results-table td{padding:.8rem .6rem;text-align:left;border-bottom:1px solid var(--line);overflow-wrap:anywhere;vertical-align:top}
-.results-table th{font-weight:500}
-.results-table thead th{color:var(--muted);font-size:.875rem;background:var(--bg-elev)}
-.results-table td{font-variant-numeric:tabular-nums}
-.prose .pub{padding-bottom:2rem;margin-bottom:0}
-.prose .pub h2{border:0;padding:0;margin:.5rem 0 .8rem;font-size:1.35rem}
-.prose .muted{color:var(--muted)}
-.page-cv .cv-main{max-width:42rem;padding:2rem 1.35rem 4rem}
-.page-cv .cv-dl dd + dd{margin-top:.4rem}
-.page-cv .cv-dl a,.page-cv .cv-contact a{border-bottom-color:var(--accent-dim)}
-.page-cv .cv-main h2{padding-top:.8rem;border-top:1px solid var(--line)}
-.page-cv .cv-contact{margin-top:.5rem;overflow-wrap:anywhere}
-.footer-list a{overflow-wrap:anywhere}
-[id]{scroll-margin-top:1.5rem}
-@media(max-width:640px){
-  .wrap{padding-left:1.15rem;padding-right:1.15rem}
-  .site-header{padding-top:2rem}
-  .site-tag{letter-spacing:.07em;line-height:1.8}
-  .nav{letter-spacing:.08em;gap:.2rem 0;margin-top:1.2rem}
-  .nav a{margin-right:1rem;padding:.6rem 0}
-  .trajectory-entry{grid-template-columns:minmax(0,1fr);gap:.2rem}
-  .trajectory-entry .when{margin-bottom:.3rem}
-  .work-grid{grid-template-columns:minmax(0,1fr);gap:1.8rem}
-  .work-grid .figure-image,.work-grid .compact .figure-image{height:auto;min-height:0}
-  .work-grid .figure-image img{height:auto;max-height:19rem;object-fit:contain}
-  .results-table{font-size:.875rem}
-  .results-table th,.results-table td{padding:.65rem .35rem}
-  .prose section{margin-top:2.2rem}
-}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  a{transition:none}
-}
-@media print{
-  :root{
-    color-scheme:light;
-    --bg:#fff;
-    --bg-elev:#fff;
-    --ink:#1c1c1f;
-    --muted:#3f3f46;
-    --line:#d4d4d8;
-    --accent:#3f3f46;
-    --accent-hi:#18181b;
-    --accent-dim:#71717a;
-    --paper:#18181b;
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
   }
-  body::before,.skip-link,.nav,.site-footer{display:none}
-  .site-header,.page-cv .cv-top{padding-top:0;border:none;margin:0}
-  a{border:none}
-  .figure-image{border:1px solid #d4d4d8}
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--accent-hi);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition:
+    color 0.15s var(--ease),
+    border-color 0.15s var(--ease);
+}
+
+a:hover {
+  color: var(--paper);
+  border-bottom-color: var(--accent);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* Keyboard focus: visible on both themes (WCAG 2.4.7) */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Screen-reader-only utility */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. Layout containers
+   -------------------------------------------------------------------------- */
+.wrap {
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+main {
+  padding-bottom: 3.5rem;
+  min-height: 50vh;
+}
+
+/* Slightly wider reading column on ultra-wide displays */
+@media (min-width: 112rem) {
+  :root {
+    --wrap: 57.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Skip link
+   -------------------------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  transform: translateY(-150%);
+  z-index: 20;
+  padding: 0.7rem 1.1rem;
+  background: var(--paper);
+  color: var(--bg);
+  border: none;
+  font-size: 0.9rem;
+  transition: transform 0.15s var(--ease);
+}
+
+.skip-link:focus {
+  transform: translateY(0.5rem);
+  color: var(--bg);
+}
+
+/* --------------------------------------------------------------------------
+   5. Header: fully centered
+   -------------------------------------------------------------------------- */
+.site-header {
+  text-align: center;
+  padding: clamp(2rem, 1.5rem + 2.5vw, 3.25rem) 0 0;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: clamp(1.75rem, 1.25rem + 1.5vw, 2.75rem);
+}
+
+/* Utility row: language switcher + theme toggle */
+.header-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: clamp(1.25rem, 1rem + 1vw, 1.9rem);
+}
+
+/* Compact EN | PT segmented switcher */
+.lang-switch {
+  display: inline-flex;
+  align-items: stretch;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--bg-elev);
+}
+
+.lang-switch a {
+  display: block;
+  padding: 0.32rem 0.85rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: none;
+  line-height: 1.5;
+  transition:
+    color 0.15s var(--ease),
+    background-color 0.15s var(--ease);
+}
+
+.lang-switch a + a {
+  border-left: 1px solid var(--line);
+}
+
+.lang-switch a:hover {
+  color: var(--paper);
+  background: var(--bg);
+  border-bottom: none;
+}
+
+.lang-switch a[aria-current="true"] {
+  color: var(--bg);
+  background: var(--paper);
+}
+
+.lang-switch a[aria-current="true"]:hover {
+  color: var(--bg);
+}
+
+/* Icon-only theme toggle */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg-elev);
+  color: var(--muted);
+  cursor: pointer;
+  transition:
+    color 0.15s var(--ease),
+    border-color 0.15s var(--ease),
+    background-color 0.15s var(--ease);
+}
+
+.theme-toggle:hover {
+  color: var(--paper);
+  border-color: var(--accent);
+}
+
+.theme-toggle svg {
+  width: 1rem;
+  height: 1rem;
+  display: block;
+}
+
+.theme-toggle .icon-sun {
+  display: block;
+}
+.theme-toggle .icon-moon {
+  display: none;
+}
+:root[data-theme="light"] .theme-toggle .icon-sun {
+  display: none;
+}
+:root[data-theme="light"] .theme-toggle .icon-moon {
+  display: block;
+}
+
+/* Site identity */
+.site-title {
+  font-family: "IBM Plex Serif", "Source Serif 4", Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(1.9rem, 1.4rem + 2.4vw, 2.7rem);
+  letter-spacing: 0.015em;
+  line-height: 1.15;
+  color: var(--paper);
+}
+
+.site-title a,
+.site-title a:hover {
+  color: var(--paper);
+  border: none;
+}
+
+.site-tag {
+  margin-top: 0.6rem;
+  font-size: clamp(0.72rem, 0.68rem + 0.2vw, 0.83rem);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* Primary navigation, centered */
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem 1.9rem;
+  margin-top: clamp(1.3rem, 1.05rem + 1vw, 1.8rem);
+  padding-bottom: 1rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nav a {
+  position: relative;
+  color: var(--muted);
+  border: none;
+  padding: 0.45rem 0;
+  transition: color 0.15s var(--ease);
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0.1rem;
+  height: 1px;
+  width: 0;
+  background: var(--paper);
+  transition: width 0.25s var(--ease);
+}
+
+.nav a:hover {
+  color: var(--paper);
+}
+.nav a:hover::after {
+  width: 100%;
+}
+
+.nav a[aria-current="page"] {
+  color: var(--paper);
+}
+.nav a[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   6. Prose: shared article typography
+   -------------------------------------------------------------------------- */
+.kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+
+.prose h1 {
+  font-family: "IBM Plex Serif", Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(1.8rem, 1.3rem + 2vw, 2.5rem);
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  color: var(--paper);
+  margin: 0 0 1.2rem;
+}
+
+.prose p {
+  margin-bottom: 1.05em;
+  font-size: 1.03rem;
+  color: var(--ink);
+  max-width: 70ch;
+}
+
+.prose p.lead {
+  font-size: clamp(1.12rem, 1.05rem + 0.35vw, 1.27rem);
+  line-height: 1.6;
+  color: var(--paper);
+  max-width: 60ch;
+}
+
+.prose section {
+  margin-top: clamp(2.2rem, 1.9rem + 1.2vw, 3.2rem);
+}
+
+.prose h2 {
+  font-family: "IBM Plex Serif", Georgia, serif;
+  font-size: clamp(1.28rem, 1.15rem + 0.6vw, 1.48rem);
+  font-weight: 500;
+  color: var(--paper);
+  margin: 0 0 1.15rem;
+  padding-top: 1.05rem;
+  border-top: 1px solid var(--line);
+}
+
+.prose h3 {
+  font-size: clamp(1.05rem, 1rem + 0.3vw, 1.14rem);
+  letter-spacing: 0;
+  color: var(--accent-hi);
+  margin: 1.6rem 0 0.6rem;
+  font-weight: 500;
+}
+
+.prose ul {
+  margin: 0 0 1.1em 1.15em;
+}
+
+.prose li {
+  margin-bottom: 0.4em;
+  color: var(--ink);
+  font-size: 1.02rem;
+}
+
+.prose li::marker {
+  color: var(--accent);
+}
+
+.prose a:not(.figure-image) {
+  border-bottom-color: var(--accent-dim);
+}
+.prose a:hover {
+  border-bottom-color: var(--paper);
+}
+
+.prose .muted {
+  color: var(--muted);
+}
+
+.prose .text-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  font-size: 0.95rem;
+  margin: 1.5rem 0;
+}
+
+.prose .when,
+.when {
+  font-size: 0.87rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.prose .institution {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 0.9rem;
+}
+
+.prose .source-link {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* --------------------------------------------------------------------------
+   7. Academic trajectory
+   -------------------------------------------------------------------------- */
+.trajectory {
+  display: grid;
+  gap: 1.9rem;
+}
+
+.trajectory-entry {
+  display: grid;
+  grid-template-columns: minmax(7rem, 9rem) minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.trajectory-entry + .trajectory-entry {
+  padding-top: 1.9rem;
+  border-top: 1px solid var(--line);
+}
+
+.trajectory-entry h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.15rem;
+}
+
+.trajectory-entry p:last-child {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   8. Figures
+   -------------------------------------------------------------------------- */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.7rem;
+  margin: 1rem 0 1.5rem;
+  align-items: start;
+}
+
+.research-figure {
+  margin: 1.2rem 0 1.8rem;
+  min-width: 0;
+}
+
+.work-grid .research-figure {
+  margin: 0;
+}
+
+.figure-image {
+  display: block;
+  border: 1px solid var(--line);
+  background: var(--figure-bg);
+  padding: 0.65rem;
+  transition: border-color 0.2s var(--ease);
+}
+
+.figure-image:hover {
+  border-color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+  color: inherit;
+}
+
+.figure-image img {
+  width: 100%;
+  height: auto;
+}
+
+.work-grid .figure-image {
+  height: 17rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.work-grid .figure-image img {
+  height: 100%;
+  object-fit: contain;
+}
+
+.work-grid .compact .figure-image {
+  height: 14rem;
+}
+
+.research-figure figcaption {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--muted);
+  padding-top: 0.8rem;
+}
+
+.research-figure figcaption strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   9. Data tables
+   -------------------------------------------------------------------------- */
+.table-wrap {
+  width: 100%;
+  margin: 1.2rem 0;
+  overflow-x: auto;
+}
+
+.results-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.95rem;
+  table-layout: fixed;
+}
+
+.results-table caption {
+  text-align: left;
+  color: var(--muted);
+  font-size: 0.875rem;
+  padding-bottom: 0.6rem;
+}
+
+.results-table th,
+.results-table td {
+  padding: 0.8rem 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  overflow-wrap: anywhere;
+  vertical-align: top;
+}
+
+.results-table th {
+  font-weight: 500;
+}
+
+.results-table thead th {
+  color: var(--muted);
+  font-size: 0.875rem;
+  background: var(--bg-elev);
+}
+
+.results-table td {
+  font-variant-numeric: tabular-nums;
+}
+
+/* --------------------------------------------------------------------------
+   10. Publications
+   -------------------------------------------------------------------------- */
+.pub {
+  padding-bottom: 2rem;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.pub:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.pub h2 {
+  border: 0;
+  padding: 0;
+  margin: 0.5rem 0 0.8rem;
+  font-size: clamp(1.2rem, 1.1rem + 0.5vw, 1.38rem);
+}
+
+/* --------------------------------------------------------------------------
+   11. Educational project cards
+   -------------------------------------------------------------------------- */
+.project-list {
+  display: grid;
+  gap: 1.35rem;
+  margin-top: 0.35rem;
+}
+
+@media (min-width: 720px) {
+  .project-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.project-list h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.06rem;
+}
+
+.project-list p {
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   12. Note callouts
+   -------------------------------------------------------------------------- */
+.note {
+  margin: 1.5rem 0;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  background: var(--bg-elev);
+  font-size: 0.92rem;
+  color: var(--muted);
+  transition:
+    background-color 0.3s var(--ease),
+    border-color 0.3s var(--ease);
+}
+
+.note strong {
+  color: var(--paper);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   13. CV page: compact centered header, print-friendly layout
+   -------------------------------------------------------------------------- */
+.page-cv .cv-top {
+  text-align: center;
+  padding: 2rem 0 0;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 0;
+}
+
+.page-cv .cv-name {
+  font-family: "IBM Plex Serif", Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(1.45rem, 1.25rem + 1vw, 1.8rem);
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.page-cv .cv-name a,
+.page-cv .cv-name a:hover {
+  color: var(--paper);
+  border: none;
+}
+
+.page-cv .cv-line {
+  margin-top: 0.3rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.page-cv .cv-top .header-controls {
+  margin-bottom: 1.1rem;
+}
+.page-cv .cv-top .nav {
+  margin-top: 1.1rem;
+  padding-bottom: 0.85rem;
+}
+
+.page-cv .cv-main {
+  max-width: 42rem;
+  padding: 2rem var(--gutter) 4rem;
+  margin-inline: auto;
+}
+
+.page-cv .cv-lead {
+  font-size: 1.02rem;
+  line-height: 1.55;
+  color: var(--paper);
+  margin: 0 0 2rem;
+}
+
+.page-cv .cv-main h1 {
+  font-family: "IBM Plex Serif", Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(1.7rem, 1.5rem + 1vw, 2rem);
+  line-height: 1.2;
+  color: var(--paper);
+  letter-spacing: -0.01em;
+  margin: 0 0 1.2rem;
+}
+
+.page-cv .cv-main section + section {
+  margin-top: 1.9rem;
+}
+
+.page-cv .cv-main h2 {
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  margin: 0 0 0.8rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--line);
+}
+
+.page-cv .cv-dl {
+  display: grid;
+  gap: 1.05rem;
+}
+
+.page-cv .cv-dl dt {
+  color: var(--paper);
+  font-size: 0.98rem;
+  font-weight: 500;
+  margin-bottom: 0.15rem;
+}
+
+.page-cv .cv-dl dd {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.page-cv .cv-dl dd + dd {
+  margin-top: 0.4rem;
+}
+
+.page-cv .cv-dl em {
+  color: var(--ink);
+  font-style: italic;
+}
+
+.page-cv .cv-dl a,
+.page-cv .cv-contact a {
+  border-bottom-color: var(--accent-dim);
+}
+
+.page-cv .cv-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page-cv .cv-list li {
+  color: var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  padding: 0.3rem 0 0.3rem 0.9rem;
+  position: relative;
+}
+
+.page-cv .cv-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.78em;
+  width: 0.38rem;
+  height: 1px;
+  background: var(--accent);
+}
+
+.page-cv .cv-contact {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+  overflow-wrap: anywhere;
+}
+
+.page-cv .cv-contact span {
+  margin: 0 0.35rem;
+  color: var(--accent-dim);
+}
+
+.page-cv .site-footer {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   14. Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 1.9rem 0 2.5rem;
+  margin-top: 1rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+}
+
+@media (min-width: 700px) {
+  .footer-grid {
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+.footer-name {
+  font-family: "IBM Plex Serif", Georgia, serif;
+  font-size: 1rem;
+  color: var(--paper);
+  margin-bottom: 0.55rem;
+}
+
+.footer-heading {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.55rem;
+}
+
+.footer-list {
+  list-style: none;
+}
+
+.footer-list li {
+  margin-bottom: 0.4rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.footer-list a {
+  color: var(--muted);
+  border: none;
+  overflow-wrap: anywhere;
+}
+.footer-list a:hover {
+  color: var(--accent-hi);
+}
+
+.footer-copy {
+  clear: both;
+  margin-top: 1.7rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.footer-copy a {
+  color: var(--muted);
+  border-bottom-color: var(--accent-dim);
+}
+.footer-copy a:hover {
+  color: var(--paper);
+  border-bottom-color: var(--paper);
+}
+
+/* --------------------------------------------------------------------------
+   15. Root redirect page (language negotiation)
+   -------------------------------------------------------------------------- */
+.page-redirect {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--gutter);
+  gap: 0.4rem;
+}
+
+.page-redirect .redirect-name {
+  font-family: "IBM Plex Serif", Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(1.7rem, 1.3rem + 2vw, 2.4rem);
+  color: var(--paper);
+  line-height: 1.2;
+}
+
+.page-redirect .redirect-tag {
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.page-redirect .redirect-choose {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+.page-redirect .redirect-link {
+  display: inline-block;
+  padding: 0.6rem 1.6rem;
+  border: 1px solid var(--line);
+  background: var(--bg-elev);
+  color: var(--ink);
+  font-size: 0.9rem;
+  border-radius: 999px;
+  transition:
+    color 0.15s var(--ease),
+    border-color 0.15s var(--ease);
+}
+
+.page-redirect .redirect-link:hover {
+  color: var(--paper);
+  border-color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+}
+
+.page-redirect .redirect-note {
+  margin-top: 2.2rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* --------------------------------------------------------------------------
+   16. Anchors and global details
+   -------------------------------------------------------------------------- */
+[id] {
+  scroll-margin-top: 1.5rem;
+}
+
+/* Subtle top hairline framing the page */
+body::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background: var(--line);
+}
+
+/* --------------------------------------------------------------------------
+   17. Responsive adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .site-tag {
+    letter-spacing: 0.08em;
+    line-height: 1.8;
+  }
+
+  .nav {
+    letter-spacing: 0.08em;
+    gap: 0.25rem 1.2rem;
+  }
+  .nav a {
+    padding: 0.6rem 0;
+  }
+
+  .trajectory-entry {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.2rem;
+  }
+  .trajectory-entry .when {
+    margin-bottom: 0.3rem;
+  }
+
+  .work-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.8rem;
+  }
+
+  .work-grid .figure-image,
+  .work-grid .compact .figure-image {
+    height: auto;
+    min-height: 0;
+  }
+
+  .work-grid .figure-image img {
+    height: auto;
+    max-height: 19rem;
+    object-fit: contain;
+  }
+
+  .results-table {
+    font-size: 0.875rem;
+  }
+  .results-table th,
+  .results-table td {
+    padding: 0.65rem 0.4rem;
+  }
+
+  .prose section {
+    margin-top: 2.2rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   18. Reduced motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  a,
+  a::after,
+  .theme-toggle,
+  .figure-image,
+  .lang-switch a {
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   19. Print: force the light palette, hide interactive chrome
+   -------------------------------------------------------------------------- */
+@media print {
+  :root,
+  :root[data-theme="light"],
+  :root[data-theme="dark"] {
+    color-scheme: light;
+    --bg: #ffffff;
+    --bg-elev: #ffffff;
+    --ink: #1c1c1f;
+    --muted: #3f3f46;
+    --line: #d4d4d8;
+    --accent: #3f3f46;
+    --accent-hi: #18181b;
+    --accent-dim: #71717a;
+    --paper: #18181b;
+    --focus: #18181b;
+  }
+
+  body::before,
+  .skip-link,
+  .header-controls,
+  .nav,
+  .site-footer,
+  .text-links,
+  .source-link {
+    display: none !important;
+  }
+
+  .site-header,
+  .page-cv .cv-top {
+    padding-top: 0;
+    border: none;
+    margin: 0;
+  }
+
+  a {
+    border: none;
+  }
+
+  .figure-image {
+    border: 1px solid #d4d4d8;
+  }
 }
