@@ -9,6 +9,8 @@ Site acadêmico estático de [Josué Cavalcante](https://wolf9611.github.io/), e
 | `index.html` | Apresentação, formação, figuras e docência em inglês |
 | `portugues/index.html` | Apresentação em português |
 | `research/index.html` | Métodos, resultados e figuras dos trabalhos |
+| `projects/index.html` | Projetos de software, em inglês |
+| `projetos/index.html` | Projetos de software, em português |
 | `cv/index.html` | Currículo resumido |
 | `pubs/index.html` | Monografia, dissertação e publicações |
 | `css/style.css` | Estilos compartilhados e adaptação a telas menores |

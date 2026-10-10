@@ -306,6 +306,23 @@ a:focus-visible{outline:2px solid var(--paper);outline-offset:5px}
 .project-list{display:grid;gap:1.35rem;margin-top:.35rem}
 .project-list h3{margin:0 0 .35rem;font-size:1.08rem}
 .project-list p{margin:0}
+.project-list + .source-link{margin-top:1.15rem}
+.project-catalog{gap:0;margin-top:1.5rem}
+.project-catalog article{
+  padding:1.2rem 0 1.3rem;
+  border-bottom:1px solid var(--line);
+}
+.project-catalog article:first-child{padding-top:.1rem}
+.project-catalog article:last-child{border-bottom:0;padding-bottom:.1rem}
+.project-catalog h3{margin:0 0 .4rem;font-size:1.15rem;color:var(--paper)}
+.prose .project-catalog p{margin:0}
+.prose .project-catalog .project-stack{
+  margin-top:.7rem;
+  font-size:.875rem;
+  letter-spacing:.02em;
+  color:var(--muted);
+}
+.prose .project-catalog .text-links{margin:.8rem 0 0}
 .prose .when,.when{font-size:.875rem;color:var(--muted);line-height:1.6}
 .prose .institution{font-size:.95rem;color:var(--muted);margin-bottom:.85rem}
 .prose .source-link{font-size:.9rem;color:var(--muted)}
