@@ -1,8 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://wolf9611.github.io/</loc></url>
-  <url><loc>https://wolf9611.github.io/portugues/</loc></url>
-  <url><loc>https://wolf9611.github.io/research/</loc></url>
-  <url><loc>https://wolf9611.github.io/cv/</loc></url>
-  <url><loc>https://wolf9611.github.io/pubs/</loc></url>
+<!--
+  Sitemap of the academic homepage of Josué da Silva Cavalcante.
+  English is the primary language and lives at the root. Brazilian Portuguese
+  is offered through the in-page switcher, so both languages share each URL
+  and the alternates point to the same path.
+-->
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+  <url>
+    <loc>https://wolf9611.github.io/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wolf9611.github.io/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="pt-BR"
+      href="https://wolf9611.github.io/"
+    />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wolf9611.github.io/" />
+  </url>
+  <url>
+    <loc>https://wolf9611.github.io/research/</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://wolf9611.github.io/research/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="pt-BR"
+      href="https://wolf9611.github.io/research/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://wolf9611.github.io/research/"
+    />
+  </url>
+  <url>
+    <loc>https://wolf9611.github.io/cv/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wolf9611.github.io/cv/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="pt-BR"
+      href="https://wolf9611.github.io/cv/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://wolf9611.github.io/cv/"
+    />
+  </url>
+  <url>
+    <loc>https://wolf9611.github.io/pubs/</loc>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://wolf9611.github.io/pubs/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="pt-BR"
+      href="https://wolf9611.github.io/pubs/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://wolf9611.github.io/pubs/"
+    />
+  </url>
 </urlset>
