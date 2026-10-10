@@ -157,11 +157,15 @@ because the abstract and the body of the PDF present different values.
 
 ## Educational projects
 
-The educational section describes collaborative initiatives maintained by the
+The projects section describes collaborative initiatives maintained by the
 author, including [BuscApp](https://github.com/eemtijca/buscapp), an
 attendance-monitoring and family-communication project developed with
-[Emanuel Lázaro](https://github.com/emanuellcs). These references are kept for
-attribution and for the documentation of the projects.
+[Emanuel Lázaro](https://github.com/emanuellcs). It also lists software for
+the school and for astronomy research: FrequenciaApp, Ludus, Caderno Aberto,
+a timetable generator, and PSF-match. Public repositories are linked.
+Gerador de horários and PSF-match are listed without a repository link.
+These references are kept for attribution and for the documentation of the
+projects.
 
 ## Local preview
 
@@ -181,7 +185,7 @@ by reloading after switching.
 The site is published through GitHub Pages from the existing repository, and
 changes should be reviewed before they reach the published branch. When the
 stylesheet or a script changes, update the `?v=` query string on the `<link>`
-and `<script>` tags across the affected pages. The value is currently `v=7`,
+and `<script>` tags across the affected pages. The value is currently `v=8`,
 and it exists purely to bypass the browser cache for returning visitors.
 
 ## Copyright

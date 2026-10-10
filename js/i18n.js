@@ -29,6 +29,7 @@
       "common.navAria": "Main",
       "common.navHome": "Home",
       "common.navResearch": "Research",
+      "common.navProjects": "Projects",
       "common.navCv": "CV",
       "common.navPubs": "Publications",
       "common.siteTitle": "Josué da Silva Cavalcante",
@@ -91,15 +92,36 @@
         "I passed the <strong>SEDUC-CE 2018 competitive examination for Physics teachers</strong>. My name appears in the final list of approved candidates published on 30 December 2019.",
       "home.teachingLink":
         "Official result · CEV/UECE, Comunicado 131/2019, p. 16 (PDF)",
-      "home.projectsHeading": "Current educational projects",
+      "home.projectsHeading": "Projects",
       "home.projectsIntro":
-        "My projects in education are purely collaborative initiatives of my own. Drawing on my knowledge of technology and artificial intelligence, I contribute tools for the school.",
+        "My projects in education are purely collaborative initiatives of my own. Drawing on my knowledge of technology and artificial intelligence, I contribute tools for the school. The list also includes software for the school and for astronomy research.",
+      "home.freqTitle": "FrequenciaApp",
+      "home.freqBody":
+        "School coordination app: a single daily roll call, early departures, absenteeism indicators and reports, installable as a PWA.",
+      "home.freqStack": "TypeScript · Next.js · Prisma · Google Sheets",
+      "home.linkLive": "Live site",
+      "home.project2Title": "BuscApp",
+      "home.project2BodyHtml":
+        'School management platform with attendance, incidents, justifications, and real-time chat between teachers, management, and guardians. It is a project under my guidance for attendance monitoring, outreach to absent students, and communication with families. <a href="https://github.com/emanuellcs" rel="noopener" target="_blank">Emanuel Lázaro</a>, a Computer Engineering student at the Federal University of Ceará (UFC), Sobral campus, collaborates directly.',
+      "home.buscStack": "TypeScript · Vue · Fastify · Prisma · PWA",
+      "home.ludusTitle": "Ludus",
+      "home.ludusBody":
+        "20 investigation games for high school, by BNCC areas, designed for AEE (special education) under UDL/DUA principles. No accounts; progress is saved in the browser.",
+      "home.ludusStack": "TypeScript",
+      "home.cadernoTitle": "Caderno Aberto",
+      "home.cadernoBody":
+        "Free platform for teachers to create lecture notes and share them through controllable links, with export to PDF, LaTeX, Markdown and JSON.",
+      "home.cadernoStack": "TypeScript",
+      "home.horarioTitle": "Gerador de horários",
+      "home.horarioBody": "School timetable generator (solver) for the school.",
+      "home.horarioStack": "Python",
+      "home.psfTitle": "PSF-match",
+      "home.psfBody":
+        "Python research code in astronomy: PSF matching for precision astrometry.",
+      "home.psfStack": "Python",
       "home.project1Title": "Chamada",
       "home.project1Body":
         "Records presence, absence, and excused absence on a phone for regrouped classes, gathers each student by their original class, and synchronizes the records with spreadsheets.",
-      "home.project2Title": "BuscApp",
-      "home.project2BodyHtml":
-        'A project under my guidance for attendance monitoring, outreach to absent students, and communication with families. <a href="https://github.com/emanuellcs" rel="noopener" target="_blank">Emanuel Lázaro</a>, a Computer Engineering student at the Federal University of Ceará (UFC), Sobral campus, collaborates directly.',
       "home.project3Title": "Teaching materials",
       "home.project3Body":
         "Lesson notes, presentations, and activities for secondary Physics and ENEM preparation, plus simulations and Python animations of the work done by a gas, electrical circuits, charged-particle motion in magnetic fields, and the celestial sphere.",
@@ -278,6 +300,7 @@
       "common.navAria": "Principal",
       "common.navHome": "Início",
       "common.navResearch": "Pesquisa",
+      "common.navProjects": "Projetos",
       "common.navCv": "Currículo",
       "common.navPubs": "Publicações",
       "common.siteTitle": "Josué da Silva Cavalcante",
@@ -340,15 +363,37 @@
         "Fui aprovado no <strong>concurso da SEDUC-CE de 2018 para professor de Física</strong>. Meu nome consta na relação definitiva de candidatos aprovados, publicada em 30 de dezembro de 2019.",
       "home.teachingLink":
         "Resultado oficial · CEV/UECE, Comunicado 131/2019, p. 16 (PDF)",
-      "home.projectsHeading": "Projetos educacionais atuais",
+      "home.projectsHeading": "Projetos",
       "home.projectsIntro":
-        "Meus projetos na área da educação são puramente iniciativas colaborativas minhas. A partir do meu conhecimento em tecnologia e inteligência artificial, contribuo com ferramentas para a escola.",
+        "Meus projetos na área da educação são puramente iniciativas colaborativas minhas. A partir do meu conhecimento em tecnologia e inteligência artificial, contribuo com ferramentas para a escola. A lista inclui também software para a escola e para a pesquisa em astronomia.",
+      "home.freqTitle": "FrequenciaApp",
+      "home.freqBody":
+        "Aplicativo de coordenação escolar: uma chamada diária única, saídas antecipadas, indicadores de absenteísmo e relatórios, instalável como PWA.",
+      "home.freqStack": "TypeScript · Next.js · Prisma · Google Sheets",
+      "home.linkLive": "Site",
+      "home.project2Title": "BuscApp",
+      "home.project2BodyHtml":
+        'Plataforma de gestão escolar com frequência, ocorrências, justificativas e chat em tempo real entre professores, gestão e responsáveis. Projeto sob minha orientação para o acompanhamento da frequência, a busca ativa de estudantes e a comunicação com as famílias. <a href="https://github.com/emanuellcs" rel="noopener" target="_blank">Emanuel Lázaro</a>, estudante de Engenharia da Computação da Universidade Federal do Ceará (UFC), campus Sobral, colabora diretamente.',
+      "home.buscStack": "TypeScript · Vue · Fastify · Prisma · PWA",
+      "home.ludusTitle": "Ludus",
+      "home.ludusBody":
+        "20 jogos de investigação para o ensino médio, por áreas da BNCC, pensados para o AEE (educação especial) sob os princípios do DUA. Sem contas; o progresso fica salvo no navegador.",
+      "home.ludusStack": "TypeScript",
+      "home.cadernoTitle": "Caderno Aberto",
+      "home.cadernoBody":
+        "Plataforma gratuita para professores criarem notas de aula e compartilhá-las por links controláveis, com exportação para PDF, LaTeX, Markdown e JSON.",
+      "home.cadernoStack": "TypeScript",
+      "home.horarioTitle": "Gerador de horários",
+      "home.horarioBody":
+        "Gerador de horários escolares (solver) para a escola.",
+      "home.horarioStack": "Python",
+      "home.psfTitle": "PSF-match",
+      "home.psfBody":
+        "Código de pesquisa em Python na astronomia: correspondência de PSF para astrometria de precisão.",
+      "home.psfStack": "Python",
       "home.project1Title": "Chamada",
       "home.project1Body":
         "Registra, pelo celular, presenças, faltas e faltas justificadas de alunos de turmas reorganizadas. Os registros são reunidos por turma de origem e sincronizados com planilhas.",
-      "home.project2Title": "BuscApp",
-      "home.project2BodyHtml":
-        'Projeto sob minha orientação para o acompanhamento da frequência, a busca ativa de estudantes e a comunicação com as famílias. <a href="https://github.com/emanuellcs" rel="noopener" target="_blank">Emanuel Lázaro</a>, estudante de Engenharia da Computação da Universidade Federal do Ceará (UFC), campus Sobral, colabora diretamente.',
       "home.project3Title": "Materiais de aula",
       "home.project3Body":
         "Notas, apresentações e atividades de Física para o ensino médio e o ENEM, com simulações e animações em Python sobre o trabalho de um gás, circuitos elétricos, o movimento de cargas em campos magnéticos e a geometria da esfera celeste.",
@@ -617,6 +662,16 @@
       } else {
         textNodes[i].textContent = value;
       }
+    }
+
+    var htmlNodes = document.querySelectorAll("[data-i18n-html]");
+    for (i = 0; i < htmlNodes.length; i++) {
+      var htmlKey = htmlNodes[i].getAttribute("data-i18n-html");
+      var htmlValue = translate(lang, htmlKey);
+      if (htmlValue == null) {
+        continue;
+      }
+      htmlNodes[i].innerHTML = htmlValue;
     }
 
     var attrNodes = document.querySelectorAll("[data-i18n-attr]");
