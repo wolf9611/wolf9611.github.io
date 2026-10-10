@@ -185,8 +185,9 @@ by reloading after switching.
 The site is published through GitHub Pages from the existing repository, and
 changes should be reviewed before they reach the published branch. When the
 stylesheet or a script changes, update the `?v=` query string on the `<link>`
-and `<script>` tags across the affected pages. The value is currently `v=8`,
-and it exists purely to bypass the browser cache for returning visitors.
+and `<script>` tags across the affected pages. The stylesheet is currently `v=8`
+and `js/i18n.js` is `v=9`. The parameter exists purely to bypass the browser
+cache for returning visitors.
 
 ## Copyright
 

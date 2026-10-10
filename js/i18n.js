@@ -297,7 +297,7 @@
       // Shared chrome
       "common.skip": "Ir para o conteúdo",
       "common.langGroup": "Idioma",
-      "common.navAria": "Principal",
+      "common.navAria": "Navegação principal",
       "common.navHome": "Início",
       "common.navResearch": "Pesquisa",
       "common.navProjects": "Projetos",
@@ -315,20 +315,20 @@
       "common.copyright":
         "© 2026 Josué da Silva Cavalcante. Todos os direitos reservados.",
       "common.figureViewerTitle": "Figura",
-      "common.figureViewerClose": "Fechar o visualizador de figuras",
+      "common.figureViewerClose": "Fechar a visualização da figura",
       // Homepage
-      "home.title": "Sobre mim · Josué da Silva Cavalcante",
+      "home.title": "Josué da Silva Cavalcante · Físico e astrônomo",
       "home.description":
-        "Físico e astrônomo. Licenciatura em Física pela UVA, em Sobral, mestrado em Astronomia pelo Observatório Nacional, pesquisa e docência na SEDUC-CE.",
-      "home.ogTitle": "Sobre mim · Josué da Silva Cavalcante",
+        "Físico e astrônomo. Licenciatura em Física pela UVA, em Sobral, mestrado em Astronomia pelo Observatório Nacional, pesquisa sobre pequenos corpos do Sistema Solar e docência em Física no Ceará.",
+      "home.ogTitle": "Josué da Silva Cavalcante · Físico e astrônomo",
       "home.kicker": "Sobre mim",
       "home.h1": "Físico e astrônomo",
       "home.lead":
-        "Sou o primeiro astrônomo de Ubajara, no Ceará. Estudo a posição e o brilho de pequenos corpos do Sistema Solar, com foco em medições em regiões do céu com grande concentração de estrelas.",
+        "Sou o primeiro astrônomo de Ubajara, no Ceará. Estudo as posições e o brilho de pequenos corpos do Sistema Solar, com foco em medi-los sobre fundos estelares densos.",
       "home.intro":
-        "Minha trajetória reúne a formação em Física em Sobral, o mestrado em Astronomia no Rio de Janeiro e a atuação como professor na rede pública do Ceará. Tenho também interesse por tecnologia e inteligência artificial.",
+        "Minha trajetória reúne a formação em Física em Sobral, o mestrado em Astronomia no Rio de Janeiro e a docência nas escolas públicas do Ceará. Sou também entusiasta de tecnologia e inteligência artificial.",
       "home.linksResearch": "Pesquisa e figuras",
-      "home.linksCv": "Currículo resumido",
+      "home.linksCv": "Currículo",
       "home.linksLang": "Read in English",
       "home.educationHeading": "Da Física à Astronomia",
       "home.ugWhen": "Monografia · 2018",
@@ -343,45 +343,45 @@
       "home.msInstitution": "Observatório Nacional (ON/MCTI)",
       "home.msPlace": "Rio de Janeiro",
       "home.msBodyHtml":
-        "Minha pesquisa de mestrado investigou a astrometria e a fotometria de pequenos corpos do Sistema Solar em campos densos. A partir de observações do <strong>(10199) Chariklo</strong>, estudei como a análise por diferença de imagens pode melhorar as medições quando estrelas vizinhas interferem.",
+        "Minha pesquisa de mestrado investigou a astrometria e a fotometria de pequenos corpos do Sistema Solar em campos densos. A partir de observações do <strong>(10199) Chariklo</strong>, estudei como a análise de diferença de imagens pode melhorar as medições quando estrelas vizinhas interferem.",
       "home.msLink": "Ler a dissertação (PDF, em português)",
       "home.figuresHeading": "Figuras dos meus trabalhos",
       "home.figCapAria": "Ampliar a figura",
       "home.figHorizAlt":
         "Esfera celeste com altura, azimute, horizonte e meridiano local.",
       "home.figHorizCap":
-        "Como descrever uma posição no céu. Diagrama do sistema de coordenadas horizontais, elaborado para minha monografia. Ver figura 5, p. 24.",
+        "Descrição de uma posição no céu. Diagrama da monografia que ilustra o sistema de coordenadas horizontais. Figura 5, p. 24.",
       "home.figCharAlt":
-        "Quatro imagens astronômicas: ciência, modelo de referência, ciência reamostrada e diferença; setas vermelhas indicam Chariklo nas imagens de ciência.",
+        "Quatro imagens astronômicas: imagem de ciência, modelo de referência, imagem de ciência reamostrada e imagem de diferença, com Chariklo marcado por setas vermelhas nas imagens de ciência.",
       "home.figCharCapHtml":
-        '<strong>Como medir Chariklo em um campo denso.</strong> A subtração de imagens separa o objeto em movimento do fundo estelar. <a href="/files/dissertacao_cavalcante_2025.pdf#page=55">Ver figura 4.5, p. 43</a>.',
+        '<strong>Medição de Chariklo em um campo denso.</strong> A subtração de imagens separa o objeto em movimento do fundo estelar no meu trabalho de mestrado. <a href="/files/dissertacao_cavalcante_2025.pdf#page=55">Figura 4.5, p. 43</a>.',
       "home.figuresLink": "Ver mais figuras, métodos e resultados",
       "home.teachingHeading": "Docência e serviço público",
       "home.teachingBody":
-        "Sou professor de Física da rede estadual de ensino do Ceará, vinculado à SEDUC-CE. Minha atuação em educação acompanha minha formação em Física e Astronomia.",
+        "Sou professor de Física na rede estadual de ensino do Ceará, pela SEDUC-CE. Minha atuação na educação acompanha minha formação acadêmica em Física e Astronomia.",
       "home.teachingExamHtml":
-        "Fui aprovado no <strong>concurso da SEDUC-CE de 2018 para professor de Física</strong>. Meu nome consta na relação definitiva de candidatos aprovados, publicada em 30 de dezembro de 2019.",
+        "Fui aprovado no <strong>concurso da SEDUC-CE de 2018 para professor de Física</strong>. Meu nome consta da relação definitiva de candidatos aprovados, publicada em 30 de dezembro de 2019.",
       "home.teachingLink":
         "Resultado oficial · CEV/UECE, Comunicado 131/2019, p. 16 (PDF)",
       "home.projectsHeading": "Projetos",
       "home.projectsIntro":
-        "Meus projetos na área da educação são puramente iniciativas colaborativas minhas. A partir do meu conhecimento em tecnologia e inteligência artificial, contribuo com ferramentas para a escola. A lista inclui também software para a escola e para a pesquisa em astronomia.",
+        "Meus projetos na educação são iniciativas puramente colaborativas de minha autoria. A partir do meu conhecimento de tecnologia e inteligência artificial, contribuo com ferramentas para a escola. A lista inclui também software para a escola e para a pesquisa em astronomia.",
       "home.freqTitle": "FrequenciaApp",
       "home.freqBody":
-        "Aplicativo de coordenação escolar: uma chamada diária única, saídas antecipadas, indicadores de absenteísmo e relatórios, instalável como PWA.",
+        "Aplicativo de coordenação escolar: uma única chamada por dia, saídas antecipadas, indicadores de absenteísmo e relatórios, instalável como PWA.",
       "home.freqStack": "TypeScript · Next.js · Prisma · Google Sheets",
-      "home.linkLive": "Site",
+      "home.linkLive": "Site no ar",
       "home.project2Title": "BuscApp",
       "home.project2BodyHtml":
-        'Plataforma de gestão escolar com frequência, ocorrências, justificativas e chat em tempo real entre professores, gestão e responsáveis. Projeto sob minha orientação para o acompanhamento da frequência, a busca ativa de estudantes e a comunicação com as famílias. <a href="https://github.com/emanuellcs" rel="noopener" target="_blank">Emanuel Lázaro</a>, estudante de Engenharia da Computação da Universidade Federal do Ceará (UFC), campus Sobral, colabora diretamente.',
+        'Plataforma de gestão escolar com frequência, ocorrências, justificativas e chat em tempo real entre professores, gestão e responsáveis. Projeto sob minha orientação para o acompanhamento da frequência, a busca ativa de estudantes ausentes e a comunicação com as famílias. <a href="https://github.com/emanuellcs" rel="noopener" target="_blank">Emanuel Lázaro</a>, estudante de Engenharia de Computação da Universidade Federal do Ceará (UFC), campus de Sobral, colabora diretamente.',
       "home.buscStack": "TypeScript · Vue · Fastify · Prisma · PWA",
       "home.ludusTitle": "Ludus",
       "home.ludusBody":
-        "20 jogos de investigação para o ensino médio, por áreas da BNCC, pensados para o AEE (educação especial) sob os princípios do DUA. Sem contas; o progresso fica salvo no navegador.",
+        "20 jogos de investigação para o ensino médio, por áreas da BNCC, pensados para o AEE (Atendimento Educacional Especializado), segundo os princípios do DUA. Não exige conta; o progresso fica salvo no navegador.",
       "home.ludusStack": "TypeScript",
       "home.cadernoTitle": "Caderno Aberto",
       "home.cadernoBody":
-        "Plataforma gratuita para professores criarem notas de aula e compartilhá-las por links controláveis, com exportação para PDF, LaTeX, Markdown e JSON.",
+        "Plataforma gratuita para professores criarem notas de aula e compartilhá-las por links de acesso controlado, com exportação para PDF, LaTeX, Markdown e JSON.",
       "home.cadernoStack": "TypeScript",
       "home.horarioTitle": "Gerador de horários",
       "home.horarioBody":
@@ -389,17 +389,17 @@
       "home.horarioStack": "Python",
       "home.psfTitle": "PSF-match",
       "home.psfBody":
-        "Código de pesquisa em Python na astronomia: correspondência de PSF para astrometria de precisão.",
+        "Código de pesquisa em Python para astronomia: equiparação de PSF (PSF matching) para astrometria de precisão.",
       "home.psfStack": "Python",
       "home.project1Title": "Chamada",
       "home.project1Body":
-        "Registra, pelo celular, presenças, faltas e faltas justificadas de alunos de turmas reorganizadas. Os registros são reunidos por turma de origem e sincronizados com planilhas.",
+        "Registra, pelo celular, presenças, faltas e faltas justificadas de alunos de turmas reagrupadas. Reúne cada aluno pela turma de origem e sincroniza os registros com planilhas.",
       "home.project3Title": "Materiais de aula",
       "home.project3Body":
-        "Notas, apresentações e atividades de Física para o ensino médio e o ENEM, com simulações e animações em Python sobre o trabalho de um gás, circuitos elétricos, o movimento de cargas em campos magnéticos e a geometria da esfera celeste.",
+        "Notas, apresentações e atividades de Física para o ensino médio e a preparação para o ENEM, com simulações e animações em Python sobre o trabalho de um gás, circuitos elétricos, o movimento de partículas carregadas em campos magnéticos e a esfera celeste.",
       "home.nextHeading": "Astronomia, tecnologia e IA",
       "home.nextBody":
-        "Estou iniciando o doutorado para dar continuidade à pesquisa em astrometria de pequenos corpos do Sistema Solar. Meu foco é desenvolver software que incorpore técnicas de aprendizado de máquina e inteligência artificial para tornar as medições mais confiáveis, mesmo em regiões com grande concentração de estrelas.",
+        "Estou iniciando o doutorado na mesma linha de pesquisa, com foco em software astrométrico que integra aprendizado de máquina e inteligência artificial. Interessa-me tornar mais confiáveis as medições de pequenos corpos mesmo em campos estelares difíceis.",
 
       // Research
       "research.title": "Pesquisa · Josué da Silva Cavalcante",
@@ -408,7 +408,7 @@
       "research.kicker": "Pesquisa",
       "research.h1": "Posições, luz e pequenos corpos",
       "research.lead":
-        "Meu trabalho conecta a geometria da esfera celeste ao desafio prático de medir objetos em movimento em imagens astronômicas com campos densos.",
+        "Meu trabalho conecta a geometria da esfera celeste ao desafio prático de medir objetos em movimento em imagens astronômicas de campos densos.",
       "research.linksUg": "Monografia",
       "research.linksMs": "Pesquisa de mestrado",
       "research.linksDoc": "Rumo ao doutorado",
@@ -416,9 +416,9 @@
       "research.ugInstitution":
         "Licenciatura em Física · Universidade Estadual Vale do Acaraú · Sobral · Monografia de 2018",
       "research.ugBody1":
-        "Minha monografia, Astronomia de Posição, reúne os sistemas de referência celeste, a trigonometria esférica e as transformações entre coordenadas astronômicas. O trabalho também discute o movimento aparente do céu e usa o Stellarium para ilustrar situações astronômicas.",
+        "Minha monografia, Astronomia de Posição, reúne os sistemas de referência celestes, a trigonometria esférica e as transformações entre coordenadas astronômicas. O trabalho também discute o movimento aparente do céu e usa o Stellarium para ilustrar situações astronômicas.",
       "research.ugBody2":
-        "O trabalho aborda uma pergunta básica da astrometria: como definimos e relacionamos as coordenadas usadas para descrever uma posição no céu?",
+        "O trabalho aborda uma questão básica da astrometria: como definimos e relacionamos as coordenadas usadas para descrever uma posição no céu?",
       "research.ugSupervisor":
         "Orientador: Prof. Dr. Antônio Fernandes Siqueira.",
       "research.figCapAria": "Ampliar a figura",
@@ -427,7 +427,7 @@
       "research.figHorizCap":
         "Coordenadas horizontais. Altura e azimute localizam um objeto em relação ao horizonte do observador. Diagrama original de Astronomia de Posição. Figura 5, p. 24.",
       "research.figTriAlt":
-        "Triângulo de posição esférico que liga o zênite, o polo celeste elevado e uma estrela, com as relações angulares indicadas.",
+        "Triângulo esférico de posição que liga o zênite, o polo celeste elevado e uma estrela, com as relações angulares indicadas.",
       "research.figTriCap":
         "O triângulo de posição. A geometria esférica relaciona a latitude do observador às coordenadas horizontais e equatoriais. Diagrama original da monografia. Figura 12, p. 34.",
       "research.msHeading":
@@ -435,19 +435,19 @@
       "research.msInstitution":
         "Mestrado em Astronomia · Observatório Nacional · Rio de Janeiro · Dissertação de 2025",
       "research.msBody":
-        "Minha dissertação, Astrometria e fotometria de pequenos corpos do Sistema Solar em imagens com campos estelares densos, estuda como estrelas vizinhas afetam a posição e o brilho medidos de um corpo em movimento do Sistema Solar.",
+        "Minha dissertação, Astrometria e fotometria de pequenos corpos do Sistema Solar em imagens com campos estelares densos, estuda como estrelas vizinhas afetam a posição e o brilho medidos de um corpo do Sistema Solar em movimento.",
       "research.msSupervisor":
         "Orientador: Dr. Julio I. Bueno de Camargo. Coorientador: Dr. Adriano Pieres.",
       "research.msPdf": "Ler a dissertação completa (PDF, em português)",
-      "research.sepHeading": "Separando o alvo do fundo",
+      "research.sepHeading": "Separação do alvo e do fundo",
       "research.sepBody1":
-        "Primeiro comparei medições de PRAIA e DAOPHOT para as posições das estrelas de referência em um campo denso simulado. Em seguida apliquei a análise por diferença de imagens (DIA), com o DIAPL2, a uma sequência de observações SOAR/SOI do centauro (10199) Chariklo.",
+        "Primeiro comparei as medições do PRAIA e do DAOPHOT para as posições das estrelas de referência em um campo denso simulado. Em seguida, apliquei a análise de diferença de imagens (DIA), com o DIAPL2, a uma sequência de observações SOAR/SOI do centauro (10199) Chariklo.",
       "research.sepBody2":
-        "Uma imagem de referência modela o fundo estelar sem o alvo em movimento. Subtrair esse modelo das imagens de ciência alinhadas permite medir Chariklo com menos contaminação. As estrelas de referência são medidas com o PRAIA nas imagens de ciência reamostradas.",
+        "Uma imagem de referência modela o fundo estelar sem o alvo em movimento. A subtração desse modelo nas imagens de ciência alinhadas permite medir Chariklo com menos contaminação. As estrelas de referência são medidas com o PRAIA nas imagens de ciência reamostradas.",
       "research.figSubAlt":
-        "Imagens de ciência, modelo de referência, ciência reamostrada e diferença de um campo estelar denso. Setas vermelhas indicam Chariklo nas imagens de ciência.",
+        "Imagem de ciência, modelo de referência, imagem de ciência reamostrada e imagem de diferença de um campo estelar denso. Setas vermelhas indicam Chariklo nas imagens de ciência.",
       "research.figSubCap":
-        "Removendo o fundo estelar. Da esquerda para a direita: imagem de ciência, modelo de referência, imagem de ciência reamostrada e imagem de diferença. As setas vermelhas identificam Chariklo nas imagens de ciência.",
+        "Remoção do fundo estelar. Da esquerda para a direita: imagem de ciência, modelo de referência, imagem de ciência reamostrada e imagem de diferença. As setas vermelhas identificam Chariklo nas imagens de ciência.",
       "research.figSubLink": "Figura 4.5, p. 43",
       "research.resHeading": "Resultados astrométricos",
       "research.resBody":
@@ -463,9 +463,9 @@
       "research.resNote":
         "As reduções contêm números diferentes de medições aceitas. Esses resultados descrevem esta sequência de observações.",
       "research.resLink": "Ver a Tabela 4.1 e sua discussão, p. 45",
-      "research.lcHeading": "Recuperando a curva de luz",
+      "research.lcHeading": "Recuperação da curva de luz",
       "research.lcBody":
-        "A fotometria nas imagens de diferença também recuperou a variação rotacional de brilho de Chariklo. Medições mais limpas de posição e brilho podem apoiar previsões de ocultações estelares e o estudo físico de pequenos corpos.",
+        "A fotometria nas imagens de diferença também recuperou a variação rotacional de brilho de Chariklo. Medições menos contaminadas de posição e de brilho podem apoiar previsões de ocultações estelares e o estudo físico de pequenos corpos.",
       "research.figPhotAlt":
         "Dois gráficos de magnitude instrumental em função do tempo: fotometria PSF nas imagens originais à esquerda e fotometria de abertura nas imagens de diferença à direita. As escalas verticais são diferentes.",
       "research.figPhotCap":
@@ -473,7 +473,7 @@
       "research.figPhotLink": "Figura 5.2, p. 57",
       "research.docHeading": "Rumo à pesquisa de doutorado",
       "research.docBody":
-        "Estou iniciando o doutorado em astrometria e fotometria de pequenos corpos, com ênfase em software de medição que incorpore aprendizado de máquina e inteligência artificial. Meus interesses incluem detecção e estimativa de centroide em campos densos, tratamento robusto de fontes em movimento e processamento reprodutível de imagens astronômicas.",
+        "Estou iniciando o doutorado em astrometria e fotometria de pequenos corpos, com ênfase em software de medição que incorpore aprendizado de máquina e inteligência artificial. Meus interesses incluem detecção e estimativa de centróide em campos densos, tratamento robusto de fontes em movimento e processamento reprodutível de imagens astronômicas.",
 
       // Curriculum vitae
       "cv.title": "Currículo · Josué da Silva Cavalcante",
@@ -481,9 +481,9 @@
         "Currículo acadêmico: Licenciatura em Física pela UVA, mestrado em Astronomia pelo Observatório Nacional, pesquisa em pequenos corpos e docência na rede estadual do Ceará.",
       "cv.ogTitle": "Currículo · Josué da Silva Cavalcante",
       "cv.nameLine": "Físico e astrônomo",
-      "cv.h1": "Currículo vitae",
+      "cv.h1": "Curriculum vitae",
       "cv.lead":
-        "Físico e astrônomo, atuo em astrometria e fotometria de pequenos corpos do Sistema Solar. Professor de Física da rede estadual de ensino do Ceará. Tenho também interesse por tecnologia e inteligência artificial.",
+        "Físico e astrônomo, atuo em astrometria e fotometria de pequenos corpos do Sistema Solar. Professor de Física da rede estadual de ensino do Ceará. Sou também entusiasta de tecnologia e inteligência artificial.",
       "cv.educationHeading": "Formação",
       "cv.msTitle": "Mestrado em Astronomia",
       "cv.msPlace": "Observatório Nacional (ON/MCTI), Rio de Janeiro, Brasil.",
@@ -502,13 +502,13 @@
       "cv.teachTitle": "Professor de Física · SEDUC-CE",
       "cv.teachPlace": "Rede estadual de ensino do Ceará, Brasil.",
       "cv.teachExam":
-        "Aprovado no concurso da SEDUC-CE de 2018 para professor de Física; relação definitiva de aprovados publicada em 30 de dezembro de 2019.",
+        "Aprovado no concurso da SEDUC-CE de 2018 para professor de Física; relação definitiva de candidatos aprovados publicada em 30 de dezembro de 2019.",
       "cv.teachLink": "Resultado oficial CEV/UECE, p. 16 (PDF)",
       "cv.researchHeading": "Pesquisa",
       "cv.research1":
         "Astrometria e fotometria de pequenos corpos do Sistema Solar em campos estelares densos.",
       "cv.research2":
-        "Análise por diferença de imagens com o DIAPL2; medições de estrelas de referência com o PRAIA; comparação com o DAOPHOT.",
+        "Análise de diferença de imagens com o DIAPL2; medições de estrelas de referência com o PRAIA; comparação com o DAOPHOT.",
       "cv.research3":
         "Observações SOAR/SOI do (10199) Chariklo, curvas de luz e apoio astrométrico a ocultações estelares.",
       "cv.research4":
@@ -516,33 +516,33 @@
       "cv.researchLink": "Métodos, figuras e resultados da pesquisa",
       "cv.projectsHeading": "Projetos educacionais",
       "cv.projectsIntro":
-        "Iniciativas puramente colaborativas minhas. Contribuo com ferramentas para a escola a partir do meu conhecimento em tecnologia e inteligência artificial.",
+        "Iniciativas puramente colaborativas de minha autoria. Contribuo com ferramentas para a escola a partir do meu conhecimento de tecnologia e inteligência artificial.",
       "cv.project1":
-        "Chamada: frequência de turmas reorganizadas, reunida por turma de origem e sincronizada com planilhas.",
+        "Chamada: frequência de turmas reagrupadas, consolidada por turma de origem e sincronizada com planilhas.",
       "cv.project2Html":
-        '<a href="https://github.com/eemtijca/buscapp" rel="noopener" target="_blank">BuscApp</a>: acompanhamento de frequência e comunicação com as famílias, com <a href="https://github.com/emanuellcs" rel="noopener" target="_blank">Emanuel Lázaro</a> (Engenharia da Computação, UFC, Sobral).',
+        '<a href="https://github.com/eemtijca/buscapp" rel="noopener" target="_blank">BuscApp</a>: acompanhamento de frequência e comunicação com as famílias, com <a href="https://github.com/emanuellcs" rel="noopener" target="_blank">Emanuel Lázaro</a> (Engenharia de Computação, UFC, Sobral).',
       "cv.project3":
         "Notas de aula, atividades e animações em Python para a Física do ensino médio e a preparação para o ENEM.",
       "cv.contactHeading": "Contato e registro acadêmico",
       "cv.contactLattes": "Currículo Lattes completo",
-      "cv.contactPubs": "Teses e publicações",
+      "cv.contactPubs": "Trabalhos e publicações",
 
       // Theses and publications
-      "pubs.title": "Teses e publicações · Josué da Silva Cavalcante",
+      "pubs.title": "Trabalhos e publicações · Josué da Silva Cavalcante",
       "pubs.description":
         "Conheça a pesquisa de graduação de Josué Cavalcante em astronomia de posição (UVA, 2018) e a pesquisa de mestrado em astrometria e fotometria em campos densos (Observatório Nacional, 2025).",
-      "pubs.ogTitle": "Teses e publicações · Josué da Silva Cavalcante",
+      "pubs.ogTitle": "Trabalhos e publicações · Josué da Silva Cavalcante",
       "pubs.kicker": "Publicações",
-      "pubs.h1": "Teses e trabalhos acadêmicos",
+      "pubs.h1": "Trabalhos acadêmicos",
       "pubs.lead":
-        "Minhas pesquisas de graduação e de mestrado, com resumos e figuras dos dois trabalhos e o texto completo da dissertação. Ambos os trabalhos são escritos em português.",
+        "Minhas pesquisas de graduação e de mestrado, com resumos e figuras dos dois trabalhos e o texto completo da dissertação. Os dois trabalhos foram escritos em português.",
       "pubs.msWhen": "Dissertação de mestrado · 2025",
       "pubs.msHeading":
         "Astrometria e fotometria de pequenos corpos do Sistema Solar em imagens com campos estelares densos",
       "pubs.msInstitution":
         "Josué da Silva Cavalcante · Mestrado em Astronomia · Observatório Nacional, Rio de Janeiro",
       "pubs.msBody":
-        "Astrometria e fotometria de pequenos corpos do Sistema Solar em campos estelares densos. O trabalho compara medições de estrelas de referência e aplica a análise por diferença de imagens a observações SOAR/SOI do (10199) Chariklo.",
+        "Astrometria e fotometria de pequenos corpos do Sistema Solar em campos estelares densos. O trabalho compara medições de estrelas de referência e aplica a análise de diferença de imagens a observações SOAR/SOI do (10199) Chariklo.",
       "pubs.msSupervisor":
         "Orientador: Dr. Julio I. Bueno de Camargo. Coorientador: Dr. Adriano Pieres.",
       "pubs.msPdf": "Ler a dissertação (PDF · 9,6 MB)",
@@ -583,7 +583,14 @@
 
   function readStored() {
     try {
-      return normalize(localStorage.getItem(LANG_KEY));
+      var raw = localStorage.getItem(LANG_KEY);
+      var lang = normalize(raw);
+      // Stored values are "en" and "pt-BR". Rewrite a legacy "pt" (or any
+      // other accepted alias) to the canonical tag so the preference survives.
+      if (lang && raw !== lang) {
+        localStorage.setItem(LANG_KEY, lang);
+      }
+      return lang;
     } catch (e) {
       return null;
     }

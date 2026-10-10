@@ -20,7 +20,7 @@ raiz do domínio.
 | Aspecto       | Implementação                                                                        |
 | ------------- | ------------------------------------------------------------------------------------ |
 | Marcação      | Um arquivo HTML por página, com todos os idiomas suportados                          |
-| Estilo        | `css/style.css`, um sistema de design escrito à mão, com temas claro e escuro        |
+| Estilo        | `css/style.css`, um sistema de design escrito à mão, com tema claro e tema escuro    |
 | Comportamento | `js/main.js` para o tema, `js/i18n.js` para a troca de idioma                        |
 | Dependências  | Nenhuma em tempo de execução, além do IBM Plex Sans e IBM Plex Serif do Google Fonts |
 | Compilação    | Nenhuma. Os arquivos são servidos como estão                                         |
@@ -33,12 +33,12 @@ raiz do domínio.
 | `index.html`                   | Apresentação: formação, figuras selecionadas, docência e projetos |
 | `research/index.html`          | Métodos, resultados e figuras da monografia e da dissertação      |
 | `cv/index.html`                | Currículo resumido                                                |
-| `pubs/index.html`              | Teses e trabalhos acadêmicos                                      |
+| `pubs/index.html`              | Trabalhos acadêmicos                                              |
 | `404.html`                     | Página personalizada para endereços inexistentes                  |
 | `css/style.css`                | Folha compartilhada e tokens de design                            |
-| `js/main.js`                   | Seletor de tema, aplicado antes da primeira pintura               |
-| `js/i18n.js`                   | Catálogos de tradução e o runtime de idioma em tempo de execução  |
-| `assets/mark/`                 | Marca do site, favicon e ícones de aplicação                      |
+| `js/main.js`                   | Seletor de tema, aplicado antes da primeira renderização          |
+| `js/i18n.js`                   | Catálogos de tradução e a troca de idioma na própria página       |
+| `assets/mark/`                 | Marca do site, favicon e ícones de aplicativo                     |
 | `assets/research/`             | Recortes de figuras dos PDFs originais, em WebP sem perdas        |
 | `files/`                       | Dissertação de mestrado completa em PDF                           |
 | `sitemap.xml`, `robots.txt`    | Diretivas para rastreadores                                       |
@@ -68,13 +68,13 @@ texto simples. Isso fica reservado às poucas frases que envolvem um link ou uma
 ênfase em um trecho. Todos os outros valores são atribuídos como texto, de modo
 que nenhuma entrada de catálogo pode injetar marcação inesperada.
 
-### Preferência e escolha de projeto
+### Preferência e a contrapartida da decisão
 
 Os dois idiomas compartilham uma única URL, portanto a barra de endereços não
 consegue expressar a escolha. O runtime resolve o idioma nesta ordem: a
 preferência armazenada na chave `jdc-lang`, o idioma do navegador e, por fim, o
-inglês. Não há parâmetro de consulta a ler. A troca de idioma nunca navega e
-nunca recarrega, de modo que o leitor mantém a posição de leitura.
+inglês. Não há parâmetro de consulta a ler. A troca de idioma não muda de
+página nem recarrega, de modo que o leitor mantém a posição de leitura.
 
 Essa escolha tem três consequências que convém declarar. O endereço permanece o
 mesmo enquanto o idioma visível muda, portanto `/cv/` pode estar exibindo
@@ -104,13 +104,13 @@ impressão. Dois temas são definidos: uma paleta escura, que é o padrão, e um
 paleta clara em tons de papel quente. Ambos compartilham a mesma hierarquia
 tipográfica, e a escolha é armazenada na chave `jdc-theme`. O layout usa
 tipografia fluida por meio de `clamp()` e contêineres flexíveis em Flexbox e
-CSS Grid, de modo que se adapta do celular às telas ultralargas sem marcação
-específica por ponto de quebra.
+CSS Grid, de modo que se adapta do celular às telas muito largas, sem marcação
+específica para cada largura de tela.
 
 ## Acessibilidade
 
 O site segue o nível AA da WCAG 2.1. As cores de texto e de interface atendem
-às razões de contraste exigidas nos dois temas, todos os elementos interativos
+às relações de contraste exigidas nos dois temas, todos os elementos interativos
 apresentam estado de foco visível, a navegação marca a página atual com
 `aria-current` e o seletor de idioma informa seu estado por meio de
 `aria-pressed`. As preferências de movimento reduzido são respeitadas, o
@@ -135,8 +135,8 @@ adequado à impressão, que força a paleta clara ao imprimir.
   resultado final do concurso SEDUC-CE 2018 para professor de Física. O nome
   consta na página 16, na disciplina Física, e o resultado comprova a
   aprovação. Ele não é usado para inferir datas de nomeação ou posse.
-- **Docência atual:** informada pelo titular do site.
-- **Doutorado:** informado pelo titular do site, sem instituição nem data de
+- **Docência atual:** informada pelo autor do site.
+- **Doutorado:** informado pelo autor do site, sem instituição nem data de
   ingresso.
 
 ## Figuras e referência de páginas
@@ -187,9 +187,10 @@ verificada recarregando após a troca.
 
 O site é publicado pelo GitHub Pages a partir do repositório existente, e as
 alterações devem ser revisadas antes de chegarem à branch publicada. Quando a
-folha de estilos ou um script muda, atualize a consulta `?v=` nas tags `<link>`
-e `<script>` das páginas afetadas. O valor atual é `v=8`, e ele existe apenas
-para contornar o cache do navegador em visitas recorrentes.
+folha de estilos ou um script muda, atualize o parâmetro `?v=` nas tags `<link>`
+e `<script>` das páginas afetadas. A folha de estilos está em `v=8` e
+`js/i18n.js` está em `v=9`. O parâmetro existe apenas para contornar o cache
+do navegador em visitas recorrentes.
 
 ## Direitos autorais
 
