@@ -684,6 +684,21 @@ main {
   margin: 0;
 }
 
+.project-list .project-stack {
+  margin-top: 0.7rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+.project-list .project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.15rem;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
 /* 12. Figure viewer */
 .figure-viewer {
   max-width: min(94vw, 76rem);

@@ -161,11 +161,14 @@ o resumo e o corpo do PDF apresentam valores diferentes.
 
 ## Projetos educacionais
 
-A seção educacional descreve iniciativas colaborativas mantidas pelo autor,
+A seção de projetos descreve iniciativas colaborativas mantidas pelo autor,
 incluindo o [BuscApp](https://github.com/eemtijca/buscapp), projeto de
 acompanhamento de frequência e comunicação com as famílias desenvolvido com
-[Emanuel Lázaro](https://github.com/emanuellcs). Essas referências são mantidas
-para atribuição e para a documentação dos projetos.
+[Emanuel Lázaro](https://github.com/emanuellcs). Ela lista também software para
+a escola e para a pesquisa em astronomia: FrequenciaApp, Ludus, Caderno Aberto,
+um gerador de horários e PSF-match. Os repositórios públicos são linkados.
+Gerador de horários e PSF-match aparecem sem link de repositório. Essas
+referências são mantidas para atribuição e para a documentação dos projetos.
 
 ## Visualização local
 
@@ -185,7 +188,7 @@ verificada recarregando após a troca.
 O site é publicado pelo GitHub Pages a partir do repositório existente, e as
 alterações devem ser revisadas antes de chegarem à branch publicada. Quando a
 folha de estilos ou um script muda, atualize a consulta `?v=` nas tags `<link>`
-e `<script>` das páginas afetadas. O valor atual é `v=7`, e ele existe apenas
+e `<script>` das páginas afetadas. O valor atual é `v=8`, e ele existe apenas
 para contornar o cache do navegador em visitas recorrentes.
 
 ## Direitos autorais
