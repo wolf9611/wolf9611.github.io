@@ -223,7 +223,7 @@ main {
   margin-bottom: clamp(1.25rem, 1rem + 1vw, 1.9rem);
 }
 
-/* Compact EN | PT switcher. Each segment is a button: switching rewrites the
+/* Compact EN | BR switcher. Each segment is a button: switching rewrites the
    page in place instead of navigating. */
 .lang-switch {
   display: inline-flex;
