@@ -7,8 +7,8 @@
   var root = document.documentElement;
 
   var THEME_BG = {
-    dark: "#121214",
-    light: "#f6f5f2",
+    dark: "#0b1020",
+    light: "#f3efe6",
   };
 
   function applyTheme(theme) {
