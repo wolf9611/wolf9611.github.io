@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0b0c0f">
+<meta name="theme-color" content="#1c1c1e">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Física 2026 – Prof. Josué</title>
 
@@ -20,8 +20,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./styles.css?v=28">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css?v=29">
 </head>
 <body>
 <div class="bg" aria-hidden="true">
@@ -49,10 +49,11 @@
 
   <div id="view-horario" class="page">
     <header class="hdr">
-      <p class="hdr-k">Física</p>
+      <p class="hdr-k" id="horario-date">Física</p>
       <h1 class="hdr-name">Prof. Josué Cavalcante</h1>
       <p class="hdr-sub">Física · C.N. ENEM · LEC</p>
     </header>
+    <div id="now-banner" class="now-banner" hidden></div>
     <div class="schedule-layout">
     <div class="schedule-controls">
     <div class="days" id="days" role="group" aria-label="Dia"></div>
@@ -212,6 +213,44 @@ let monthId = monthMap[new Date().getMonth()] || "fevereiro";
 const today = dm[new Date().getDay()] || null;
 let sel = today || "Segunda";
 let turno = new Date().getHours() < 13 ? "manha" : "tarde";
+let focusKey = "";
+const calendarMonth = monthMap[new Date().getMonth()] || "fevereiro";
+const WEEKDAYS = ["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"];
+const MONTHS_PT = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+
+function hm(t){
+  var p = String(t).split(":");
+  return (+p[0]) * 60 + (+p[1]);
+}
+function longDate(d){
+  return WEEKDAYS[d.getDay()] + ", " + d.getDate() + " de " + MONTHS_PT[d.getMonth()];
+}
+function todayFocus(now){
+  var empty = {agora: null, proxima: null, gap: null};
+  if (!today || !SCHEDULE[today]) return empty;
+  var m = now.getHours() * 60 + now.getMinutes();
+  var agora = null, proxima = null, gap = null, current = null;
+  SCHEDULE[today].forEach(function(s){
+    var a = hm(s.time), b = hm(endTime[s.time] || s.time);
+    if (m >= a && m < b) current = s;
+    if (!proxima && s.type !== "livre" && a > m) proxima = s;
+  });
+  if (current && current.type !== "livre") agora = current;
+  else if (current) gap = current;
+  return {agora: agora, proxima: proxima, gap: gap};
+}
+function focusSignature(f){
+  return [(f.agora && f.agora.time) || "", (f.proxima && f.proxima.time) || "", (f.gap && f.gap.time) || ""].join("|");
+}
+function currentBell(now){
+  var m = now.getHours() * 60 + now.getMinutes();
+  var hit = null;
+  GERAL_TIMES.forEach(function(tm){
+    var a = hm(tm), b = hm(endTime[tm] || tm);
+    if (m >= a && m < b) hit = tm;
+  });
+  return hit;
+}
 
 function setView(v){
   view = v;
@@ -227,6 +266,7 @@ function setView(v){
     else b.removeAttribute("aria-current");
   });
   if (v === "proposta") revealSelection("months");
+  if (v === "horario") renderHorario();
   try { window.scrollTo({ top: 0, behavior: "instant" }); } catch (e) { window.scrollTo(0, 0); }
 }
 document.querySelectorAll(".nav-btn").forEach(b => b.onclick = () => setView(b.dataset.view));
@@ -301,7 +341,7 @@ function renderProposta(){
   months.forEach(m => {
     const b = document.createElement("button");
     b.type = "button";
-    b.className = "month" + (month.id === m.id ? " on" : "");
+    b.className = "month" + (month.id === m.id ? " on" : "") + (m.id === calendarMonth ? " is-today" : "");
     b.setAttribute("aria-pressed", String(month.id === m.id));
     b.setAttribute("aria-label", m.label);
     b.textContent = m.short;
@@ -327,15 +367,18 @@ function renderProposta(){
     '</div>';
 }
 
-function mkRow(s){
+function mkRow(s, mark){
   const free = s.type === "livre";
   const tEnd = endTime[s.time] || "";
   const row = document.createElement("div");
-  row.className = "row" + (free ? " free" : "");
+  row.className = "row" + (free ? " free" : "") + (mark === "agora" ? " is-now" : mark === "proxima" ? " is-next" : mark === "gap" ? " is-gap" : "");
+  if (mark === "agora" || mark === "gap") row.setAttribute("aria-current", "time");
+  const badge = mark === "agora" || mark === "gap" ? "Agora" : mark === "proxima" ? "Próxima" : "";
   let body = free
     ? '<span class="row-livre">sem aula</span>'
     : '<span class="row-sub ' + (typeClass[s.type]||"") + '">' + esc(s.sub) + '</span>' +
       (s.turma ? '<span class="row-tu">' + esc(s.turma) + '</span>' : "");
+  if (badge) body += '<span class="row-badge">' + badge + '</span>';
   if (s.alunos) body += '<p class="row-nota">' + esc(s.alunos) + '</p>';
   if (s.eo) body += '<p class="row-eo">EO ' + esc(s.eo) + '</p>';
   row.innerHTML =
@@ -344,20 +387,50 @@ function mkRow(s){
   return row;
 }
 
+function nowCardHTML(kind, s, primary){
+  var kicker = kind === "agora" ? "Agora" : (primary ? "Próxima aula" : "Próxima");
+  var tEnd = endTime[s.time] || "";
+  var who = esc(s.sub || "") + (s.turma ? " · " + esc(s.turma) : "");
+  var when = esc(s.time) + (tEnd ? " – " + esc(tEnd) : "");
+  var eo = s.eo ? '<p class="now-eo">EO ' + esc(s.eo) + '</p>' : "";
+  var label = (kind === "agora" ? "Ver a aula de agora: " : "Ver a próxima aula: ") + (s.sub || "") + (s.turma ? ", turma " + s.turma : "") + ", " + s.time;
+  return '<button type="button" class="now-card ' + (primary ? "is-primary" : "is-next") + '" data-time="' + esc(s.time) + '" data-kind="' + kind + '" aria-label="' + esc(label) + '">' +
+    '<span class="now-k">' + kicker + '</span>' +
+    '<span class="now-title">' + who + '</span>' +
+    '<span class="now-when">' + when + '</span>' +
+    eo +
+  '</button>';
+}
+function renderNowBanner(focus){
+  var el = document.getElementById("now-banner");
+  if (!el) return;
+  if (!today) { el.hidden = true; el.innerHTML = ""; return; }
+  var html = "";
+  if (focus.agora) html += nowCardHTML("agora", focus.agora, true);
+  if (focus.proxima) html += nowCardHTML("proxima", focus.proxima, !focus.agora);
+  if (!html) html = '<p class="now-empty">Sem mais aulas hoje</p>';
+  el.hidden = false;
+  el.innerHTML = html;
+}
+
 function renderHorario(){
+  const focus = todayFocus(new Date());
+  focusKey = focusSignature(focus);
   const data = SCHEDULE[sel];
   const mn = data.filter(s => isM(s.time));
   const af = data.filter(s => !isM(s.time));
   const arr = turno === "manha" ? mn : af;
+  document.getElementById("horario-date").textContent = longDate(new Date());
   document.getElementById("schedule-title").textContent = sel + "-feira";
-  document.getElementById("schedule-meta").textContent = turno === "manha" ? "Manhã" : "Tarde";
+  document.getElementById("schedule-meta").textContent = (sel === today ? "Hoje · " : "") + (turno === "manha" ? "Manhã" : "Tarde");
+  renderNowBanner(focus);
 
   const dEl = document.getElementById("days");
   dEl.innerHTML = "";
   dn.forEach(d => {
     const b = document.createElement("button");
     b.type = "button";
-    b.className = "day" + (sel === d ? " on" : "");
+    b.className = "day" + (sel === d ? " on" : "") + (today === d ? " is-today" : "");
     b.setAttribute("aria-pressed", String(sel === d));
     b.setAttribute("aria-label", d + "-feira" + (today === d ? ", hoje" : ""));
     b.textContent = dayShort[d];
@@ -381,7 +454,15 @@ function renderHorario(){
 
   const slots = document.getElementById("slots");
   slots.innerHTML = "";
-  arr.forEach(s => slots.appendChild(mkRow(s)));
+  arr.forEach(s => {
+    var mark = "";
+    if (sel === today) {
+      if (focus.agora && focus.agora.time === s.time) mark = "agora";
+      else if (focus.gap && focus.gap.time === s.time) mark = "gap";
+      else if (focus.proxima && focus.proxima.time === s.time) mark = "proxima";
+    }
+    slots.appendChild(mkRow(s, mark));
+  });
 
   const gloss = [
     {label:"C.N. ENEM", desc:"Ciências da Natureza para o ENEM", test:a=>a.some(s=>s.type==="cnenem")},
@@ -400,8 +481,20 @@ function renderHorario(){
   }
 }
 
+document.getElementById("now-banner").addEventListener("click", function(ev){
+  var btn = ev.target.closest("button[data-time]");
+  if (!btn || !today) return;
+  sel = today;
+  turno = isM(btn.dataset.time) ? "manha" : "tarde";
+  renderHorario();
+  var row = document.querySelector(btn.dataset.kind === "agora" ? ".row.is-now" : ".row.is-next");
+  if (row && row.scrollIntoView) {
+    try { row.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
+    catch (e) { row.scrollIntoView(false); }
+  }
+});
+
 renderProposta();
-renderHorario();
 setView("horario");
 (function(){
   var geralDay = sel;
@@ -411,15 +504,15 @@ setView("horario");
     var dayMap = GERAL[geralDay] || {};
     var times = GERAL_TIMES.filter(function(t){ return geralTurno === "manha" ? isM(t) : !isM(t); });
     document.getElementById("geral-title").textContent = geralDay + "-feira";
-    document.getElementById("geral-meta").textContent = geralTurno === "manha" ? "Manhã" : "Tarde";
+    document.getElementById("geral-meta").textContent = (geralDay === today ? "Hoje · " : "") + (geralTurno === "manha" ? "Manhã" : "Tarde");
     var dEl = document.getElementById("geral-days");
     dEl.innerHTML = "";
     dn.forEach(function(d){
       var b = document.createElement("button");
       b.type = "button";
-      b.className = "day" + (geralDay === d ? " on" : "");
+      b.className = "day" + (geralDay === d ? " on" : "") + (today === d ? " is-today" : "");
       b.setAttribute("aria-pressed", String(geralDay === d));
-      b.setAttribute("aria-label", d + "-feira");
+      b.setAttribute("aria-label", d + "-feira" + (today === d ? ", hoje" : ""));
       b.textContent = dayShort[d];
       b.onclick = function(){ geralDay = d; renderGeral(); focusSelection("geral-days"); };
       dEl.appendChild(b);
@@ -446,32 +539,43 @@ setView("horario");
     coord.textContent = info ? (info.label + " · coordenação: " + info.coord) : "Todas as turmas · toque numa turma para filtrar";
     var slots = document.getElementById("geral-slots");
     slots.innerHTML = "";
+    var bell = currentBell(new Date());
+    function bellBadge(row, tm){
+      if (geralDay !== today || !bell || tm !== bell) return "";
+      row.classList.add("is-now");
+      return '<span class="row-badge">Agora</span>';
+    }
     times.forEach(function(tm){
       var row = document.createElement("div");
       var tEnd = endTime[tm] || "";
       var cells = dayMap[tm] || {};
       if (geralTurma === "all") {
         row.className = "row";
+        var badgeAll = bellBadge(row, tm);
         var bits = GERAL_TURMAS.map(function(tu){
           var c = cells[tu.id];
           if (!c) return "";
           var me = c.p === "Josué" ? " class=\"s-f2\"" : "";
           return "<div class=\"school-cell\"><span class=\"row-chip\">" + esc(tu.label) + "</span><span" + me + ">" + esc(c.d) + "</span> <span class=\"row-prof\" style=\"display:inline;margin:0\">" + esc(c.p) + "</span></div>";
         }).join("");
-        row.innerHTML = '<div class="row-time">' + tm + (tEnd ? '<span class="end"> – ' + tEnd + "</span>" : "") + "</div><div>" + bits + "</div>";
+        row.innerHTML = '<div class="row-time">' + tm + (tEnd ? '<span class="end"> – ' + tEnd + "</span>" : "") + badgeAll + "</div><div>" + bits + "</div>";
       } else {
         var c = cells[geralTurma];
         if (!c) return;
         row.className = "row" + (c.p === "Josué" ? " me" : "");
+        var badgeOne = bellBadge(row, tm);
         var tag = c.e ? '<span class="row-tu">eletiva</span>' : "";
         row.innerHTML =
-          '<div class="row-time">' + tm + (tEnd ? '<span class="end"> – ' + tEnd + "</span>" : "") + "</div>" +
+          '<div class="row-time">' + tm + (tEnd ? '<span class="end"> – ' + tEnd + "</span>" : "") + badgeOne + "</div>" +
           "<div><span class=\"row-sub\">" + esc(c.d) + "</span>" + tag +
           '<span class="row-prof">' + esc(c.p) + "</span></div>";
       }
       slots.appendChild(row);
     });
   }
+  document.addEventListener("schedule-tick", function(){
+    if (view === "geral") renderGeral();
+  });
   document.getElementById("nav-geral").onclick = function(){
     if (view !== "geral") { geralDay = sel; geralTurno = turno; }
     renderGeral();
@@ -481,12 +585,30 @@ setView("horario");
   var bbg = document.getElementById("btn-back-horario-geral");
   if (bbg) bbg.onclick = function(){ setView("horario"); document.getElementById("nav-horario").focus({preventScroll: true}); };
 })();
+
+function maybeRefreshFocus(){
+  var sig = focusSignature(todayFocus(new Date()));
+  if (sig === focusKey) return;
+  focusKey = sig;
+  if (view === "horario") renderHorario();
+  if (view === "geral") document.dispatchEvent(new Event("schedule-tick"));
+}
+function armClock(){
+  var now = new Date();
+  var wait = (60 - now.getSeconds()) * 1000 - now.getMilliseconds() + 250;
+  if (wait < 400) wait += 60000;
+  setTimeout(function(){ maybeRefreshFocus(); armClock(); }, wait);
+}
+document.addEventListener("visibilitychange", function(){
+  if (!document.hidden) maybeRefreshFocus();
+});
+armClock();
 </script>
 
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
-    navigator.serviceWorker.register("./sw.js?v=28", { scope: "./" }).then(function (reg) {
+    navigator.serviceWorker.register("./sw.js?v=29", { scope: "./" }).then(function (reg) {
       reg.addEventListener("updatefound", function () {
         var nw = reg.installing;
         if (!nw) return;
