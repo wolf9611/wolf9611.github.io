@@ -159,13 +159,15 @@ dissertação, página impressa 45 (página 57 do PDF), e informa os diferentes
 tamanhos das amostras. A incerteza da fase rotacional não é reproduzida porque
 o resumo e o corpo do PDF apresentam valores diferentes.
 
-## Projetos educacionais
+## Projetos
 
-A seção de projetos lista, nesta ordem, FrequenciaApp, Ludus, Caderno Aberto,
-PSF-match e materiais de aula. O FrequenciaApp registra que o BuscApp será
-integrado a ele em breve. Ludus, Caderno Aberto e FrequenciaApp apontam para
-os repositórios públicos. PSF-match e a entrada de materiais de aula não têm
-link de repositório.
+A seção de projetos está dividida em Educação e Pesquisa. Educação lista, nesta
+ordem, FrequenciaApp, Ludus, Caderno Aberto e materiais de aula. O
+FrequenciaApp registra que o BuscApp será integrado a ele em breve.
+FrequenciaApp, Ludus e Caderno Aberto apontam para os repositórios públicos. A
+entrada de materiais de aula não tem link de repositório. Pesquisa lista o
+PSF-match, código em Python para equiparação de PSF na astrometria de
+precisão. Esse repositório é privado e não é linkado.
 
 ## Visualização local
 

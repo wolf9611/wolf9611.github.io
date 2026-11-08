@@ -93,8 +93,10 @@
       "home.teachingLink":
         "Official result · CEV/UECE, Comunicado 131/2019, p. 16 (PDF)",
       "home.projectsHeading": "Projects",
+      "home.projectsEducationHeading": "Education",
+      "home.projectsResearchHeading": "Research",
       "home.projectsIntro":
-        "My projects in education are purely collaborative initiatives of my own. Drawing on my knowledge of technology and artificial intelligence, I contribute tools for the school. The list also includes software for the school and for astronomy research.",
+        "My projects in education are purely collaborative initiatives of my own. Drawing on my knowledge of technology and artificial intelligence, I contribute tools for the school.",
       "home.freqTitle": "FrequenciaApp",
       "home.freqBody":
         "School coordination app: a single daily roll call, early departures, absenteeism indicators and reports, installable as a PWA. BuscApp will soon be integrated into it.",
@@ -112,6 +114,7 @@
       "home.psfBody":
         "Python research code in astronomy: PSF matching for precision astrometry.",
       "home.psfStack": "Python",
+      "home.psfPrivate": "Private repository",
       "home.project3Title": "Teaching materials",
       "home.project3Body":
         "Lesson notes, presentations, and activities for secondary Physics and ENEM preparation, plus simulations and Python animations of the work done by a gas, electrical circuits, charged-particle motion in magnetic fields, and the celestial sphere.",
@@ -354,8 +357,10 @@
       "home.teachingLink":
         "Resultado oficial · CEV/UECE, Comunicado 131/2019, p. 16 (PDF)",
       "home.projectsHeading": "Projetos",
+      "home.projectsEducationHeading": "Educação",
+      "home.projectsResearchHeading": "Pesquisa",
       "home.projectsIntro":
-        "Meus projetos na educação são iniciativas puramente colaborativas de minha autoria. A partir do meu conhecimento de tecnologia e inteligência artificial, contribuo com ferramentas para a escola. A lista inclui também software para a escola e para a pesquisa em astronomia.",
+        "Meus projetos na educação são iniciativas puramente colaborativas de minha autoria. A partir do meu conhecimento de tecnologia e inteligência artificial, contribuo com ferramentas para a escola.",
       "home.freqTitle": "FrequenciaApp",
       "home.freqBody":
         "Aplicativo de coordenação escolar: uma única chamada por dia, saídas antecipadas, indicadores de absenteísmo e relatórios, instalável como PWA. O BuscApp será integrado a ele em breve.",
@@ -373,6 +378,7 @@
       "home.psfBody":
         "Código de pesquisa em Python para astronomia: equiparação de PSF (PSF matching) para astrometria de precisão.",
       "home.psfStack": "Python",
+      "home.psfPrivate": "Repositório privado",
       "home.project3Title": "Materiais de aula",
       "home.project3Body":
         "Notas, apresentações e atividades de Física para o ensino médio e a preparação para o ENEM, com simulações e animações em Python sobre o trabalho de um gás, circuitos elétricos, o movimento de partículas carregadas em campos magnéticos e a esfera celeste.",
