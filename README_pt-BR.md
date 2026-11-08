@@ -161,14 +161,11 @@ o resumo e o corpo do PDF apresentam valores diferentes.
 
 ## Projetos educacionais
 
-A seção de projetos descreve iniciativas colaborativas mantidas pelo autor,
-incluindo o [BuscApp](https://github.com/eemtijca/buscapp), projeto de
-acompanhamento de frequência e comunicação com as famílias desenvolvido com
-[Emanuel Lázaro](https://github.com/emanuellcs). Ela lista também software para
-a escola e para a pesquisa em astronomia: FrequenciaApp, Ludus, Caderno Aberto,
-um gerador de horários e PSF-match. Os repositórios públicos são linkados.
-Gerador de horários e PSF-match aparecem sem link de repositório. Essas
-referências são mantidas para atribuição e para a documentação dos projetos.
+A seção de projetos lista, nesta ordem, FrequenciaApp, Ludus, Caderno Aberto,
+PSF-match e materiais de aula. O FrequenciaApp registra que o BuscApp será
+integrado a ele em breve. Ludus, Caderno Aberto e FrequenciaApp apontam para
+os repositórios públicos. PSF-match e a entrada de materiais de aula não têm
+link de repositório.
 
 ## Visualização local
 
