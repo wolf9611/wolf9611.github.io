@@ -155,13 +155,15 @@ master's thesis, printed page 45 (PDF page 57), and reports the differing
 sample sizes. The uncertainty of the rotational phase is not reproduced,
 because the abstract and the body of the PDF present different values.
 
-## Educational projects
+## Projects
 
-The projects section lists, in order, FrequenciaApp, Ludus, Caderno Aberto,
-PSF-match, and teaching materials. FrequenciaApp notes that BuscApp will soon
-be integrated into it. Ludus, Caderno Aberto, and FrequenciaApp link to their
-public repositories. PSF-match and the teaching-materials entry have no
-repository link.
+The Projects section is split into Education and Research. Education lists, in
+order, FrequenciaApp, Ludus, Caderno Aberto, and teaching materials.
+FrequenciaApp notes that BuscApp will soon be integrated into it. FrequenciaApp,
+Ludus, and Caderno Aberto link to their public repositories. The
+teaching-materials entry has no repository link. Research lists PSF-match,
+Python code for PSF matching in precision astrometry. That repository is
+private and is not linked.
 
 ## Local preview
 
