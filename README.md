@@ -157,15 +157,11 @@ because the abstract and the body of the PDF present different values.
 
 ## Educational projects
 
-The projects section describes collaborative initiatives maintained by the
-author, including [BuscApp](https://github.com/eemtijca/buscapp), an
-attendance-monitoring and family-communication project developed with
-[Emanuel Lázaro](https://github.com/emanuellcs). It also lists software for
-the school and for astronomy research: FrequenciaApp, Ludus, Caderno Aberto,
-a timetable generator, and PSF-match. Public repositories are linked.
-Gerador de horários and PSF-match are listed without a repository link.
-These references are kept for attribution and for the documentation of the
-projects.
+The projects section lists, in order, FrequenciaApp, Ludus, Caderno Aberto,
+PSF-match, and teaching materials. FrequenciaApp notes that BuscApp will soon
+be integrated into it. Ludus, Caderno Aberto, and FrequenciaApp link to their
+public repositories. PSF-match and the teaching-materials entry have no
+repository link.
 
 ## Local preview
 
