@@ -159,17 +159,15 @@ master's thesis, printed page 45 (PDF page 57), and reports the differing
 sample sizes. The uncertainty of the rotational phase is not reproduced,
 because the abstract and the body of the PDF present different values.
 
-## Educational projects
+## Projects
 
-The projects section describes collaborative initiatives maintained by the
-author, including [BuscApp](https://github.com/eemtijca/buscapp), an
-attendance-monitoring and family-communication project developed with
-[Emanuel Lázaro](https://github.com/emanuellcs). It also lists software for
-the school and for astronomy research: FrequenciaApp, Ludus, Caderno Aberto,
-a timetable generator, and PSF-match. Public repositories are linked.
-Gerador de horários and PSF-match are listed without a repository link.
-These references are kept for attribution and for the documentation of the
-projects.
+The Projects section is split into Education and Research. Education lists, in
+order, FrequenciaApp, Ludus, Caderno Aberto, and teaching materials.
+FrequenciaApp notes that BuscApp will soon be integrated into it. FrequenciaApp,
+Ludus, and Caderno Aberto link to their public repositories. The
+teaching-materials entry has no repository link. Research lists PSF-match,
+Python code for PSF matching in precision astrometry. That repository is
+private and is not linked.
 
 ## Local preview
 

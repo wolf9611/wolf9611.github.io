@@ -901,6 +901,20 @@ main {
 }
 
 /* 11. Project cards */
+.prose h3.project-group {
+  font-family: var(--sans);
+  margin: 1.85rem 0 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.prose h2 + h3.project-group {
+  margin-top: 0.15rem;
+}
+
 .project-list {
   display: grid;
   gap: 1rem;
@@ -956,6 +970,14 @@ main {
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--accent-text);
+}
+
+.project-list .project-note {
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--muted);
 }
 
 .project-list .project-links {

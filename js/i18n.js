@@ -93,17 +93,15 @@
       "home.teachingLink":
         "Official result · CEV/UECE, Comunicado 131/2019, p. 16 (PDF)",
       "home.projectsHeading": "Projects",
+      "home.projectsEducationHeading": "Education",
+      "home.projectsResearchHeading": "Research",
       "home.projectsIntro":
-        "My projects in education are purely collaborative initiatives of my own. Drawing on my knowledge of technology and artificial intelligence, I contribute tools for the school. The list also includes software for the school and for astronomy research.",
+        "My projects in education are purely collaborative initiatives of my own. Drawing on my knowledge of technology and artificial intelligence, I contribute tools for the school.",
       "home.freqTitle": "FrequenciaApp",
       "home.freqBody":
-        "School coordination app: a single daily roll call, early departures, absenteeism indicators and reports, installable as a PWA.",
+        "School coordination app: a single daily roll call, early departures, absenteeism indicators and reports, installable as a PWA. BuscApp will soon be integrated into it.",
       "home.freqStack": "TypeScript · Next.js · Prisma · Google Sheets",
       "home.linkLive": "Live site",
-      "home.project2Title": "BuscApp",
-      "home.project2BodyHtml":
-        'School management platform with attendance, incidents, justifications, and real-time chat between teachers, management, and guardians. It is a project under my guidance for attendance monitoring, outreach to absent students, and communication with families. <a href="https://github.com/emanuellcs" rel="noopener" target="_blank">Emanuel Lázaro</a>, a Computer Engineering student at the Federal University of Ceará (UFC), Sobral campus, collaborates directly.',
-      "home.buscStack": "TypeScript · Vue · Fastify · Prisma · PWA",
       "home.ludusTitle": "Ludus",
       "home.ludusBody":
         "20 investigation games for high school, by BNCC areas, designed for AEE (special education) under UDL/DUA principles. No accounts; progress is saved in the browser.",
@@ -112,16 +110,11 @@
       "home.cadernoBody":
         "Free platform for teachers to create lecture notes and share them through controllable links, with export to PDF, LaTeX, Markdown and JSON.",
       "home.cadernoStack": "TypeScript",
-      "home.horarioTitle": "Gerador de horários",
-      "home.horarioBody": "School timetable generator (solver) for the school.",
-      "home.horarioStack": "Python",
       "home.psfTitle": "PSF-match",
       "home.psfBody":
         "Python research code in astronomy: PSF matching for precision astrometry.",
       "home.psfStack": "Python",
-      "home.project1Title": "Chamada",
-      "home.project1Body":
-        "Records presence, absence, and excused absence on a phone for regrouped classes, gathers each student by their original class, and synchronizes the records with spreadsheets.",
+      "home.psfPrivate": "Private repository",
       "home.project3Title": "Teaching materials",
       "home.project3Body":
         "Lesson notes, presentations, and activities for secondary Physics and ENEM preparation, plus simulations and Python animations of the work done by a gas, electrical circuits, charged-particle motion in magnetic fields, and the celestial sphere.",
@@ -364,17 +357,15 @@
       "home.teachingLink":
         "Resultado oficial · CEV/UECE, Comunicado 131/2019, p. 16 (PDF)",
       "home.projectsHeading": "Projetos",
+      "home.projectsEducationHeading": "Educação",
+      "home.projectsResearchHeading": "Pesquisa",
       "home.projectsIntro":
-        "Meus projetos na educação são iniciativas puramente colaborativas de minha autoria. A partir do meu conhecimento de tecnologia e inteligência artificial, contribuo com ferramentas para a escola. A lista inclui também software para a escola e para a pesquisa em astronomia.",
+        "Meus projetos na educação são iniciativas puramente colaborativas de minha autoria. A partir do meu conhecimento de tecnologia e inteligência artificial, contribuo com ferramentas para a escola.",
       "home.freqTitle": "FrequenciaApp",
       "home.freqBody":
-        "Aplicativo de coordenação escolar: uma única chamada por dia, saídas antecipadas, indicadores de absenteísmo e relatórios, instalável como PWA.",
+        "Aplicativo de coordenação escolar: uma única chamada por dia, saídas antecipadas, indicadores de absenteísmo e relatórios, instalável como PWA. O BuscApp será integrado a ele em breve.",
       "home.freqStack": "TypeScript · Next.js · Prisma · Google Sheets",
       "home.linkLive": "Site no ar",
-      "home.project2Title": "BuscApp",
-      "home.project2BodyHtml":
-        'Plataforma de gestão escolar com frequência, ocorrências, justificativas e chat em tempo real entre professores, gestão e responsáveis. Projeto sob minha orientação para o acompanhamento da frequência, a busca ativa de estudantes ausentes e a comunicação com as famílias. <a href="https://github.com/emanuellcs" rel="noopener" target="_blank">Emanuel Lázaro</a>, estudante de Engenharia de Computação da Universidade Federal do Ceará (UFC), campus de Sobral, colabora diretamente.',
-      "home.buscStack": "TypeScript · Vue · Fastify · Prisma · PWA",
       "home.ludusTitle": "Ludus",
       "home.ludusBody":
         "20 jogos de investigação para o ensino médio, por áreas da BNCC, pensados para o AEE (Atendimento Educacional Especializado), segundo os princípios do DUA. Não exige conta; o progresso fica salvo no navegador.",
@@ -383,17 +374,11 @@
       "home.cadernoBody":
         "Plataforma gratuita para professores criarem notas de aula e compartilhá-las por links de acesso controlado, com exportação para PDF, LaTeX, Markdown e JSON.",
       "home.cadernoStack": "TypeScript",
-      "home.horarioTitle": "Gerador de horários",
-      "home.horarioBody":
-        "Gerador de horários escolares (solver) para a escola.",
-      "home.horarioStack": "Python",
       "home.psfTitle": "PSF-match",
       "home.psfBody":
         "Código de pesquisa em Python para astronomia: equiparação de PSF (PSF matching) para astrometria de precisão.",
       "home.psfStack": "Python",
-      "home.project1Title": "Chamada",
-      "home.project1Body":
-        "Registra, pelo celular, presenças, faltas e faltas justificadas de alunos de turmas reagrupadas. Reúne cada aluno pela turma de origem e sincroniza os registros com planilhas.",
+      "home.psfPrivate": "Repositório privado",
       "home.project3Title": "Materiais de aula",
       "home.project3Body":
         "Notas, apresentações e atividades de Física para o ensino médio e a preparação para o ENEM, com simulações e animações em Python sobre o trabalho de um gás, circuitos elétricos, o movimento de partículas carregadas em campos magnéticos e a esfera celeste.",
