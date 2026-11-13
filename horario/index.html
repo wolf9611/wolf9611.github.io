@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./styles.css?v=29">
+<link rel="stylesheet" href="./styles.css?v=30">
 </head>
 <body>
 <div class="bg" aria-hidden="true">
@@ -239,6 +239,38 @@ function todayFocus(now){
   else if (current) gap = current;
   return {agora: agora, proxima: proxima, gap: gap};
 }
+// First class of the next school day, for when today has nothing left.
+function nextSchoolDay(now){
+  for (var i = 1; i <= 7; i++) {
+    var name = dm[(now.getDay() + i) % 7];
+    if (!name) continue;
+    var first = SCHEDULE[name].find(function(s){ return s.type !== "livre"; });
+    if (first) return {day: name, slot: first, tomorrow: i === 1};
+  }
+  return null;
+}
+function span(min){
+  if (min < 60) return min + " min";
+  var h = Math.floor(min / 60), r = min % 60;
+  return h + " h" + (r ? " " + r + " min" : "");
+}
+// Remaining time on the cards, refreshed every minute without re-rendering.
+function updateCountdowns(){
+  var now = new Date();
+  var m = now.getHours() * 60 + now.getMinutes();
+  document.querySelectorAll("#now-banner .now-left").forEach(function(el){
+    var a = hm(el.dataset.start), b = hm(el.dataset.end);
+    var text = "";
+    if (el.dataset.kind === "agora") { if (b > m) text = "faltam " + span(b - m); }
+    else if (a > m) text = "em " + span(a - m);
+    el.textContent = text;
+  });
+  var bar = document.querySelector("#now-banner .now-bar i");
+  if (bar) {
+    var s0 = hm(bar.dataset.start), s1 = hm(bar.dataset.end);
+    bar.style.width = Math.max(0, Math.min(100, (m - s0) / (s1 - s0) * 100)) + "%";
+  }
+}
 function focusSignature(f){
   return [(f.agora && f.agora.time) || "", (f.proxima && f.proxima.time) || "", (f.gap && f.gap.time) || ""].join("|");
 }
@@ -280,7 +312,18 @@ function revealSelection(id){
   if (selected && group.clientWidth) {
     group.scrollLeft = selected.offsetLeft - (group.clientWidth - selected.offsetWidth) / 2;
   }
+  markEdges(group);
 }
+function markEdges(group){
+  const max = group.scrollWidth - group.clientWidth;
+  group.classList.toggle("more-l", group.scrollLeft > 4);
+  group.classList.toggle("more-r", max - group.scrollLeft > 4);
+}
+["months", "geral-turmas"].forEach(id => {
+  const group = document.getElementById(id);
+  group.addEventListener("scroll", () => markEdges(group), {passive: true});
+  window.addEventListener("resize", () => markEdges(group));
+});
 function focusSelection(id){
   const selected = document.getElementById(id).querySelector(".on");
   if (selected) selected.focus({preventScroll: true});
@@ -371,6 +414,7 @@ function mkRow(s, mark){
   const free = s.type === "livre";
   const tEnd = endTime[s.time] || "";
   const row = document.createElement("div");
+  row.dataset.time = s.time;
   row.className = "row" + (free ? " free" : "") + (mark === "agora" ? " is-now" : mark === "proxima" ? " is-next" : mark === "gap" ? " is-gap" : "");
   if (mark === "agora" || mark === "gap") row.setAttribute("aria-current", "time");
   const badge = mark === "agora" || mark === "gap" ? "Agora" : mark === "proxima" ? "Próxima" : "";
@@ -387,30 +431,37 @@ function mkRow(s, mark){
   return row;
 }
 
-function nowCardHTML(kind, s, primary){
-  var kicker = kind === "agora" ? "Agora" : (primary ? "Próxima aula" : "Próxima");
+function nowCardHTML(kind, s, primary, day, tomorrow){
+  var kicker = kind === "agora" ? "Agora" : day ? (tomorrow ? "Amanhã" : day + "-feira") : (primary ? "Próxima aula" : "Próxima");
   var tEnd = endTime[s.time] || "";
   var who = esc(s.sub || "") + (s.turma ? " · " + esc(s.turma) : "");
   var when = esc(s.time) + (tEnd ? " – " + esc(tEnd) : "");
   var eo = s.eo ? '<p class="now-eo">EO ' + esc(s.eo) + '</p>' : "";
-  var label = (kind === "agora" ? "Ver a aula de agora: " : "Ver a próxima aula: ") + (s.sub || "") + (s.turma ? ", turma " + s.turma : "") + ", " + s.time;
-  return '<button type="button" class="now-card ' + (primary ? "is-primary" : "is-next") + '" data-time="' + esc(s.time) + '" data-kind="' + kind + '" aria-label="' + esc(label) + '">' +
+  var label = (kind === "agora" ? "Ver a aula de agora: " : "Ver a próxima aula: ") + (s.sub || "") + (s.turma ? ", turma " + s.turma : "") + ", " + (day ? day + "-feira, " : "") + s.time;
+  var attrs = ' data-kind="' + kind + '" data-start="' + esc(s.time) + '" data-end="' + esc(tEnd || s.time) + '"';
+  var left = day ? "" : '<span class="now-left"' + attrs + '></span>';
+  var bar = kind === "agora" ? '<span class="now-bar" aria-hidden="true"><i' + attrs + '></i></span>' : "";
+  return '<button type="button" class="now-card ' + (primary ? "is-primary" : "is-next") + '" data-time="' + esc(s.time) + '" data-kind="' + kind + '" data-day="' + esc(day || today) + '" aria-label="' + esc(label) + '">' +
     '<span class="now-k">' + kicker + '</span>' +
     '<span class="now-title">' + who + '</span>' +
-    '<span class="now-when">' + when + '</span>' +
-    eo +
+    '<span class="now-when"><span>' + when + '</span>' + left + '</span>' +
+    eo + bar +
   '</button>';
 }
 function renderNowBanner(focus){
   var el = document.getElementById("now-banner");
   if (!el) return;
-  if (!today) { el.hidden = true; el.innerHTML = ""; return; }
   var html = "";
   if (focus.agora) html += nowCardHTML("agora", focus.agora, true);
   if (focus.proxima) html += nowCardHTML("proxima", focus.proxima, !focus.agora);
-  if (!html) html = '<p class="now-empty">Sem mais aulas hoje</p>';
-  el.hidden = false;
+  if (!html) {
+    if (today) html = '<p class="now-empty">Sem mais aulas hoje</p>';
+    var next = nextSchoolDay(new Date());
+    if (next) html += nowCardHTML("proxima", next.slot, false, next.day, next.tomorrow);
+  }
+  el.hidden = !html;
   el.innerHTML = html;
+  updateCountdowns();
 }
 
 function renderHorario(){
@@ -483,11 +534,12 @@ function renderHorario(){
 
 document.getElementById("now-banner").addEventListener("click", function(ev){
   var btn = ev.target.closest("button[data-time]");
-  if (!btn || !today) return;
-  sel = today;
-  turno = isM(btn.dataset.time) ? "manha" : "tarde";
+  if (!btn || !SCHEDULE[btn.dataset.day]) return;
+  var time = btn.dataset.time;
+  sel = btn.dataset.day;
+  turno = isM(time) ? "manha" : "tarde";
   renderHorario();
-  var row = document.querySelector(btn.dataset.kind === "agora" ? ".row.is-now" : ".row.is-next");
+  var row = document.querySelector('#slots .row[data-time="' + time + '"]');
   if (row && row.scrollIntoView) {
     try { row.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
     catch (e) { row.scrollIntoView(false); }
@@ -586,7 +638,11 @@ setView("horario");
   if (bbg) bbg.onclick = function(){ setView("horario"); document.getElementById("nav-horario").focus({preventScroll: true}); };
 })();
 
+const loadedOn = new Date().toDateString();
 function maybeRefreshFocus(){
+  // The app stays open for days as a PWA; start over when the date changes.
+  if (new Date().toDateString() !== loadedOn) { window.location.reload(); return; }
+  updateCountdowns();
   var sig = focusSignature(todayFocus(new Date()));
   if (sig === focusKey) return;
   focusKey = sig;
@@ -608,7 +664,7 @@ armClock();
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
-    navigator.serviceWorker.register("./sw.js?v=29", { scope: "./" }).then(function (reg) {
+    navigator.serviceWorker.register("./sw.js?v=30", { scope: "./" }).then(function (reg) {
       reg.addEventListener("updatefound", function () {
         var nw = reg.installing;
         if (!nw) return;
