@@ -5,8 +5,9 @@ This repository holds the source of the static academic homepage of
 astronomer. The site presents his academic background, his research on the
 astrometry and photometry of small Solar System bodies, a summarized
 curriculum vitae, and his academic work. It supports English and Brazilian
-Portuguese, and it preserves the minimalist dark-gray visual identity and the
-IBM Plex typography of the original design.
+Portuguese. The visual design is a contemporary observatory palette: an ink
+night theme and a warm paper light theme, with a brass accent, Newsreader for
+headings, and Source Sans 3 for text.
 
 ## Architecture
 
@@ -16,14 +17,14 @@ is a single HTML file, all styling lives in one stylesheet, and behavior is
 limited to two small scripts. The pages are served by GitHub Pages, and every
 internal path is absolute from the domain root.
 
-| Concern      | Implementation                                                                 |
-| ------------ | ------------------------------------------------------------------------------ |
-| Markup       | One HTML file per page, holding all supported languages                        |
-| Styling      | `css/style.css`, a hand-written design system with light and dark themes       |
-| Behavior     | `js/main.js` for the theme, `js/i18n.js` for language switching                |
-| Dependencies | None at runtime, apart from IBM Plex Sans and IBM Plex Serif from Google Fonts |
-| Build        | None. Files are served as written                                              |
-| Publication  | GitHub Pages, from the existing `wolf9611/wolf9611.github.io` repository       |
+| Concern      | Implementation                                                             |
+| ------------ | -------------------------------------------------------------------------- |
+| Markup       | One HTML file per page, holding all supported languages                    |
+| Styling      | `css/style.css`, a hand-written design system with light and dark themes   |
+| Behavior     | `js/main.js` for the theme, `js/i18n.js` for language switching            |
+| Dependencies | None at runtime, apart from Newsreader and Source Sans 3 from Google Fonts |
+| Build        | None. Files are served as written                                          |
+| Publication  | GitHub Pages, from the existing `wolf9611/wolf9611.github.io` repository   |
 
 ## Repository layout
 
@@ -98,11 +99,14 @@ and add the matching `hreflang` alternate to the affected pages.
 ## Design system
 
 The stylesheet is organized into numbered sections, from design tokens to
-print. Two themes are defined: a dark palette, which is the default, and a
-warm paper light palette. Both share the same typographic hierarchy, and the
-choice is stored under the `jdc-theme` key. The layout uses fluid typography
-through `clamp()` and flexible Flexbox and CSS Grid containers, so it adapts
-from mobile to ultra-wide displays without breakpoint-specific markup.
+print. Two themes are defined: a deep ink night palette, which is the default,
+and a warm paper light palette. Brass is reserved for small labels, rules, and
+the active language control; links use a separate high-contrast blue. Headings
+are set in Newsreader and interface text in Source Sans 3. The choice is stored
+under the `jdc-theme` key. The layout uses fluid typography through `clamp()`
+and flexible Flexbox and CSS Grid containers, including a sticky header and
+cards for projects, education, and publications, so it adapts from mobile to
+ultra-wide displays without breakpoint-specific markup.
 
 ## Accessibility
 
@@ -183,9 +187,9 @@ by reloading after switching.
 The site is published through GitHub Pages from the existing repository, and
 changes should be reviewed before they reach the published branch. When the
 stylesheet or a script changes, update the `?v=` query string on the `<link>`
-and `<script>` tags across the affected pages. The stylesheet is currently `v=8`
-and `js/i18n.js` is `v=9`. The parameter exists purely to bypass the browser
-cache for returning visitors.
+and `<script>` tags across the affected pages. The stylesheet is currently `v=9`,
+`js/main.js` is `v=9`, and `js/i18n.js` is `v=9`. The parameter exists purely
+to bypass the browser cache for returning visitors.
 
 ## Copyright
 

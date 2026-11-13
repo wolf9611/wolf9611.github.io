@@ -5,8 +5,9 @@ Este repositório contém o código-fonte da página acadêmica estática de
 O site apresenta sua formação acadêmica, sua pesquisa em astrometria e
 fotometria de pequenos corpos do Sistema Solar, um currículo resumido e seus
 trabalhos acadêmicos. O conteúdo é oferecido em inglês e em português do
-Brasil, e mantém a identidade visual minimalista em cinza escuro e a tipografia
-IBM Plex do projeto original.
+Brasil. O desenho visual é uma paleta contemporânea de observatório: tema
+noturno em tinta e tema claro em papel quente, com acento em latão, Newsreader
+nos títulos e Source Sans 3 no texto.
 
 ## Arquitetura
 
@@ -17,14 +18,14 @@ comportamento se limita a dois pequenos scripts. As páginas são publicadas
 pelo GitHub Pages, e todos os caminhos internos são absolutos a partir da
 raiz do domínio.
 
-| Aspecto       | Implementação                                                                        |
-| ------------- | ------------------------------------------------------------------------------------ |
-| Marcação      | Um arquivo HTML por página, com todos os idiomas suportados                          |
-| Estilo        | `css/style.css`, um sistema de design escrito à mão, com tema claro e tema escuro    |
-| Comportamento | `js/main.js` para o tema, `js/i18n.js` para a troca de idioma                        |
-| Dependências  | Nenhuma em tempo de execução, além do IBM Plex Sans e IBM Plex Serif do Google Fonts |
-| Compilação    | Nenhuma. Os arquivos são servidos como estão                                         |
-| Publicação    | GitHub Pages, a partir do repositório `wolf9611/wolf9611.github.io`                  |
+| Aspecto       | Implementação                                                                     |
+| ------------- | --------------------------------------------------------------------------------- |
+| Marcação      | Um arquivo HTML por página, com todos os idiomas suportados                       |
+| Estilo        | `css/style.css`, um sistema de design escrito à mão, com tema claro e tema escuro |
+| Comportamento | `js/main.js` para o tema, `js/i18n.js` para a troca de idioma                     |
+| Dependências  | Nenhuma em tempo de execução, além de Newsreader e Source Sans 3 do Google Fonts  |
+| Compilação    | Nenhuma. Os arquivos são servidos como estão                                      |
+| Publicação    | GitHub Pages, a partir do repositório `wolf9611/wolf9611.github.io`               |
 
 ## Estrutura do repositório
 
@@ -100,12 +101,14 @@ afetadas.
 ## Sistema de design
 
 A folha de estilos está organizada em seções numeradas, dos tokens de design à
-impressão. Dois temas são definidos: uma paleta escura, que é o padrão, e uma
-paleta clara em tons de papel quente. Ambos compartilham a mesma hierarquia
-tipográfica, e a escolha é armazenada na chave `jdc-theme`. O layout usa
-tipografia fluida por meio de `clamp()` e contêineres flexíveis em Flexbox e
-CSS Grid, de modo que se adapta do celular às telas muito largas, sem marcação
-específica para cada largura de tela.
+impressão. Dois temas são definidos: uma paleta noturna em tinta, que é o
+padrão, e uma paleta clara em papel quente. O latão fica reservado a rótulos
+curtos, filetes e ao idioma ativo; os links usam um azul de alto contraste. Os
+títulos usam Newsreader e o texto de interface usa Source Sans 3. A escolha é
+armazenada na chave `jdc-theme`. O layout usa tipografia fluida por meio de
+`clamp()` e contêineres flexíveis em Flexbox e CSS Grid, com cabeçalho fixo e
+cartões para projetos, formação e publicações, de modo que se adapta do celular
+às telas muito largas, sem marcação específica para cada largura de tela.
 
 ## Acessibilidade
 
@@ -187,9 +190,9 @@ verificada recarregando após a troca.
 O site é publicado pelo GitHub Pages a partir do repositório existente, e as
 alterações devem ser revisadas antes de chegarem à branch publicada. Quando a
 folha de estilos ou um script muda, atualize o parâmetro `?v=` nas tags `<link>`
-e `<script>` das páginas afetadas. A folha de estilos está em `v=8` e
-`js/i18n.js` está em `v=9`. O parâmetro existe apenas para contornar o cache
-do navegador em visitas recorrentes.
+e `<script>` das páginas afetadas. A folha de estilos está em `v=9`,
+`js/main.js` está em `v=9` e `js/i18n.js` está em `v=9`. O parâmetro existe
+apenas para contornar o cache do navegador em visitas recorrentes.
 
 ## Direitos autorais
 
