@@ -67,8 +67,6 @@
       <div class="card-h schedule-heading"><h2 class="card-t" id="schedule-title"></h2><p class="card-k" id="schedule-meta"></p></div>
       <div class="slots" id="slots"></div>
     </section>
-    <div class="gloss" id="glossario" hidden></div>
-    <footer class="footer">Grade atualizada em 30/08/2026</footer>
     </div>
     </div>
   </div>
@@ -514,20 +512,6 @@ function renderHorario(){
     }
     slots.appendChild(mkRow(s, mark));
   });
-
-  const gloss = [
-    {label:"LEC", desc:"Laboratório Educacional de Ciências", test:a=>a.some(s=>s.type==="lec")},
-    {label:"Planejamento", desc:"na escola (não domiciliar)", test:a=>a.some(s=>s.type==="planej")},
-    {label:"Planejamento Domiciliar", desc:"até 4 h, trabalho em casa", test:a=>a.some(s=>s.type==="planejdom")},
-    {label:"Estudo Orientado", desc:"o professor da turma, no horário oficial, aparece ao lado do nome da turma", test:a=>a.some(s=>s.eo)}
-  ].filter(e => e.test(arr));
-
-  const gEl = document.getElementById("glossario");
-  if (!gloss.length) { gEl.hidden = true; gEl.innerHTML = ""; }
-  else {
-    gEl.hidden = false;
-    gEl.innerHTML = gloss.map(e => '<div class="gl-item"><b>' + e.label + '</b> · ' + e.desc + '</div>').join("");
-  }
 }
 
 document.getElementById("now-banner").addEventListener("click", function(ev){
@@ -662,7 +646,7 @@ armClock();
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
-    navigator.serviceWorker.register("./sw.js?v=33", { scope: "./" }).then(function (reg) {
+    navigator.serviceWorker.register("./sw.js?v=34", { scope: "./" }).then(function (reg) {
       reg.addEventListener("updatefound", function () {
         var nw = reg.installing;
         if (!nw) return;
