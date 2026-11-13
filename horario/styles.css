@@ -74,8 +74,8 @@ svg { flex-shrink: 0; stroke-linecap: round; stroke-linejoin: round; }
   opacity: 1;
   filter: none;
   mix-blend-mode: normal;
-  -webkit-mask-image: linear-gradient(to left, transparent 0, #000 12px);
-  mask-image: linear-gradient(to left, transparent 0, #000 12px);
+  -webkit-mask-image: linear-gradient(to left, transparent 6px, #000 72px);
+  mask-image: linear-gradient(to left, transparent 6px, #000 72px);
   -webkit-user-select: none;
   user-select: none;
 }
@@ -184,6 +184,23 @@ svg { flex-shrink: 0; stroke-linecap: round; stroke-linejoin: round; }
 }
 .now-card.is-primary .now-when,
 .now-card.is-primary .now-eo { color: #3f3426; }
+.now-card { position: relative; overflow: hidden; }
+.now-when { display: flex; flex-wrap: wrap; gap: 0 10px; }
+.now-left { font-weight: 500; white-space: nowrap; }
+.now-bar {
+  position: absolute;
+  inset: auto 0 0;
+  height: 3px;
+  background: rgba(33, 28, 22, .12);
+}
+.now-bar i {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: 0 3px 3px 0;
+  background: rgba(33, 28, 22, .5);
+  transition: width .6s ease;
+}
 .now-eo {
   color: var(--subtle);
   font-size: .75rem;
@@ -298,6 +315,15 @@ svg { flex-shrink: 0; stroke-linecap: round; stroke-linejoin: round; }
   scroll-snap-type: x proximity;
 }
 .months::-webkit-scrollbar, .turmas::-webkit-scrollbar { display: none; }
+/* Fade the edge that still has filters to scroll to. */
+.more-l, .more-r {
+  --edge-l: #000;
+  --edge-r: #000;
+  -webkit-mask-image: linear-gradient(to right, var(--edge-l), #000 34px, #000 calc(100% - 34px), var(--edge-r));
+  mask-image: linear-gradient(to right, var(--edge-l), #000 34px, #000 calc(100% - 34px), var(--edge-r));
+}
+.more-l { --edge-l: transparent; }
+.more-r { --edge-r: transparent; }
 .month, .turma { flex: 0 0 auto; min-width: 52px; padding-inline: 14px; scroll-snap-align: center; }
 .month.is-today:not(.on), .turma.is-today:not(.on) {
   color: var(--cream);
@@ -687,6 +713,24 @@ svg { flex-shrink: 0; stroke-linecap: round; stroke-linejoin: round; }
   }
 }
 
+/* Below the wide layout the wolf sits behind the content, so bare text gets its own surface. */
+@media (max-width: 1099px) {
+  .bg-v {
+    background:
+      linear-gradient(180deg, rgba(28, 28, 30, .86) 0%, rgba(28, 28, 30, .7) 15%, rgba(28, 28, 30, .14) 32%, rgba(28, 28, 30, .18) 48%, rgba(28, 28, 30, .55) 100%),
+      linear-gradient(90deg, rgba(28, 28, 30, .62) 0%, rgba(28, 28, 30, .08) 46%, rgba(28, 28, 30, .22) 100%);
+  }
+  .prof, .schedule-heading, .now-empty {
+    border-radius: 14px;
+    background: rgba(14, 14, 16, .74);
+    -webkit-backdrop-filter: blur(14px) saturate(1.15);
+    backdrop-filter: blur(14px) saturate(1.15);
+  }
+  .prof { margin-inline: 0; padding: 8px 12px; }
+  .schedule-heading { margin-bottom: 8px; padding: 8px 12px; }
+  .now-empty { padding: 8px 12px; }
+}
+
 @media (hover: hover) {
   .day:not(.on):hover, .pill:not(.on):hover, .month:not(.on):hover, .turma:not(.on):hover {
     color: var(--fg);
@@ -762,7 +806,7 @@ svg { flex-shrink: 0; stroke-linecap: round; stroke-linejoin: round; }
 }
 @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
   :root { --subtle: #d2cdc2; --muted: #eeeae3; --stroke: rgba(255, 255, 255, .42); --stroke-soft: rgba(255, 255, 255, .28); }
-  .now-card, .day, .pill-bar, .card, .gloss, .months, .turmas, .row, .nav, .btn-back-horario {
+  .now-card, .day, .pill-bar, .card, .gloss, .months, .turmas, .row, .nav, .btn-back-horario, .prof, .schedule-heading, .now-empty {
     background: #161618;
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
@@ -784,6 +828,7 @@ svg { flex-shrink: 0; stroke-linecap: round; stroke-linejoin: round; }
 }
 @media print {
   .bg, .nav, .schedule-controls, .btn-back-horario, .now-banner, body::after { display: none !important; }
+  .schedule-heading { background: none; }
   .shell { padding: 0; }
   .page { max-width: none; margin: 0; padding: 0; }
   .schedule-layout { display: block; }
