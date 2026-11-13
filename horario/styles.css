@@ -23,7 +23,6 @@
   --pd: #ead7a8;
   --pl: #d4d2c8;
   --lc: #b5e4d4;
-  --arm: #f0cba8;
   --eo: #e4dfd4;
   --rd: 22px;
   --font: "Outfit", "Segoe UI", system-ui, sans-serif;
@@ -517,7 +516,7 @@ svg { flex-shrink: 0; stroke-linecap: round; stroke-linejoin: round; }
 .school-cell + .school-cell { margin-top: 10px; }
 .s-f1 { color: var(--f1); } .s-f2 { color: var(--f2); } .s-f3 { color: var(--f3); }
 .s-cn { color: var(--cn); } .s-pd { color: var(--pd); } .s-pl { color: var(--pl); }
-.s-lc { color: var(--lc); } .s-arm { color: var(--arm); }
+.s-lc { color: var(--lc); }
 .row:has(.s-f1) { --row-accent: var(--f1); }
 .row:has(.s-f2) { --row-accent: var(--f2); }
 .row:has(.s-f3) { --row-accent: var(--f3); }
@@ -525,7 +524,6 @@ svg { flex-shrink: 0; stroke-linecap: round; stroke-linejoin: round; }
 .row:has(.s-pd) { --row-accent: var(--pd); }
 .row:has(.s-pl) { --row-accent: var(--pl); }
 .row:has(.s-lc) { --row-accent: var(--lc); }
-.row:has(.s-arm) { --row-accent: var(--arm); }
 
 .sec { padding: 16px 18px 18px; border-bottom: 1px solid var(--line); }
 .sec:last-child { border-bottom: 0; }
