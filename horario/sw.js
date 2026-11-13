@@ -1,5 +1,5 @@
 /* Offline shell for the schedule and curriculum app. */
-const CACHE = "fisica-josue-v31";
+const CACHE = "fisica-josue-v32";
 const SHELL = [
   "./",
   "./index.html",
