@@ -1,5 +1,5 @@
 /* Offline shell for the schedule and curriculum app. */
-const CACHE = "fisica-josue-v32";
+const CACHE = "fisica-josue-v34";
 const SHELL = [
   "./",
   "./index.html",
@@ -20,7 +20,18 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(CACHE)
-      .then((cache) => cache.addAll(SHELL))
+      // "reload" skips the browser's HTTP cache, so a fresh install never stores
+      // a stale copy of a file that GitHub Pages served a few minutes ago.
+      .then((cache) =>
+        Promise.all(
+          SHELL.map((url) =>
+            fetch(new Request(url, { cache: "reload" })).then((res) => {
+              if (!res.ok) throw new Error(url + " " + res.status);
+              return cache.put(url, res);
+            })
+          )
+        )
+      )
       .then(() => self.skipWaiting())
   );
 });
